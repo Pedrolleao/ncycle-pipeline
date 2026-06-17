@@ -1,0 +1,51 @@
+target_id: hzsA
+tier: 3   # built+calibrated cleanly (TC 849) but reverted to BLAST-only: KEGG↔UniProt
+          # subunit-naming conflict (HMM keys on the ~809aa α-subunit = KEGG K20934, not
+          # K20932); KO drives the call, anammox F1=1.00, HMM added no score. See notes.
+cdhit_threshold: 0.9
+min_seqs_override: 4
+seed_accessions:
+- A0A2C9CHN2
+- A0A0B0EPS0
+expanded_candidates:
+- acc: A0A2C9CHN2
+  organism: Kuenenia stuttgartiensis
+  keep: true
+  note: HzsA alpha subunit (seed)
+- acc: G9ITI8
+  organism: Ca. Jettenia asiatica
+  keep: true
+  note: HzsA
+- acc: G9ITI9
+  organism: Ca. Scalindua sp. (enrichment clone 15L)
+  keep: true
+  note: HzsA
+- acc: A0A0B0EPS0
+  organism: Ca. Scalindua brodae
+  keep: true
+  note: HzsA (seed)
+- acc: A0A1E3XE43
+  organism: Ca. Scalindua rubra
+  keep: true
+  note: HzsA alpha subunit
+negatives:
+- A0A6G7GRI8
+- A0A2C9CHM2
+- M5DCM0
+- P0ABK9
+notes: "Tier-3 -> Tier-2 custom HMM. Hydrazine synthase alpha subunit (K20932) is\
+  \ the definitive anammox phylomarker \u2014 a large (~800 aa) multiheme cytochrome\
+  \ c with no stable Pfam. It has no homology trap (anammox-unique), so the custom\
+  \ HMM mainly adds subunit-resolved confidence over KO+BLAST; negatives include HzsB/HzsC\
+  \ to enforce subunit specificity. Anammox references are scarce; training spans\
+  \ Kuenenia + Jettenia + 3 Scalindua spp. (5 full-length seqs), min_seqs_override=4\
+  \ (documented limit). HzsA scores cleanly (TC 849; the shorter HzsB/HzsC and unrelated\
+  \ multihemes do not register). NOTE: per-subunit HMMs were attempted for HzsB and HzsC\
+  \ too but they overlap each other (paralogous ~340-380 aa cytochromes) \u2014 kept Tier-3\
+  \ BLAST-only; see their manifests."
+curator: pedro.leao.ru@gmail.com
+n_seqs_final: 4
+curation_date: '2026-05-25'
+tc_bitscore: 848.6
+tc_rationale: 'clean gap: min_positive=1697.3 > max_negative=0.0; TC = midpoint =
+  848.6'

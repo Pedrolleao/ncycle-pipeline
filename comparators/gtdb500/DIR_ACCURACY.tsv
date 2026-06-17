@@ -1,0 +1,55 @@
+genome	clade	characterized	ncycle_gene	ncycle_type	phylo_type	margin	escalate
+GCA_001567115_1	p__Hinthialibacterota		narG	nar	nar	0.042	yes
+GCA_013360445_1	p__Calditrichota		narG	nar	nar	0.033	yes
+GCA_018263585_1	p__Electryoneota		narG	nar	nar	0.054	yes
+GCA_019912885_1	p__Lernaellota		narG	nar	nar	0.032	yes
+GCA_020723665_1	methanotroph_Methylococcaceae	yes	narG	nar	nar	0.411	
+GCA_021783475_1	p__Thermodesulfobiota		narG	nar	nar	0.253	
+GCA_031960865_1	p__Campylobacterota_A		narG	nar	nar	0.298	
+GCA_036480675_1	p__RBG-13-66-14		narG	nar	nar	0.078	yes
+GCA_050173015_1	p__Calditrichota		narG	nar	nar	0.038	yes
+GCA_964452105_1	p__JAUXIQ01		narG	nar	nar	0.021	yes
+GCA_964520315_1	p__GCA-2686955		narG	nar	nar	0.044	yes
+GCA_964582755_1	methanotroph_Methylococcaceae	yes	narG	nar	nar	0.425	
+GCA_964600515_1	p__Bdellovibrionota_F		narG	nar	nar	0.040	yes
+GCA_964600955_1	p__Muiribacteriota		narG	nar	nar	0.003	yes
+GCF_000212395_1	p__Thermodesulfobiota		narG	nar	nar	0.253	
+GCF_000242715_1	p__Actinomycetota		narG	nar	nar	0.318	
+GCF_002847305_1	denit_Paracoccus	yes	narG	nar	nar	0.360	
+GCF_003176655_1	denit_Pseudomonas	yes	narG	nar	nar	0.536	
+GCF_003336745_1	p__Deinococcota		narG	nar	nar	0.366	
+GCF_005796065_1	denit_Pseudomonas	yes	narG	nar	nar	0.501	
+GCF_021602305_1	denit_Pseudomonas	yes	narG	nar	nar	0.497	
+GCF_031854425_1	denit_Paracoccus	yes	narG	nar	nar	0.359	
+GCF_033555915_1	denit_Paracoccus	yes	narG	nar	nar	0.370	
+GCF_048068055_1	denit_Pseudomonas	yes	narG	nar	nar	0.537	
+GCF_947487305_1	denit_Paracoccus	yes	narG	nar	nar	0.363	
+GCA_049840615_1	denit_Pseudomonas	yes	narG	nar	no_hit	0.000	yes
+GCF_024259725_1	denit_Pseudomonas	yes	narG	nar	no_hit	0.000	yes
+GCA_001797465_1	p__Desulfobacterota		narG	nar	nxr	0.002	yes
+GCA_024102725_1	NOB_Nitrococcus	yes	narG	nar	nxr	0.430	
+GCA_036381125_1	p__DASVDK01		narG	nar	nxr	0.194	
+GCA_963807355_1	NOB_Nitrobacter	yes	narG	nar	nxr	0.414	
+GCA_965285975_1	NOB_Nitrolancea	yes	narG	nar	nxr	0.444	
+GCF_000012725_1	NOB_Nitrobacter	yes	narG	nar	nxr	0.424	
+GCF_000013885_1	NOB_Nitrobacter	yes	narG	nar	nxr	0.397	
+GCF_047149785_1	NOB_Nitrobacter	yes	narG	nar	nxr	0.397	
+GCF_051912485_1	NOB_Nitrobacter	yes	narG	nar	nxr	0.407	
+GCA_020850775_1	p__CLD3		nxrA	nxr	nar	0.045	yes
+GCA_031960865_1	p__Campylobacterota_A		nxrA	nxr	nar	0.226	
+GCA_040755155_1	p__Hinthialibacterota		nxrA	nxr	nar	0.029	yes
+GCA_050253135_1	p__Campylobacterota_A		nxrA	nxr	nar	0.257	
+GCA_902386255_1	p__Halobacteriota		nxrA	nxr	nar	0.020	yes
+GCF_003176655_1	denit_Pseudomonas	yes	nxrA	nxr	nar	0.500	
+GCA_003598085_1	p__Abyssobacteria		nxrA	nxr	nxr	0.016	yes
+GCA_024102725_1	NOB_Nitrococcus	yes	nxrA	nxr	nxr	0.378	
+GCA_030433275_1	NOB_Nitrococcus	yes	nxrA	nxr	nxr	0.408	
+GCA_030452265_1	NOB_Nitrococcus	yes	nxrA	nxr	nxr	0.330	
+GCA_030452365_1	NOB_Nitrococcus	yes	nxrA	nxr	nxr	0.330	
+GCA_036562265_1	p__DASVDK01		nxrA	nxr	nxr	0.116	
+GCF_000012725_1	NOB_Nitrobacter	yes	nxrA	nxr	nxr	0.419	
+GCF_000013885_1	NOB_Nitrobacter	yes	nxrA	nxr	nxr	0.417	
+GCF_000153205_1	NOB_Nitrococcus	yes	nxrA	nxr	nxr	0.363	
+GCF_000297255_1	NOB_Nitrolancea	yes	nxrA	nxr	nxr	0.407	
+GCF_047149785_1	NOB_Nitrobacter	yes	nxrA	nxr	nxr	0.397	
+GCF_051912485_1	NOB_Nitrobacter	yes	nxrA	nxr	nxr	0.394	

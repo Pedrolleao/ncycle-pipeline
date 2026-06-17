@@ -1,0 +1,680 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# targets.yaml — single source of truth for the nitrogen-cycle detection pipeline.
+#
+# Modeled on Holomicrobiome-ewaste/ewaste-pipeline/config/targets.yaml. Three blocks:
+#   targets:    individual enzymes/genes. Each carries KO (primary anchor),
+#               a Pfam anchor, an optional custom-HMM tier, and a BLAST
+#               fallback/confirmation gate.
+#   complexes:  obligatory multi-subunit assemblies. Scored n/N per MAG by the
+#               complex-completeness step.
+#   synergies:  process-completeness modules (denitrification, comammox,
+#               anammox, etc.) flagged in the gap-analysis report.
+#
+# NEW field vs the ewaste schema: `ko:` (KEGG Orthology, the primary N-cycle anchor).
+# All KO numbers verified against the KEGG REST API (May 2026). See Info-nitrogen.md
+# for the narrative atlas and ⚠️ rationale. (The `interpro:`, `tigrfam:`, and `ref_query:`
+# fields were removed 2026-06-10 — they were documentation-only and never read by any
+# script; the InterPro/TIGRFAM provenance lives in Info-nitrogen.md.)
+#
+# blast_refs_uniprot were originally left empty (`[]`) and CURATED + VERIFIED in the
+# tool-build phase rather than guessed (the ewaste project's hardest bug class was
+# wrong/fabricated UniProt accessions); they are now populated with verified seeds.
+#
+# ⚠️ HOMOLOGY TRAPS requiring custom HMM + BLAST gate (requires_blast_for_confirmation):
+#   nxrA/nxrB  share KO K00370/K00371 + Pfam with narG/narH
+#   amoA       shares PF02461 with methanotroph pmoA (and AOB/AOA/comammox clades)
+#   nirB/nirD/nirA  share PF01077 (NIR_SIR) with dsrAB
+#   napA       broad PF00384+PF01568 Mo-oxidoreductase family
+# ─────────────────────────────────────────────────────────────────────────────
+# blast_identity_min — per-target BLAST gate identity floor (documented per
+# ROADMAP P5.4.1, 2026-05-30). The %identity scheme:
+#
+#   30 (default; no override)  — apply_rules.py --pident-default. Used by
+#       targets where the KO + Pfam combo is itself the discriminator and BLAST
+#       is just a confirmation sanity check (anfG, nirK, nrfH, nirA).
+#   40 (baseline curated)      — the standard tight gate for targets with
+#       1-3 curated seed clades; reliably excludes unrelated families while
+#       admitting all real positives (24 targets — most N-cycle enzymes).
+#   45-55                      — known homology trap discriminators. amoA vs
+#       methanotroph pmoA (PF02461 shared), nxrA/B vs narG/H (K00370/K00371
+#       shared), amoC vs pmoC. Empirically calibrated by walking each target's
+#       panel BLAST hit table during P2 seed curation (2026-05-25). See
+#       per-target gate_rationale: fields on these.
+#   60                         — strictest, nxrA-specific. NarG and NxrA are
+#       not sequence-separable below this threshold; identity≥60 + NOB-clade
+#       custom HMM + operon-synteny resolver is the three-layer discrimination.
+#
+# Calibration method: for each target, find the lowest pident at which (a) all
+# curated-positive panel cells stay positive AND (b) all known trap proteins
+# fall below the floor. Per-target gate_rationale documents the trap and the
+# anchor genome cross-fire numbers where applicable.
+# ─────────────────────────────────────────────────────────────────────────────
+
+targets:
+
+  # ── 1. Nitrogen fixation ──────────────────────────────────────────────────
+  - id: nifH
+    name: Nitrogenase iron protein (dinitrogenase reductase)
+    category: nitrogen_fixation
+    ko: [K02588]
+    pfam: [PF00142]
+    blast_fallback: false
+    blast_refs_uniprot: []
+    notes: "Universal diazotroph marker. PF00142/TIGR01287 are clade-specific enough for a Tier-1 direct call."
+  - id: nifD
+    name: Nitrogenase MoFe protein alpha subunit
+    category: nitrogen_fixation
+    ko: [K02586]
+    pfam: [PF00148]
+    blast_fallback: false
+    blast_refs_uniprot: []
+  - id: nifK
+    name: Nitrogenase MoFe protein beta subunit
+    category: nitrogen_fixation
+    ko: [K02591]
+    pfam: [PF00148]
+    blast_fallback: false
+    blast_refs_uniprot: []
+  - id: nifE
+    name: Nitrogenase FeMo-cofactor scaffold protein NifE
+    category: nitrogen_fixation
+    ko: [K02587]
+    pfam: [PF00148]
+    blast_fallback: false
+    blast_refs_uniprot: []
+    notes: "FeMo-co biosynthesis; presence distinguishes a complete fixation system from orphan nifH."
+  - id: nifN
+    name: Nitrogenase FeMo-cofactor scaffold protein NifN
+    category: nitrogen_fixation
+    ko: [K02592]
+    pfam: [PF00148]
+    blast_fallback: false
+    blast_refs_uniprot: []
+  - id: nifB
+    name: FeMo-cofactor biosynthesis radical-SAM protein NifB
+    category: nitrogen_fixation
+    ko: [K02585]
+    pfam: [PF06180]
+    blast_fallback: false
+    blast_refs_uniprot: []
+  - id: vnfH
+    name: Vanadium-nitrogenase iron protein (alternative nitrogenase)
+    category: nitrogen_fixation
+    ko: [K22899]
+    pfam: [PF00142]
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ Shares PF00142 with nifH — BLAST gate to V-nitrogenase clade to separate from Mo-nitrogenase."
+  - id: vnfD
+    name: Vanadium-dependent nitrogenase alpha subunit
+    category: nitrogen_fixation
+    ko: [K22896]
+    pfam: [PF00148]
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+  - id: anfG
+    name: Fe-only nitrogenase delta subunit (alternative nitrogenase)
+    category: nitrogen_fixation
+    ko: [K00531]
+    pfam: [PF03139]
+    blast_fallback: true
+    blast_refs_uniprot: []
+
+  # ── 2. Nitrification — ammonia oxidation ──────────────────────────────────
+  - id: amoA
+    name: Ammonia monooxygenase subunit A (AOB / comammox)
+    category: nitrification_ammonia
+    ko: [K28504]           # amoA KO (ammonia MO subunit A, EC 1.14.99.39). NB: K28504 is
+                           # NOT pmoA-exclusive at the KO level — verrucomicrobial AND
+                           # γ-proteobacterial methanotroph pmoA, and archaeal amoA, all
+                           # fire K28504 at ~260-280 (right at the KOfam TC ~273; verified
+                           # in panel hmmscan output for Mfumariolicum, Mcapsulatus,
+                           # Nmaritimus, Nviennensis). K10944 (methane MO) is a distinct KO,
+                           # but K28504 alone does NOT separate amoA from pmoA. The real
+                           # clade discriminator is the custom HMM + the BLAST gate, not the KO.
+    pfam: [PF02461]
+    custom_hmm: true
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 55
+    blast_refs_uniprot: [Q04507, Q51142, A0A0F7KK52, A0A0S4LM25, A0A0S4LPG4]   # P5.2.1 (2026-05-30): swapped 2 Fragment β-AOB seeds (Q7WWN6+A0A1P8VZN2, both N.multiformis fragments at 255/230 aa) → full-length Q51142 (N.multiformis AmoA1, 274 aa) + A0A0F7KK52 (N.communis, 274 aa). Audit also suggested Q7WWN7 + D3RUW6 but post-verify both were bad: Q7WWN7 = another N.eutropha fragment, D3RUW6 = ATP synthase from Allochromatium vinosum (wrong protein/organism). Final 5 seeds all full-length. identity 55 excludes verrucomicrobial pmoA (Mfumariolicum ~52%). (Originally P2-curated 2026-05-25.)
+    gate_rationale: "55 excludes verrucomicrobial methanotroph pmoA (Mfumariolicum BLAST identity to AOB amoA: ~52%) while admitting all β-AOB + comammox amoA hits (Neuropaea/Nmultiformis/Ninopinata/Nnitrosa: 85-100% within-clade). NB: this β-AOB gate is NOT relied on to exclude γ-proteobacterial methanotroph pmoA — see amoA_gamma gate (raised to 80) for that closer trap."
+    notes: "⚠️ TRAP: PF02461 AND KOfam K28504 both fire on methanotroph pmoA and archaeal amoA (panel: pmoA/AOA bitscores ~260-280 ≈ the K28504 TC ~273) — K28504 is NOT a clean ammonia/methane discriminator despite K10944 existing for methane MO. The actual discriminators are the Tier-2 custom HMM + the BLAST gate to AOB-clade amoA seeds; amoA_archaeal (PF12942) covers AOA; amoA_gamma covers γ-AOB (Nitrosococcus). Comammox amoA forms its own clade — see comammox synergy."
+  - id: amoA_gamma
+    name: Ammonia monooxygenase subunit A — γ-proteobacterial (γ-AOB / Nitrosococcus)
+    category: nitrification_ammonia
+    ko: [K28504]           # same shared amoA KO (K28504, NOT γ-AOB-specific) — γ-AOB fires
+                           # K28504 at lower scores (Noceani ~260) than β-AOB (Neuropaea ~482),
+                           # but so do pmoA and archaeal amoA. Clade discrimination comes from
+                           # the custom HMM + a strict BLAST gate, NOT the KO.
+    pfam: [PF02461]        # same Pfam as amoA / pmoA / AOA; clade-discriminated by the trained
+                           # HMM. methanotroph pmoA is NOT excluded at the KO level (it fires
+                           # K28504 too) — the BLAST gate below is what separates it.
+    custom_hmm: true       # γ-AOB-specific HMM trained on Nitrosococcus halophilus /
+                           # watsonii / wardiae (P-batch-3b, 2026-05-29). Calibrated to
+                           # exclude β-AOB amoA (covered by the amoA target). The custom HMM
+                           # does NOT fire on γ-proteobacterial methanotroph pmoA (Mcapsulatus
+                           # → no HMM hit), so the HMM path is clean; the leak was on the
+                           # KO+BLAST path (see gate_rationale).
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 80   # AUDIT FIX 2026-06-10: raised 55 → 80. The 55 gate was calibrated
+                             # only against the VERRUCOMICROBIAL methanotroph (Mfumariolicum
+                             # ~52%), but Methylococcus capsulatus is a γ-PROTEOBACTERIAL
+                             # methanotroph whose pmoA is a close γ-proteo copper-MO relative of
+                             # γ-AOB amoA and hits the γ-AOB seeds at 65.2% — slipping through 55
+                             # and producing a hold-out FP (amoA/pmoA trap failure on the decoy).
+                             # Real γ-AOB hits score ≥90% to siblings (Noceani 96.3), leaving a
+                             # clean 65↔90 gap; 80 sits in it with margin both ways.
+    blast_refs_uniprot: [Q9RAI1, A0A4P7BVX1]   # AUDIT 2026-06-10: removed D5BWX5 (Nitrosococcus halophilus Nc4) — it is the SAME STRAIN as the Nhalophilus_Nc4 hold-out genome, so it was a same-strain seed leak (detect_seed_leakage.py flagged Nhalophilus_Nc4/amoA_gamma). Empirically free to drop: the remaining watsonii (Q9RAI1, reviewed) + wardiae (A0A4P7BVX1, TrEMBL) seeds still detect Noceani (training TP) and Nhalophilus (hold-out, now via the wardiae sibling at ~96%, not self) at HMM bitscore ~545-550, and the γ-proteo pmoA decoy Mcapsulatus is unchanged at ~388. NOT N. oceani — that's a test organism. γ-AOB amoA is highly conserved within Nitrosococcus (~95% sibling identity).
+    gate_rationale: "80 (raised from 55, audit 2026-06-10): the closest non-target is γ-PROTEOBACTERIAL methanotroph pmoA (Methylococcus capsulatus), which hits γ-AOB amoA seeds at 65.2% — far above the verrucomicrobial pmoA (~52%) the old 55 gate was tuned against. Real γ-AOB amoA scores ≥90% within Nitrosococcus (Noceani 96.3 to Q9RAI1); 80 sits in the 65↔90 gap. NB: true γ-AOB are confirmed via the custom HMM (which bypasses the gate), so this gate only governs KO-path cross-reactivity — its sole job is to reject γ-proteo pmoA on the KO tier."
+    notes: "γ-AOB clade-specific amoA HMM, complementing amoA (β-AOB + comammox) and amoA_archaeal (AOA). Resolves the Noceani FN documented in REPORT § Block 2b (Noceani amoA bitscore 271 sandwiched between Mfumariolicum pmoA 274/279 on the AOB+comammox HMM — no TC separates them). Training seeds D5BWX5 + A0A4P7BVX1 carry UniProt's family-level name 'Methane monooxygenase/ammonia monooxygenase, subunit A' — TrEMBL convention for unreviewed PF02461 entries; NOT a pmoA misassignment (both organisms are obligate γ-AOB with no methanotrophic capacity; canonical AOB N-/C-terminal motifs present in sequences). See targets/amoA_gamma/manifest.yaml § notes. Runtime steps after this wiring: build_custom_hmms.py + calibrate_tc.py."
+  - id: amoA_archaeal
+    name: Ammonia monooxygenase subunit A — archaeal (AOA)
+    category: nitrification_ammonia
+    ko: []                 # no clean archaeal-specific amoA KO (K10944 conflates
+                           # with methanotroph pmoA) — detect via the archaeal Pfam.
+    pfam: [PF12942]
+    # NO requires_blast_for_confirmation: PF12942 (Archaeal_AmoA) is archaeal-specific —
+    # verified to hit ONLY the AOA genomes in the panel (score ~385, E~1e-118) and NOT
+    # the AOB or methanotroph. The gate (with empty seeds) was disqualifying valid hits →
+    # amoA_archaeal F1 0.00. Dropped per the P4 precedent (nirA/nirK): a specific signature
+    # needs no BLAST gate. (2026-05-25)
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ Divergent archaeal AmoA detected via PF12942 (archaeal-specific; won't fire on AOB amoA or methanotroph pmoA). Pfam-only call (no KO, no gate). Distinct target from bacterial amoA; AOA lack canonical hao."
+  - id: amoB
+    name: Ammonia monooxygenase subunit B
+    category: nitrification_ammonia
+    ko: [K10945]   # pmoB-amoB (shared)
+    pfam: [PF04744]
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ KO K10945 is shared verbatim with methanotroph pmoB."
+  - id: amoC
+    name: Ammonia monooxygenase subunit C
+    category: nitrification_ammonia
+    ko: [K10946]   # pmoC-amoC (shared)
+    pfam: [PF04896]
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 45
+    blast_refs_uniprot: [Q9LC65, A2TJ64, A2TJ66, A2TJ74]   # P2 curated: Nitrosomonas + uncultured AOB-beta AmoC (full-length)
+    gate_rationale: "45 splits amoC from methanotroph pmoC. Less-strict than amoA's 55 because PF04896 (amoC/pmoC) is more conserved at the family level — full discrimination relies on the complex-completeness call (amoA-clade gates the complex, see notes)."
+    notes: "⚠️ Shared with methanotroph pmoC. PF04896 assignment ⚠️ verify."
+  - id: hao
+    name: Hydroxylamine oxidoreductase / dehydrogenase
+    category: nitrification_ammonia
+    ko: [K10535]
+    pfam: []   # ⚠️ no dedicated Pfam — multiheme cytochrome c clan
+    custom_hmm: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ Tier-3: octaheme cytochrome c (P460), no clean Pfam, fold shared with NrfA family. KO + custom HMM/BLAST detection."
+
+  # ── 3. Nitrification — nitrite oxidation ──────────────────────────────────
+  - id: nxrA
+    name: Nitrite oxidoreductase alpha subunit (catalytic, Mo)
+    category: nitrification_nitrite
+    ko: [K00370]   # ⚠️ identical KO to narG
+    pfam: [PF00384, PF01568]
+    pfam_logic: all
+    custom_hmm: true
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 60
+    blast_refs_uniprot: [Q71RT9, A0A0S4LQF4, A0A7S8FGD0]   # P2 curated NOB NxrA: Nitrobacter alkalicus + Nitrospira nitrificans/kreftii (~1145-1200 aa). identity 60 to separate from denitrifier NarG (~50%).
+    gate_rationale: "60 — the strictest gate in the catalogue. NxrA and NarG share K00370 + Pfam architecture and are not sequence-separable below ~60% identity. NOB clade-to-clade: 70-90% (Nitrospira-Nitrobacter); NOB-to-denit-NarG: 45-55%. Combined with NOB-clade custom HMM + operon-synteny resolver (narI/K00374 proximity) for three-layer discrimination. Nitrobacter NxrA ≈ NarG is documented as the hardest residual case (see REPORT § Operon-synteny resolution)."
+    notes: "⚠️ CENTRAL TRAP: shares KO K00370 and Pfam architecture with narG. Tier-2 custom HMM + BLAST gate to NOB-clade NxrA seeds + operon context to separate from denitrifier NarG."
+  - id: nxrB
+    name: Nitrite oxidoreductase beta subunit (Fe-S)
+    category: nitrification_nitrite
+    ko: [K00371]   # ⚠️ identical KO to narH
+    pfam: [PF13247, PF13534]
+    custom_hmm: true
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 55
+    blast_refs_uniprot: [Q51075, A0A0S4LK29, M1KVL1]   # P2 curated NOB NxrB: Nitrobacter hamburgensis + Nitrospira nitrificans + Nitrospina (~425-513 aa). identity 55 to separate from narH.
+    gate_rationale: "55 separates NxrB from NarH. Both share K00371; nxrB is the preferred NOB phylomarker (more clade-resolved than nxrA per Lücker 2010). NOB clade self-identity 75-95%; NarH cross-identity 40-50%. Looser than nxrA (60) because the NxrB-NarH gap is bigger (different β-subunit sub-families) than NxrA-NarG."
+    notes: "⚠️ Shares KO K00371 with narH. nxrB is the preferred NOB phylomarker (more clade-resolved than nxrA)."
+
+  # ── 4. Denitrification ────────────────────────────────────────────────────
+  - id: narG
+    name: Membrane nitrate reductase alpha subunit
+    category: denitrification
+    ko: [K00370]   # ⚠️ identical KO to nxrA
+    pfam: [PF00384, PF01568]
+    pfam_logic: all
+    # custom_hmm intentionally NOT set: NarG and NOB NxrA are sequence-inseparable
+    # (~60% identity, scores overlap 543 vs 544 — see nxrA manifest + validation/REPORT.md).
+    # A custom narG HMM cannot discriminate the clade and risks re-introducing the
+    # Nitrobacter narG false positive; the nxrA/nxrB HMMs + BLAST handle the trap instead.
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 45
+    blast_refs_uniprot: []
+    gate_rationale: "45 — narG is resolved from the nxrA side (nxrA's stricter 60% gate + NOB HMM excludes the NarG/NxrA family at the bitscore + identity layer). narG itself uses a looser 45 because its own seed list is empty (BLAST gate is mostly inert; the KO + Pfam + operon-synteny is the real discriminator). Anything that survives the nxrA filter and hits narG seeds at ≥45 is treated as narG."
+    notes: "⚠️ CENTRAL TRAP: shares KO K00370 + Pfam with nxrA. Resolved from the nxrA side (NOB-clade HMM); NarG/NxrA are not sequence-separable, so no narG HMM."
+  - id: narH
+    name: Membrane nitrate reductase beta subunit
+    category: denitrification
+    ko: [K00371]   # ⚠️ identical KO to nxrB
+    pfam: [PF13247, PF13534]
+    # custom_hmm intentionally NOT set: like narG, NarH↔NxrB is not sequence-separable;
+    # resolved from the nxrB side. (See nxrA manifest + validation/REPORT.md.)
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 45
+    blast_refs_uniprot: []
+    gate_rationale: "45 — same rationale as narG: NarH/NxrB resolved from the nxrB side (nxrB 55% gate + NOB HMM). narH itself uses a looser 45 with empty seeds; KO + Pfam + operon-synteny is the real discriminator. Pairs structurally with narG."
+    notes: "⚠️ Shares KO K00371 with nxrB."
+  - id: narI
+    name: Membrane nitrate reductase gamma subunit (cytochrome b)
+    category: denitrification
+    ko: [K00374]
+    pfam: [PF02665]
+    blast_fallback: false
+    blast_refs_uniprot: []
+  - id: napA
+    name: Periplasmic nitrate reductase catalytic subunit
+    category: denitrification
+    ko: [K02567]
+    pfam: [PF00384, PF01568]
+    pfam_logic: all
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: [P33937, P39185, Q56350, Q53176, Q3HS05, P81186]   # P2 curated NapA (reviewed): E.coli, Cnecator(panel), P.pantotrophus, Cereibacter, Stutzerimonas, Desulfovibrio
+    notes: "⚠️ Broad Mo-oxidoreductase family (catches narG/nxrA/dmsA/fdhF). dsrA-style BLAST gate to canonical NapA seeds (per ewaste napA precedent)."
+  - id: napB
+    name: Periplasmic nitrate reductase small subunit (di-heme cyt c)
+    category: denitrification
+    ko: [K02568]
+    pfam: [PF03892]
+    blast_fallback: false
+    blast_refs_uniprot: []
+  - id: nirK
+    name: Copper-containing nitrite reductase (NO-forming)
+    category: denitrification
+    ko: [K00368]
+    pfam: [PF00394, PF07731, PF07732]
+    blast_fallback: true
+    blast_refs_uniprot: [P25006, P38501, Q06006, Q53239, A0A5C7VYN2, A0A1I4L3J7]   # P2 curated Cu-NIR: denitrifier (Achromobacter/Alcaligenes/Pseudomonas/Cereibacter) + AOB (Nitrosomonas oligotropha/nitrosa). identity 38 for divergent AOB/NOB NirK.
+    notes: "Committing step of denitrification (NO₂⁻→NO). ⚠️ Multicopper oxidase fold is broad — BLAST gate to NirK seeds. Largely exclusive with nirS in a genome."
+  - id: nirS
+    name: Cytochrome cd1 nitrite reductase (NO-forming)
+    category: denitrification
+    ko: [K15864]
+    pfam: [PF13442, PF02239]
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "Heme cd1 alternative to nirK; same NO₂⁻→NO reaction. PF13442 ⚠️ shared with other cytochromes — BLAST corroboration recommended."
+  - id: norB
+    name: Nitric oxide reductase large subunit (cNOR)
+    category: denitrification
+    ko: [K04561]
+    pfam: [PF00115]
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: [P98008, Q59647, A0A1H8I210, A0A939KB73, G8QI41]   # P2 curated cNOR-B γ-proteo: Stutzerimonas stutzeri + Pseudomonas aeruginosa. P-batch-3a (2026-05-29) added β-proteo seeds to lift Cupriavidus necator H16 (Q0JYR9, 25% to γ-proteo seeds) above the 40% gate: Brachymonas denitrificans (Burkholderiales/Comamonadaceae) + Comamonas denitrificans (Burkholderiales/Comamonadaceae) + Azospira oryzae (Rhodocyclales — adjacent-order safety net). No Cupriavidus/Ralstonia/Burkholderia cNor in UniRef50_P98008. — Replaces auto-fetched gene-name set that pulled fungal Norsolorinic-acid-reductase-B (M2YJQ2, Q6UEH5) + Streptomyces spectinabilin NorB (B4ER96) + a mis-headered nxrB (Q51075) — all gene-name homonyms, not NO reductase.
+    notes: "⚠️ PF00115 (heme-copper oxidase) is shared with cytochrome c oxidase coxA — BLAST gate to NorB clade. Gene name 'norB' is overloaded with fungal Norsolorinic-acid-reductase-B and Streptomyces spectinabilin biosynthesis NorB — bare gene-name auto-fetch contaminates the seed set, so explicit accessions are required."
+  - id: norC
+    name: Nitric oxide reductase small subunit (cNOR, cytochrome c)
+    category: denitrification
+    ko: [K02305]
+    pfam: [PF00034]
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ PF00034 (cyt c) is ubiquitous — BLAST gate required."
+  - id: norZ
+    name: Quinol-dependent nitric oxide reductase (qNOR, single-subunit)
+    category: denitrification
+    ko: [K04748, K04561]   # CORRECTION (audit 2026-06-10): K04748 is NOT the qNor catalytic KO — KOfam defines K04748 = "nitric oxide reductase NorQ protein", a cytoplasmic MoxR/vWA-family maturation ATPase (cNOR cofactor assembly), a DIFFERENT gene product from the qNor catalytic subunit. It is retained here only as an inert legacy anchor (it does not fire on real qNor catalytic sequences, as expected). The actual qNor signal is K04561 (= NorB catalytic, EC 1.7.2.5, shared with cNor) disambiguated from cNor via the qNor-clade BLAST gate (cNor proteins won't match qNor seeds above 40% identity, and vice versa). Verified on Cnecator H16's Q0JYR9 (real qNor, fires K04561 at 1044, no K04748 hit).
+    pfam: [PF00115]
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: [Q9JYE2, A0A150N322, B3PE38, D5MGQ8]   # P-batch-3c (2026-05-30) verified qNor seeds spanning 4 phyla: Q9JYE2 Neisseria meningitidis MC58 (β-proteo Neisseriales, the structural reference qNor), A0A150N322 Geobacillus stearothermophilus (Firmicutes, crystal-structure ref Hino et al. 2010), B3PE38 Cellvibrio japonicus (γ-proteo Cellvibrionales), D5MGQ8 Methylomirabilis oxygeniifera (NC10 methanotroph, NorZ-classified). NOT Cupriavidus (would be self-reference vs Cnecator H16 panel cell). Cnecator Q0JYR9 hits Cellvibrio at 76.8% and Neisseria at 60.7% — well above the 40% gate; the Geobacillus + Methylomirabilis seeds (36-39% to Q0JYR9) provide clade coverage for Firmicutes/NC10 qNor carriers.
+    notes: "Single-subunit NO reductase alternative to cNOR (norBC); does not require norC. KO+BLAST disambiguation from norB (cNor): both share PF00115 (heme-Cu oxidase) and KOfam's K04561 fires on both clades — clade discrimination is via the BLAST gate. qNor proteins are ~700-800 aa (cNor catalytic subunit fused to N-terminal quinol-binding domain), vs cNorB ~470 aa; this length signature could be added as a secondary disambiguator if BLAST seeds ever prove insufficient."
+  - id: nosZ
+    name: Nitrous oxide reductase (clade I, canonical Tat-secreted)
+    category: denitrification
+    ko: [K00376]
+    pfam: [PF18764, PF00116]   # ⚠️ PF00116 (CuA) shared with coxB
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "Terminal step N₂O→N₂; the only biological N₂O sink. TIGR04244 is NosZ-specific (good Tier-1 anchor). K00376 is calibrated for canonical clade-I NosZ (Tat signal, Pseudomonas/Paracoccus-style); divergent clade-II / atypical NosZ (Sec signal, found in Bacteroidetes / Gemmatimonadetes / δ-proteo Anaeromyxobacter / Aquificae / etc.) is covered by the separate `nosZ_clade2` custom-HMM target (P-batch-3d, 2026-05-30). The heuristic `nosZ_clade_I_likely` / `n2o_sink_only` synergies still apply as ecological context layers on top of the phylogenetic clade calls."
+  - id: nosZ_clade2
+    name: Nitrous oxide reductase (clade II / atypical, Sec-secreted)
+    category: denitrification
+    ko: [K00376]   # Same canonical nosZ KO — clade discrimination is via the custom HMM. K00376 fires weakly or not at all on clade-II proteins (KOfam-side narrow calibration); the clade-II HMM is the primary signature, with K00376 as a fallback when the KOfam profile happens to catch a clade-II hit.
+    pfam: [PF18764]   # NosZ N-terminal Pfam — fires on both clades (the catalytic Cu-domain organization is conserved); PF00116 omitted because it cross-fires with coxB and isn't needed once the custom HMM is the discriminator.
+    custom_hmm: true
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: [A0A0K2JZH2, A0A7I9VKT0, A0A3D4V581, A0A2N9PAU8, A0ABS1GHF2]   # P-batch-3d (2026-05-30) clade-II nosZ seeds spanning 5 phyla: A0A0K2JZH2 Dechloromonas denitrificans (β-proteo Rhodocyclales), A0A7I9VKT0 Anaeromyxobacter diazotrophicus (δ-proteo Myxococcales — Sanford 2012 clade-II ref lineage), A0A3D4V581 Gemmatimonas aurantiaca (Gemmatimonadetes — Sec-dependent annotation explicit), A0A2N9PAU8 Flavobacterium columnare (Bacteroidetes), A0ABS1GHF2 Persephonella atlantica (Aquificae — Sec-dependent annotation). NOT including Wolinella succinogenes (would be self-reference vs Wsuccinogenes panel cell).
+    notes: "⚠️ Atypical Sec-dependent NosZ. Diagnostic features (per Hallin et al. 2018, Jones et al. 2013, Sanford et al. 2012): Sec signal peptide (vs Tat in clade-I), divergent gene-cluster context (no nosR), often N2O sink-only ecology (no upstream nir/nor co-occurrence). Custom HMM trained on 5 clade-II references calibrated to exclude clade-I (panel: Pdenitrificans, Paeruginosa, Stutzerimonas-analogs, Cnecator, Nwinogradskyi). Wolinella succinogenes is a published clade-II carrier but its UniProt nosZ entries (Q7M9H4/Q7M9H5) are truncated/divergent and don't BLAST-match the panel proteome — the Wsuccinogenes_DSM1740 RefSeq annotation appears to lack the catalytic NosZ subunit (~640 aa missing); only accessory nos operon proteins (NosL, NosD) are present. So this target won't rescue Wsuccinogenes_DSM1740 via the standard proteome path — see REPORT § Block 3d for the annotation-gap analysis."
+
+  # ── 5. DNRA (dissimilatory nitrate reduction to ammonium) ─────────────────
+  - id: nrfA
+    name: Cytochrome c nitrite reductase, ammonia-forming (CCNiR)
+    category: dnra
+    ko: [K03385]
+    pfam: [PF02335]
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "Defining DNRA marker (NO₂⁻→NH₄⁺). TIGR03152 is NrfA-specific. Presence vs nirK/nirS flags N-retentive metabolism."
+  - id: nrfH
+    name: NrfA-associated tetraheme cytochrome c (NapC/NirT family)
+    category: dnra
+    ko: [K15876]
+    ko_tc: 70        # P4: KOfam ko_list TC (107.97) too high for gammaproteobacterial NrfH (E.coli 100, Aeromonas 89, Shewanella 79); K15876 is nrfH-specific
+    pfam: [PF13442]
+    blast_fallback: true
+    blast_refs_uniprot: [Q9S1E6, P0ABL1, Q72EF4, P45016]   # P5.2.2 (2026-05-30): populated from empty `[]`. Audit suggested P0C278 + P0AAJ7 + Shewanella oneidensis NrfH but post-verify ALL wrong: P0C278 = Shewanella frigidimarina fumarate reductase (FCCA, not NrfH); P0AAJ7 = Shigella flexneri formate dehydrogenase (FDOH, not NrfH); S. oneidensis NrfH doesn't exist in UniProt. Curated set: Q9S1E6 (Wsuccinogenes NrfH, 177 aa — what audit MEANT by P0C278), P0ABL1 (E. coli K12 NrfB, 188 aa — what audit MEANT by P0AAJ7), Q72EF4 (D. vulgaris Hildenborough NrfH, 159 aa — δ-proteo, substitute for unfindable Shewanella), P45016 (H. influenzae NrfB, 226 aa — γ-Pasteurellaceae, only non-panel option). All reviewed sp/ + full-length. 3 are panel-internal self-references but BLAST is a confirmation gate (not training input) so methodologically OK. Uses pipeline default pident=30%.
+    notes: "⚠️ PF13442 (NapC/NirT cyt c) is broad — BLAST gate."
+  - id: nirB
+    name: Nitrite reductase (NADH) large subunit
+    category: dnra
+    ko: [K00362]
+    pfam: [PF01077, PF03460, PF18267]
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ TRAP: PF01077 (NIR_SIR siroheme) shared with assimilatory nirA and dsrAB. BLAST gate + NADH-dependence context."
+  - id: nirD
+    name: Nitrite reductase (NADH) small subunit
+    category: dnra
+    ko: [K00363]
+    pfam: [PF01077, PF03460]
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ Shares PF01077 with nirA/dsr."
+
+  # ── 6. Anammox ────────────────────────────────────────────────────────────
+  - id: hzsA
+    name: Hydrazine synthase alpha subunit
+    category: anammox
+    ko: [K20932]
+    pfam: []   # ⚠️ no dedicated Pfam — multiheme cytochrome c
+    # custom_hmm attempted (2026-05-25) but reverted: the UniProt-trained HzsA HMM keys
+    # on the ~809 aa α-subunit, which KEGG labels K20934 — a KEGG↔UniProt subunit-naming
+    # conflict. K20932 already drives the call and anammox scores F1 1.00; the HMM added
+    # no score and a mislabel risk. Tier-3 KO+BLAST — see targets/hzsA/manifest.yaml.
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ Tier-3: definitive anammox phylomarker, multiheme cyt c, no stable Pfam. KO + BLAST."
+  - id: hzsB
+    name: Hydrazine synthase beta subunit
+    category: anammox
+    ko: [K20933]
+    pfam: []
+    # custom_hmm attempted (2026-05-25) but reverted: the HzsB HMM overlaps the sister
+    # HzsC subunit (paralogous ~340-380 aa cytochromes; calibration overlap). Tier-3
+    # BLAST-only — see targets/hzsB/manifest.yaml.
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: [Q1Q0T4, A0A0M2V157, A0A1E3XDZ9]   # P5.2.3 (2026-05-30): populated from empty `[]`. Audit asked for ≥1 curated Kuenenia HzsB anchor. Curated set spans the core anammox phylogeny: Q1Q0T4 (Kuenenia stuttgartiensis HzsB, 386 aa, reviewed sp/ — the canonical anchor), A0A0M2V157 (Ca. Brocadia fulgida HzsB, 375 aa, tr/ — Brocadia genus, sister to panel's Bsinica), A0A1E3XDZ9 (Ca. Scalindua rubra HzsB, 378 aa, tr/ — Scalindua genus, non-panel diversity). Jettenia + Anammoxoglobus had no full-length entries (only 128-aa PCR fragments). Other UniProt "Hydrazine synthase subunit beta" hits (Xanthomonas/Pseudomonas/Burkholderia) are automated-annotation errors on non-anammox bacteria. Q1Q0T4 is panel-internal self-reference but BLAST is confirmation-gate not training input — methodologically OK (same justification as P5.2.2).
+    notes: "⚠️ Tier-3 multiheme cyt c (BLAST-only; per-subunit HMM overlaps HzsC)."
+  - id: hzsC
+    name: Hydrazine synthase gamma subunit
+    category: anammox
+    ko: [K20934]
+    pfam: []
+    # custom_hmm attempted (2026-05-25) but reverted: the HzsC HMM overlaps the sister
+    # HzsB subunit (calibration overlap). Tier-3 BLAST-only — see targets/hzsC/manifest.yaml.
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ Tier-3 multiheme cyt c (BLAST-only; per-subunit HMM overlaps HzsB)."
+  - id: hdh
+    name: Hydrazine dehydrogenase / oxidoreductase (hzo)
+    category: anammox
+    ko: [K20935]
+    pfam: []   # ⚠️ octaheme, HAO-like
+    custom_hmm: true
+    blast_fallback: true
+    blast_identity_min: 50
+    blast_refs_uniprot: [Q1PW30]   # P2 curated: Kuenenia stuttgartiensis Hdh (reviewed, octaheme, 582 aa). identity 50 kills the generic narrow-no-IPR cross-hits.
+    gate_rationale: "50 — Tier-3 octaheme (HAO-family fold) with single Kuenenia seed. The 50% gate excludes generic narrow-no-IPR multiheme cytochrome c hits (which fall in the 20-35% range) while admitting Kuenenia + Brocadia + Scalindua Hdh (50-80% inter-genus identity). Custom HMM at TC=741.6 is the primary discriminator; BLAST identity 50 is the post-hoc sanity check."
+    notes: "⚠️ Tier-3: octaheme cyt c (HAO-family fold). N₂H₄→N₂. BLAST gate to anammox Hdh seeds."
+
+  # ── 7. Assimilatory nitrate/nitrite reduction ─────────────────────────────
+  - id: narB
+    name: Ferredoxin-nitrate reductase (assimilatory)
+    category: assimilatory
+    ko: [K00367]
+    pfam: [PF00384, PF01568]
+    pfam_logic: all
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ Broad Mo-oxidoreductase family — BLAST gate to assimilatory ferredoxin-NR clade."
+  - id: nasA
+    name: Assimilatory nitrate reductase catalytic subunit (NADH)
+    category: assimilatory
+    ko: [K00372]
+    pfam: [PF00384, PF01568]
+    pfam_logic: all
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ Broad Mo-oxidoreductase family — BLAST gate."
+  - id: nasB
+    name: Assimilatory nitrate reductase electron-transfer subunit
+    category: assimilatory
+    ko: [K00360]
+    pfam: [PF07992]
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ PF07992 (Pyr_redox_2) is broad — BLAST corroboration."
+  - id: nirA
+    name: Ferredoxin-nitrite reductase (assimilatory)
+    category: assimilatory
+    ko: [K00366]
+    pfam: [PF01077, PF03460]
+    blast_fallback: true
+    blast_refs_uniprot: []
+    notes: "⚠️ TRAP: shares PF01077 (NIR_SIR) with nirB/nirD (DNRA) and dsrAB. Distinguish by ferredoxin vs NAD(P)H dependence + BLAST."
+  - id: nasD
+    name: Assimilatory nitrite reductase (NAD(P)H) large subunit
+    category: assimilatory
+    ko: [K17877]
+    pfam: [PF01077, PF03460]
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ Shares PF01077 with nirA/nirB/dsr."
+  - id: NR
+    name: Nitrate reductase (NAD(P)H), eukaryotic (nia)
+    category: assimilatory
+    ko: [K10534]
+    pfam: [PF00174, PF00173, PF00970]
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "Plant/fungal/algal assimilatory nitrate reductase (Mo + cyt b5 + FAD)."
+
+  # ── 8. Ammonia assimilation ───────────────────────────────────────────────
+  - id: glnA
+    name: Glutamine synthetase
+    category: ammonia_assimilation
+    ko: [K01915]
+    pfam: [PF00120, PF03951]
+    blast_fallback: false
+    blast_refs_uniprot: []
+    notes: "Primary high-affinity NH₄⁺ assimilation; near-universal housekeeping marker."
+  - id: gltB
+    name: Glutamate synthase (GOGAT) large subunit
+    category: ammonia_assimilation
+    ko: [K00265]
+    pfam: [PF01645, PF04898, PF01493]
+    blast_fallback: false
+    blast_refs_uniprot: []
+  - id: gltD
+    name: Glutamate synthase (GOGAT) small subunit
+    category: ammonia_assimilation
+    ko: [K00266]
+    pfam: [PF07992]
+    requires_blast_for_confirmation: true
+    blast_fallback: true
+    blast_identity_min: 40
+    blast_refs_uniprot: []
+    notes: "⚠️ PF07992 (Pyr_redox_2) broad — BLAST corroboration; obligate partner of gltB."
+  - id: gdhA
+    name: Glutamate dehydrogenase (NAD(P)-specific)
+    category: ammonia_assimilation
+    ko: [K00261, K00262]
+    pfam: [PF00208, PF02812]
+    blast_fallback: false
+    blast_refs_uniprot: []
+    notes: "Low-affinity NH₄⁺ assimilation at high ammonium; reversible."
+
+  # ── 9. Organic-N mineralization (urease) ──────────────────────────────────
+  - id: ureC
+    name: Urease alpha subunit (catalytic, Ni)
+    category: organic_n_mineralization
+    ko: [K01428]
+    pfam: [PF00449, PF01979]
+    blast_fallback: false
+    blast_refs_uniprot: []
+    notes: "Canonical mineralization marker; Ni-binding catalytic subunit. TIGR01792 UreC-specific."
+  - id: ureB
+    name: Urease beta subunit
+    category: organic_n_mineralization
+    ko: [K01429]
+    ko_tc: 155       # Cleanup-batch (2026-05-28): KOfam K01429 TC 170.83 misses legitimate β-subunits — Aterreus fused fungal urease (160.9) and Bsubtilis URE2 (164.4). Panel has zero non-urease hits in [100,170] → safe to relax.
+    pfam: [PF00699]
+    blast_fallback: false
+    blast_refs_uniprot: []
+  - id: ureA
+    name: Urease gamma subunit
+    category: organic_n_mineralization
+    ko: [K01430]
+    ko_tc: 110       # Cleanup-batch (2026-05-28): KOfam K01430 TC 180.27 misses Njaponica (171.3) and the embedded γ-domain of Aterreus's fused fungal urease (115.6). Panel below-TC hits are all real urease γ-subunits (Aterreus, Hpylori 176.9, Njaponica 171.3, Nviennensis 179.1); no spurious hits below 110.
+    pfam: [PF00547]
+    blast_fallback: false
+    blast_refs_uniprot: []
+  - id: ureG
+    name: Urease accessory protein UreG (Ni insertion)
+    category: organic_n_mineralization
+    ko: [K03190]
+    pfam: [PF02492]
+    blast_fallback: false
+    blast_refs_uniprot: []
+    notes: "Accessory maturation; presence confirms a functional (vs apo) urease system."
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Obligatory complexes — must find ALL members for the function to be present.
+# ─────────────────────────────────────────────────────────────────────────────
+complexes:
+  nitrogenase:
+    members: [nifH, nifD, nifK]
+    obligatory: true
+    application: "N2 fixation (N2 => NH3); orphan nifH without nifDK is non-functional"
+  ammonia_monooxygenase:
+    members: [[amoA, amoA_gamma, amoA_archaeal], amoB, amoC]   # P5.3.3 (2026-05-30): any-of slot for the catalytic subunit. γ-AOB (Nitrosococcus → amoA_gamma) and AOA (→ amoA_archaeal) carry their own clade-specific AmoA paralogs but share amoB/amoC. Evaluator extended to support any-of slots (compute_complex_completeness.py:75-90) mirroring the synergy pattern.
+    obligatory: true
+    application: "Ammonia oxidation step 1 (NH3 => NH2OH); catalytic AmoA slot accepts β-AOB+comammox (amoA), γ-AOB (amoA_gamma), or AOA (amoA_archaeal). ⚠️ co-validate against amoA-clade not pmoA-clade"
+  nitrite_oxidoreductase:
+    members: [nxrA, nxrB]
+    obligatory: true
+    application: "Nitrite oxidation (NO2- => NO3-); ⚠️ shares KOs with narGH — requires NOB-clade BLAST"
+  membrane_nitrate_reductase:
+    members: [narG, narH, narI]
+    obligatory: true
+    application: "Dissimilatory nitrate reduction (NO3- => NO2-), membrane-bound"
+  periplasmic_nitrate_reductase:
+    members: [napA, napB]
+    obligatory: true
+    application: "Periplasmic nitrate reduction (NO3- => NO2-)"
+  no_reductase_cnor:
+    members: [norB, norC]
+    obligatory: true
+    application: "NO => N2O (cNOR); qNOR/norZ is a single-subunit alternative"
+  hydrazine_synthase:
+    members: [hzsA, hzsB, hzsC]
+    obligatory: true
+    application: "Anammox hydrazine synthesis (NO + NH4+ => N2H4); the obligate anammox signature"
+  glutamate_synthase:
+    members: [gltB, gltD]
+    obligatory: true
+    application: "GS/GOGAT ammonia assimilation (Gln + 2-OG => 2 Glu)"
+  urease:
+    members: [ureA, ureB, ureC]
+    obligatory: true
+    application: "Organic-N mineralization (urea => NH3); ureG (and ureDEF) needed for activation"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Process-completeness modules — scored as completeness fractions, interpreted in
+# the gap-analysis report. Each entry in `requires` is a slot: a single target id
+# (must be present) or a list of equivalents (any-of — paralog substitutes count).
+# Optional `forbids:` lists targets that must be ABSENT for the phenotype to hold
+# (used by named-partial synergies like n2o_emitter / n2o_sink_only).
+# Optional `single_organism: true` marks phenotypes that can't be community-
+# completed (e.g., comammox, anammox) — only complete (all slots) or absent.
+# ─────────────────────────────────────────────────────────────────────────────
+synergies:
+  - name: complete_denitrification
+    requires: [[narG, napA], [nirS, nirK], [norB, norZ], [nosZ, nosZ_clade2]]   # P5.3.2 (2026-05-30): terminal slot now accepts clade-I OR clade-II NosZ.
+    benefit: "Full NO3- => N2 respiration. Slot any-of: nar/nap, nirS/nirK, cNOR(norB)/qNOR(norZ), clade-I or clade-II NosZ. Partial denitrifiers are the norm."
+  - name: n2o_sink
+    requires: [[nosZ, nosZ_clade2]]   # P5.3.2 (2026-05-30): either NosZ clade is a biological N2O sink.
+    benefit: "Only biological N2O sink. nosZ-II without upstream nir/nor = dedicated N2O consumer; absence of any nosZ with nir+nor present = net N2O source (greenhouse-gas relevant)."
+  - name: comammox
+    requires: [amoA, hao, nxrA, nxrB]
+    single_organism: true
+    benefit: "Complete nitrification in one organism (NH3 => NO3-); requires comammox-clade amoA (Nitrospira lineage II). Single-organism phenotype — cannot be community-completed."
+  - name: anammox_complete
+    requires: [hzsA, hzsB, hzsC, hdh]
+    single_organism: true
+    benefit: "Functional anammox (NH4+ + NO2- => N2); add nirS/nirK for NO supply. Confirms a true anammox bacterium vs spurious hzs fragments. Single-organism phenotype."
+  - name: dnra_branch
+    requires: [[napA, narG], nrfA]
+    benefit: "N-retentive nitrate respiration (NO3- => NH4+). Either nap or nar can supply nitrite to NrfA. Contrast with denitrification at the nitrite node (nrfA vs nir decides retain-vs-lose N)."
+  - name: nitrifier_denitrification
+    requires: [[amoA, amoA_gamma, amoA_archaeal], [nirK, nirS], [norB, norZ]]   # P5.3.1 (2026-05-30): any-of amoA paralogs. γ-AOB (amoA_gamma covers Nitrosococcus) + AOA (amoA_archaeal) also exhibit nitrifier-denit (env-microbio audit); without this slot, Noceani's γ-AOB nitrifier-denit phenotype doesn't fire even though amoA_gamma detects it.
+    benefit: "Cryptic N2O source: ammonia oxidizers reducing their own nitrite (nir/nor co-occurring with amo). Slot accepts amoA / amoA_gamma / amoA_archaeal."
+  - name: assimilatory_complete
+    requires: [[nasA, narB], [nirA, nasD], glnA, gltB]
+    benefit: "End-to-end biomass-N from nitrate (NO3- => NH4+ => Glu). nasA/narB are equivalent nitrate-assimilatory reductases; nirA/nasD are equivalent assimilatory nitrite reductases."
+
+  # ── Named partials — ecologically distinct truncated states (use `forbids:`) ─
+  - name: n2o_emitter
+    requires: [[nirS, nirK], [norB, norZ]]
+    forbids: [nosZ, nosZ_clade2]   # P5.3.2 (2026-05-30): organism is an N2O emitter only if NEITHER clade-I nor clade-II NosZ is present.
+    benefit: "Net N2O source: makes NO/N2O but no terminal NosZ (clade-I or clade-II) to mop it up. Greenhouse-gas relevant; the typical 'truncated denitrifier' phenotype."
+  - name: n2o_sink_only
+    requires: [[nosZ, nosZ_clade2]]   # P5.3.2 (2026-05-30): either NosZ clade qualifies as N2O sink.
+    forbids: [nirS, nirK, norB, norZ]
+    benefit: "Dedicated N2O consumer: reduces ambient N2O without producing it (sink-only ecology, strongly enriched in clade-II/atypical NosZ lineages). Environmental N2O mitigators. See also nosZ_clade_I_likely for the canonical-denitrifier counterpart."
+  - name: nosZ_clade_I_likely
+    requires: [nosZ, [nirS, nirK, norB, norZ]]
+    forbids: [nosZ_clade2]   # P5.3.2 (2026-05-30): phylogeny-rigorous now that the clade-II HMM exists (P-batch-3d); previously a heuristic. clade-I call fires only when canonical nosZ + upstream denit AND no clade-II detection.
+    benefit: "Clade-I/typical denitrifier-nosZ pattern: canonical nosZ co-occurring with upstream denit (nir/nor), with no clade-II detection. Phylogeny-rigorous since P5.3.2 (uses the nosZ_clade2 HMM for clade discrimination)."
+  - name: nitrate_to_nitrite_leak
+    requires: [[narG, napA]]
+    forbids: [nirS, nirK, nrfA]
+    benefit: "Reduces NO3- => NO2- but lacks downstream dissimilatory NO2- reductases (no denit-entry, no nrfA DNRA). Leaks NO2- to the environment — feeds anammox/NOB partners."

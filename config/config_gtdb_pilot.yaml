@@ -1,0 +1,359 @@
+paths:
+  hmm_db: resources/hmm/ncycle_targets.hmm
+  tc_cutoffs: resources/hmm/tc_cutoffs.tsv
+  blast_unstable: resources/blast_db/unstable_refs
+  blast_gated: resources/blast_db/blast_gated_refs
+  targets_yaml: config/targets.yaml
+  results_dir: comparators/gtdb_pilot/results
+thresholds:
+  hmmer:
+    use_tc_when_available: true
+    evalue: 1.0e-10
+    dom_evalue: 1.0e-05
+  blast:
+    evalue: 1.0e-10
+    qcov_hsp_perc: 50
+    pident_min: 30
+options:
+  filter_blast_query_by_hmm: false
+build:
+  kofam_profiles_url: https://www.genome.jp/ftp/db/kofam/profiles.tar.gz
+  kofam_ko_list_url: https://www.genome.jp/ftp/db/kofam/ko_list.gz
+  kofam_release: 2026-05-24 (genome.jp ftp latest at fetch time)
+  kofam_profiles_sha256: b03d20b96254d0f04652102ea538087ac36adadf0f807ee7278f8637810ca15a
+  hmm_source_url_template: https://www.ebi.ac.uk/interpro/wwwapi/entry/pfam/{pf}/?annotation=hmm
+  uniprot_search_url: https://rest.uniprot.org/uniprotkb/search
+samples:
+  GCA_965223535_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_965223535_1.faa
+    kind: protein
+  GCA_965223315_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_965223315_1.faa
+    kind: protein
+  GCA_047150005_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_047150005_1.faa
+    kind: protein
+  GCA_965223295_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_965223295_1.faa
+    kind: protein
+  GCF_047149785_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_047149785_1.faa
+    kind: protein
+  GCF_000013885_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000013885_1.faa
+    kind: protein
+  GCF_051912485_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_051912485_1.faa
+    kind: protein
+  GCA_041691515_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_041691515_1.faa
+    kind: protein
+  GCA_024102725_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_024102725_1.faa
+    kind: protein
+  GCA_030452365_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030452365_1.faa
+    kind: protein
+  GCA_030452265_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030452265_1.faa
+    kind: protein
+  GCA_030433275_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030433275_1.faa
+    kind: protein
+  GCF_021845525_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_021845525_1.faa
+    kind: protein
+  GCF_946900835_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_946900835_1.faa
+    kind: protein
+  GCF_052156615_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_052156615_1.faa
+    kind: protein
+  GCF_000341545_2:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000341545_2.faa
+    kind: protein
+  GCA_040255925_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_040255925_1.faa
+    kind: protein
+  GCF_000297255_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000297255_1.faa
+    kind: protein
+  GCA_965285975_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_965285975_1.faa
+    kind: protein
+  GCF_900113925_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_900113925_1.faa
+    kind: protein
+  GCF_900111605_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_900111605_1.faa
+    kind: protein
+  GCA_008015595_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_008015595_1.faa
+    kind: protein
+  GCF_009833085_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_009833085_1.faa
+    kind: protein
+  GCA_039922995_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_039922995_1.faa
+    kind: protein
+  GCA_030453055_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030453055_1.faa
+    kind: protein
+  GCA_963831395_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_963831395_1.faa
+    kind: protein
+  GCF_000832065_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000832065_1.faa
+    kind: protein
+  GCF_000012805_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000012805_1.faa
+    kind: protein
+  GCF_000024725_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000024725_1.faa
+    kind: protein
+  GCF_000143085_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000143085_1.faa
+    kind: protein
+  GCF_004421105_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_004421105_1.faa
+    kind: protein
+  GCA_028448965_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_028448965_1.faa
+    kind: protein
+  GCA_964490195_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_964490195_1.faa
+    kind: protein
+  GCA_018263505_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_018263505_1.faa
+    kind: protein
+  GCA_965205425_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_965205425_1.faa
+    kind: protein
+  GCA_013114715_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_013114715_1.faa
+    kind: protein
+  GCA_039961795_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_039961795_1.faa
+    kind: protein
+  GCA_022545875_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_022545875_1.faa
+    kind: protein
+  GCA_021325075_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_021325075_1.faa
+    kind: protein
+  GCA_025930205_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_025930205_1.faa
+    kind: protein
+  GCA_035455105_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_035455105_1.faa
+    kind: protein
+  GCA_042138255_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_042138255_1.faa
+    kind: protein
+  GCA_016234975_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_016234975_1.faa
+    kind: protein
+  GCA_030598065_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030598065_1.faa
+    kind: protein
+  GCA_963709355_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_963709355_1.faa
+    kind: protein
+  GCA_018662645_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_018662645_1.faa
+    kind: protein
+  GCF_000949635_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000949635_1.faa
+    kind: protein
+  GCA_964582755_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_964582755_1.faa
+    kind: protein
+  GCA_012026715_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_012026715_1.faa
+    kind: protein
+  GCF_009498235_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_009498235_1.faa
+    kind: protein
+  GCA_051007495_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_051007495_1.faa
+    kind: protein
+  GCA_050179015_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_050179015_1.faa
+    kind: protein
+  GCF_905250085_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_905250085_1.faa
+    kind: protein
+  GCF_000817245_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000817245_1.faa
+    kind: protein
+  GCF_004421255_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_004421255_1.faa
+    kind: protein
+  GCA_030538705_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030538705_1.faa
+    kind: protein
+  GCF_033555915_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_033555915_1.faa
+    kind: protein
+  GCF_002847305_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_002847305_1.faa
+    kind: protein
+  GCF_947487305_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_947487305_1.faa
+    kind: protein
+  GCF_021602305_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_021602305_1.faa
+    kind: protein
+  GCF_048068055_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_048068055_1.faa
+    kind: protein
+  GCA_049840615_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_049840615_1.faa
+    kind: protein
+  GCF_032094775_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_032094775_1.faa
+    kind: protein
+  GCF_030697065_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_030697065_1.faa
+    kind: protein
+  GCA_005882475_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_005882475_1.faa
+    kind: protein
+  GCF_964252915_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_964252915_1.faa
+    kind: protein
+  GCA_963786355_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_963786355_1.faa
+    kind: protein
+  GCA_023150835_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_023150835_1.faa
+    kind: protein
+  GCA_002010385_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_002010385_1.faa
+    kind: protein
+  GCA_050173015_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_050173015_1.faa
+    kind: protein
+  GCA_023128455_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_023128455_1.faa
+    kind: protein
+  GCA_038819735_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_038819735_1.faa
+    kind: protein
+  GCF_000284235_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000284235_1.faa
+    kind: protein
+  GCA_018304505_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_018304505_1.faa
+    kind: protein
+  GCA_900549285_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_900549285_1.faa
+    kind: protein
+  GCA_030590165_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030590165_1.faa
+    kind: protein
+  GCA_003485015_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_003485015_1.faa
+    kind: protein
+  GCA_003645085_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_003645085_1.faa
+    kind: protein
+  GCA_022729335_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_022729335_1.faa
+    kind: protein
+  GCA_011375275_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_011375275_1.faa
+    kind: protein
+  GCF_000212395_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCF_000212395_1.faa
+    kind: protein
+  GCA_041690355_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_041690355_1.faa
+    kind: protein
+  GCA_030698575_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030698575_1.faa
+    kind: protein
+  GCA_030615855_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030615855_1.faa
+    kind: protein
+  GCA_043817485_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_043817485_1.faa
+    kind: protein
+  GCA_014729705_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_014729705_1.faa
+    kind: protein
+  GCA_964644695_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_964644695_1.faa
+    kind: protein
+  GCA_001803565_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_001803565_1.faa
+    kind: protein
+  GCA_030602715_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030602715_1.faa
+    kind: protein
+  GCA_050251945_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_050251945_1.faa
+    kind: protein
+  GCA_964389675_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_964389675_1.faa
+    kind: protein
+  GCA_001799195_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_001799195_1.faa
+    kind: protein
+  GCA_036824335_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_036824335_1.faa
+    kind: protein
+  GCA_028700425_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_028700425_1.faa
+    kind: protein
+  GCA_001782795_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_001782795_1.faa
+    kind: protein
+  GCA_945786985_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_945786985_1.faa
+    kind: protein
+  GCA_038890115_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_038890115_1.faa
+    kind: protein
+  GCA_903831375_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_903831375_1.faa
+    kind: protein
+  GCA_031551405_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_031551405_1.faa
+    kind: protein
+  GCA_030615405_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_030615405_1.faa
+    kind: protein
+  GCA_964372275_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_964372275_1.faa
+    kind: protein
+  GCA_023143305_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_023143305_1.faa
+    kind: protein
+  GCA_024275095_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_024275095_1.faa
+    kind: protein
+  GCA_963665755_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_963665755_1.faa
+    kind: protein
+  GCA_003232385_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_003232385_1.faa
+    kind: protein
+  GCA_003558335_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_003558335_1.faa
+    kind: protein
+  GCA_016180645_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_016180645_1.faa
+    kind: protein
+  GCA_026987085_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_026987085_1.faa
+    kind: protein
+  GCA_964469765_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_964469765_1.faa
+    kind: protein
+  GCA_964610505_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_964610505_1.faa
+    kind: protein
+  GCA_041675285_1:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/comparators/gtdb_pilot/proteomes/GCA_041675285_1.faa
+    kind: protein

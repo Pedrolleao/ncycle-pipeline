@@ -1,0 +1,7 @@
+genome	target	severity	seed_acc	seed_organism
+Adehalogenans_2CP1	nosZ_clade2	genus	A0A7I9VKT0	anaeromyxobacter diazotrophicus
+Nhalophilus_Nc4	amoA_gamma	genus	Q9RAI1	nitrosococcus watsoni
+Sstutzeri_F2a	nirS	species	P24040	stutzerimonas stutzeri
+Sstutzeri_F2a	norB	species	P98008	stutzerimonas stutzeri
+Sstutzeri_F2a	norC	species	Q52527	stutzerimonas stutzeri
+Sstutzeri_F2a	nosZ	species	P19573	stutzerimonas stutzeri

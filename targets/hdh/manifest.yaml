@@ -1,0 +1,51 @@
+target_id: hdh
+tier: 2
+cdhit_threshold: 0.9
+min_seqs_override: 3
+seed_accessions:
+- Q1PW30
+- A0A1E3XEZ6
+expanded_candidates:
+- acc: Q1PW30
+  organism: Kuenenia stuttgartiensis
+  keep: true
+  note: reviewed canonical Hdh (octaheme c-type cytochrome kustc0694)
+- acc: A0A6G7GWX3
+  organism: Kuenenia stuttgartiensis
+  keep: true
+  note: Hdh (KsCSTR_46980)
+- acc: A0A2C9CJB5
+  organism: Kuenenia stuttgartiensis
+  keep: true
+  note: Hdh (KSMBR1_2369)
+- acc: A0A1E3XEZ6
+  organism: Ca. Scalindua rubra
+  keep: true
+  note: Hdh
+- acc: A0A941W3I3
+  organism: Ca. Scalindua arabica
+  keep: true
+  note: Hdh
+- acc: A0A942A1D2
+  organism: Ca. Scalindua arabica
+  keep: true
+  note: Hdh
+negatives:
+- A0A0S4KTM8
+- M5DCM0
+- Q1PX48
+- P0ABK9
+notes: "Tier-3 -> Tier-2 custom HMM. Hydrazine dehydrogenase (K20935, EC 1.7.2.8)\
+  \ is an octaheme c-type cytochrome of the HAO family with NO clean Pfam, and the\
+  \ gene symbol 'hdh' is heavily polluted in UniProt (huntingtin, histidinol/homoserine/\
+  \ histamine dehydrogenases) \u2014 so KO/symbol-based calls are ambiguous. This\
+  \ clade HMM is trained on bona-fide anammox Hdh (Kuenenia + Scalindua) and calibrated\
+  \ above the nitrifier-HAO and NrfA negative band, separating it from its sister\
+  \ hao octaheme fold. Few anammox references exist; min_seqs_override=3 (documented\
+  \ coverage limit)."
+curator: pedro.leao.ru@gmail.com
+n_seqs_final: 4
+curation_date: '2026-05-25'
+tc_bitscore: 741.6
+tc_rationale: 'clean gap: min_positive=888.3 > max_negative=594.9; TC = midpoint =
+  741.6'

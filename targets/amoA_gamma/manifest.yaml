@@ -1,0 +1,47 @@
+target_id: amoA_gamma
+tier: 2
+cdhit_threshold: 0.99
+min_seqs_override: 2
+seed_accessions:
+- Q9RAI1
+- A0A4P7BVX1
+expanded_candidates:
+- acc: Q9RAI1
+  keep: true
+  note: "Nitrosococcus watsonii C-113 AmoA (\u03B3-AOB, reviewed Swiss-Prot)"
+- acc: A0A4P7BVX1
+  keep: true
+  note: "Nitrosococcus wardiae AmoA (\u03B3-AOB; TrEMBL family-level UniProt name\
+    \ \"Methane monooxygenase/ammonia monooxygenase, subunit A\" \u2014 NOT pmoA;\
+    \ organism is obligate \u03B3-AOB with no methanotrophic capacity)"
+notes: "P-batch-3b (2026-05-29) \u03B3-AOB Nitrosococcus-clade AmoA HMM. Complements\
+  \ amoA (\u03B2-AOB + comammox, see targets/amoA/) and amoA_archaeal (AOA, PF12942).\
+  \ Resolves the Noceani amoA FN documented in REPORT \xA7 Block 2b: Noceani amoA\
+  \ scores 271 on the AOB+comammox HMM \u2014 sandwiched between Mfumariolicum pmoA\
+  \ at 274 (K28504) / 279 (custom HMM) with no separating threshold.\n\nAUDIT 2026-06-10:\
+  \ D5BWX5 (Nitrosococcus halophilus Nc4) REMOVED from the training set \u2014 it\
+  \ is the same strain as the Nhalophilus_Nc4 hold-out genome, so it was a same-strain\
+  \ seed leak (detect_seed_leakage.py flagged Nhalophilus_Nc4/amoA_gamma). Verified\
+  \ empirically free to drop: on the 2-seq HMM (watsonii Q9RAI1 + wardiae A0A4P7BVX1)\
+  \ Noceani scores 545 and Nhalophilus 550 (now detected via the wardiae sibling at\
+  \ ~96%, NOT its own strain \u2014 a genuine hold-out detection), while the \u03B3\
+  -proteobacterial pmoA decoy Mcapsulatus is unchanged at ~388 (3-seq: 389.5, 2-seq:\
+  \ 388.2). NOT N. oceani itself (oceani is a test organism). expanded_candidates\
+  \ pre-filled to bypass build_custom_hmms.py `expand` (a SwissProt phmmer expand\
+  \ would surface N. oceani/halophilus at ~95% identity which must NOT re-enter the\
+  \ training set). Verification provenance (UniProt REST API + sequence motif inspection\
+  \ + phylogenetic-fit review) recorded in REPORT \xA7 Block 3 and \xA7 Audit 2026-06-10."
+curator: pedro.leao.ru@gmail.com
+n_seqs_final: 2
+curation_date: '2026-06-10'
+tc_bitscore: 400
+tc_rationale: "\u03B3-AOB targets Noceani 545 / Nhalophilus 550 (2-seq HMM) sit far\
+  \ above; the closest decoys are \u03B3-proteobacterial methanotroph pmoA Mcapsulatus\
+  \ 388 and verrucomicrobial pmoA Mfumariolicum 288 \u2014 both below TC. TC=400 admits\
+  \ the \u03B3-AOB targets by ~145 and excludes Mcapsulatus by ~12. The HMM margin\
+  \ to the \u03B3-proteo pmoA decoy is intentionally thin and is BACKSTOPPED by the\
+  \ BLAST gate (blast_identity_min: 80): Mcapsulatus pmoA hits the \u03B3-AOB seeds\
+  \ at only 65% so even a KO-tier hit is disqualified. \u03B2-AOB Nmultiformis 253\
+  \ / Neuropaea 252 and comammox Ninopinata 231 are well below TC (covered by `amoA`).\
+  \ Recalibrated 2026-06-10 after removing the D5BWX5 same-strain leak (mirrors amoA/nxrA/nxrB\
+  \ precedent)."

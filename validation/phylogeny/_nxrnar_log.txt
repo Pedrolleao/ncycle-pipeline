@@ -1,0 +1,22 @@
+NONE Nitrobacter winogradskyi nxrA
+NONE Nitrobacter hamburgensis nxrA
+NONE Nitrococcus mobilis nxrA
+NONE Candidatus Nitrospira defluvii nxrA
+OK Nitrospira nxrA -> A0ABM8RCK9 L=1147 rev=True
+OK Nitrolancea hollandica nxrA -> A0A894Z0L1 L=1221 rev=True
+NONE Nitrospina gracilis nxrA
+OK Candidatus Nitrotoga nxrA -> A0ABN8AJF8 L=1169 rev=True
+NONE Candidatus Kuenenia stuttgartiensis nxrA
+OK Candidatus Brocadia nxrA -> A0A0M2UVV1 L=1149 rev=True
+OK Escherichia coli narG -> Q8XDC8 L=1247 rev=True
+NONE Paracoccus denitrificans narG
+OK Pseudomonas aeruginosa narG -> G3XCX1 L=1261 rev=True
+OK Bacillus subtilis narG -> P42175 L=1228 rev=True
+OK Thermus thermophilus narG -> O06459 L=1196 rev=True
+OK Mycobacterium tuberculosis narG -> P9WJQ3 L=1232 rev=True
+NONE Rhodobacter sphaeroides narG
+OK Halomonas narG -> Q6GUE5 L=1258 rev=True
+OK Salmonella narG -> Q8ZP37 L=1247 rev=True
+OK Geobacillus narG -> Q75TJ6 L=1018 rev=True
+NONE Corynebacterium glutamicum narG
+NONE Magnetospirillum narG

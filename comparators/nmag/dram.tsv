@@ -1,0 +1,81 @@
+genome	function	present
+A1_Brocadia_reactor	nitrification, ammonia => nitrite	1
+A1_Brocadia_reactor	nitrogen fixation, nitrogen => ammonia	0
+A1_Brocadia_reactor	denitrification, nitrate => nitrogen	0
+A1_Brocadia_reactor	dissimilatory nitrate reduction, nitrate => ammonia	1
+A1_Brocadia_reactor	assimilatory nitrate reduction, nitrate => ammonia	0
+A1_Brocadia_reactor	nitrate assimilation	1
+A1_Brocadia_reactor	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+A1_Brocadia_reactor	nitrite + ammonia => nitrogen	1
+D1_Paracoccus_soil	nitrification, ammonia => nitrite	0
+D1_Paracoccus_soil	nitrogen fixation, nitrogen => ammonia	0
+D1_Paracoccus_soil	denitrification, nitrate => nitrogen	1
+D1_Paracoccus_soil	dissimilatory nitrate reduction, nitrate => ammonia	1
+D1_Paracoccus_soil	assimilatory nitrate reduction, nitrate => ammonia	1
+D1_Paracoccus_soil	nitrate assimilation	1
+D1_Paracoccus_soil	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+D1_Paracoccus_soil	nitrite + ammonia => nitrogen	1
+D2_Thiobacillus_groundwater	nitrification, ammonia => nitrite	0
+D2_Thiobacillus_groundwater	nitrogen fixation, nitrogen => ammonia	0
+D2_Thiobacillus_groundwater	denitrification, nitrate => nitrogen	1
+D2_Thiobacillus_groundwater	dissimilatory nitrate reduction, nitrate => ammonia	1
+D2_Thiobacillus_groundwater	assimilatory nitrate reduction, nitrate => ammonia	1
+D2_Thiobacillus_groundwater	nitrate assimilation	1
+D2_Thiobacillus_groundwater	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+D2_Thiobacillus_groundwater	nitrite + ammonia => nitrogen	1
+D3_Thioglobus_OMZ	nitrification, ammonia => nitrite	1
+D3_Thioglobus_OMZ	nitrogen fixation, nitrogen => ammonia	0
+D3_Thioglobus_OMZ	denitrification, nitrate => nitrogen	1
+D3_Thioglobus_OMZ	dissimilatory nitrate reduction, nitrate => ammonia	1
+D3_Thioglobus_OMZ	assimilatory nitrate reduction, nitrate => ammonia	0
+D3_Thioglobus_OMZ	nitrate assimilation	1
+D3_Thioglobus_OMZ	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+D3_Thioglobus_OMZ	nitrite + ammonia => nitrogen	1
+N1_Nitrosopumilus_marine	nitrification, ammonia => nitrite	1
+N1_Nitrosopumilus_marine	nitrogen fixation, nitrogen => ammonia	0
+N1_Nitrosopumilus_marine	denitrification, nitrate => nitrogen	1
+N1_Nitrosopumilus_marine	dissimilatory nitrate reduction, nitrate => ammonia	0
+N1_Nitrosopumilus_marine	assimilatory nitrate reduction, nitrate => ammonia	0
+N1_Nitrosopumilus_marine	nitrate assimilation	0
+N1_Nitrosopumilus_marine	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+N1_Nitrosopumilus_marine	nitrite + ammonia => nitrogen	1
+N2_Nitrosomonas_AOB	nitrification, ammonia => nitrite	1
+N2_Nitrosomonas_AOB	nitrogen fixation, nitrogen => ammonia	0
+N2_Nitrosomonas_AOB	denitrification, nitrate => nitrogen	1
+N2_Nitrosomonas_AOB	dissimilatory nitrate reduction, nitrate => ammonia	0
+N2_Nitrosomonas_AOB	assimilatory nitrate reduction, nitrate => ammonia	0
+N2_Nitrosomonas_AOB	nitrate assimilation	0
+N2_Nitrosomonas_AOB	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+N2_Nitrosomonas_AOB	nitrite + ammonia => nitrogen	1
+N3_Nitrospina_NOB	nitrification, ammonia => nitrite	0
+N3_Nitrospina_NOB	nitrogen fixation, nitrogen => ammonia	0
+N3_Nitrospina_NOB	denitrification, nitrate => nitrogen	1
+N3_Nitrospina_NOB	dissimilatory nitrate reduction, nitrate => ammonia	0
+N3_Nitrospina_NOB	assimilatory nitrate reduction, nitrate => ammonia	1
+N3_Nitrospina_NOB	nitrate assimilation	1
+N3_Nitrospina_NOB	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+N3_Nitrospina_NOB	nitrite + ammonia => nitrogen	1
+N4_Nitrospira_comammox	nitrification, ammonia => nitrite	1
+N4_Nitrospira_comammox	nitrogen fixation, nitrogen => ammonia	0
+N4_Nitrospira_comammox	denitrification, nitrate => nitrogen	1
+N4_Nitrospira_comammox	dissimilatory nitrate reduction, nitrate => ammonia	1
+N4_Nitrospira_comammox	assimilatory nitrate reduction, nitrate => ammonia	0
+N4_Nitrospira_comammox	nitrate assimilation	0
+N4_Nitrospira_comammox	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+N4_Nitrospira_comammox	nitrite + ammonia => nitrogen	1
+Neg1_Bacteroides_gut	nitrification, ammonia => nitrite	0
+Neg1_Bacteroides_gut	nitrogen fixation, nitrogen => ammonia	0
+Neg1_Bacteroides_gut	denitrification, nitrate => nitrogen	0
+Neg1_Bacteroides_gut	dissimilatory nitrate reduction, nitrate => ammonia	1
+Neg1_Bacteroides_gut	assimilatory nitrate reduction, nitrate => ammonia	0
+Neg1_Bacteroides_gut	nitrate assimilation	0
+Neg1_Bacteroides_gut	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Neg1_Bacteroides_gut	nitrite + ammonia => nitrogen	0
+Neg2_Ecoli_K12	nitrification, ammonia => nitrite	0
+Neg2_Ecoli_K12	nitrogen fixation, nitrogen => ammonia	0
+Neg2_Ecoli_K12	denitrification, nitrate => nitrogen	1
+Neg2_Ecoli_K12	dissimilatory nitrate reduction, nitrate => ammonia	1
+Neg2_Ecoli_K12	assimilatory nitrate reduction, nitrate => ammonia	0
+Neg2_Ecoli_K12	nitrate assimilation	1
+Neg2_Ecoli_K12	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Neg2_Ecoli_K12	nitrite + ammonia => nitrogen	1

@@ -1,0 +1,133 @@
+# config.yaml — ncycle-pipeline thresholds and paths.
+# The `samples:` block at the bottom is rewritten by run.py at each invocation.
+
+paths:
+  hmm_db:        resources/hmm/ncycle_targets.hmm
+  tc_cutoffs:    resources/hmm/tc_cutoffs.tsv
+  blast_unstable: resources/blast_db/unstable_refs
+  blast_gated:   resources/blast_db/blast_gated_refs
+  targets_yaml:  config/targets.yaml
+  results_dir:   results
+
+thresholds:
+  hmmer:
+    use_tc_when_available: true     # use the KOfam adaptive per-KO score threshold
+    evalue: 1.0e-10                 # fallback when a profile has no threshold
+    dom_evalue: 1.0e-5
+
+  blast:
+    evalue: 1.0e-10
+    qcov_hsp_perc: 50
+    pident_min: 30                  # default; per-target blast_identity_min overrides
+
+options:
+  # ROADMAP P5.4.2 — restrict the DIAMOND-blastp query to proteins with >=1
+  # hmmscan hit, instead of the whole proteome (~63x fewer DIAMOND queries on
+  # the panel; gene-coordinate synteny + hmmscan always use the FULL proteome).
+  #
+  # DEFAULT OFF — it is NOT prediction-neutral here, verified 2026-06-09. The
+  # BLAST gate is COMPLEMENTARY to the HMMs, not nested under them: some targets
+  # (e.g. assimilatory narB/K00367, nasD/K17877) are detected by curated BLAST
+  # seeds on divergent proteins that produce NO hmmscan hit at all. Filtering the
+  # query drops those proteins → narB (E. coli) + nasD (N. europaea) flip to
+  # absent → training micro-F1 1.00 → 0.996 (2 FN), regression gate FAILS.
+  # It also only speeds the already-cheap DIAMOND-vs-seeds step, not the hmmscan
+  # bottleneck that dominates large runs — so it is not the right GTDB-scale lever.
+  # Left wired + toggleable for experiments; keep OFF for any accuracy-critical run.
+  filter_blast_query_by_hmm: false
+
+build:
+  # KOfam profile HMMs + adaptive thresholds (primary detection backbone).
+  # Pinned release: the build (workflow/scripts/build_hmm_db.py) verifies the
+  # downloaded profiles.tar.gz against kofam_profiles_sha256 and warns on mismatch.
+  # KEGG's URL is rolling-latest (no embedded version) → we pin by content hash.
+  kofam_profiles_url:    "https://www.genome.jp/ftp/db/kofam/profiles.tar.gz"
+  kofam_ko_list_url:     "https://www.genome.jp/ftp/db/kofam/ko_list.gz"
+  kofam_release:         "2026-05-24 (genome.jp ftp latest at fetch time)"
+  kofam_profiles_sha256: "b03d20b96254d0f04652102ea538087ac36adadf0f807ee7278f8637810ca15a"
+  # Pfam fallback (only used for any target that has a `pfam:` but no KOfam profile).
+  hmm_source_url_template: "https://www.ebi.ac.uk/interpro/wwwapi/entry/pfam/{pf}/?annotation=hmm"
+  uniprot_search_url: "https://rest.uniprot.org/uniprotkb/search"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+samples:
+  A1_Brocadia_reactor:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/validation/metagenomes/A1_Brocadia_reactor.fna
+    kind: nucleotide
+    prodigal_mode: meta
+  D1_Paracoccus_soil:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/validation/metagenomes/D1_Paracoccus_soil.fna
+    kind: nucleotide
+    prodigal_mode: meta
+  D2_Thiobacillus_groundwater:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/validation/metagenomes/D2_Thiobacillus_groundwater.fna
+    kind: nucleotide
+    prodigal_mode: meta
+  D3_Thioglobus_OMZ:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/validation/metagenomes/D3_Thioglobus_OMZ.fna
+    kind: nucleotide
+    prodigal_mode: meta
+  N1_Nitrosopumilus_marine:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/validation/metagenomes/N1_Nitrosopumilus_marine.fna
+    kind: nucleotide
+    prodigal_mode: meta
+  N2_Nitrosomonas_AOB:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/validation/metagenomes/N2_Nitrosomonas_AOB.fna
+    kind: nucleotide
+    prodigal_mode: meta
+  N3_Nitrospina_NOB:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/validation/metagenomes/N3_Nitrospina_NOB.fna
+    kind: nucleotide
+    prodigal_mode: meta
+  N4_Nitrospira_comammox:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/validation/metagenomes/N4_Nitrospira_comammox.fna
+    kind: nucleotide
+    prodigal_mode: meta
+  Neg1_Bacteroides_gut:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/validation/metagenomes/Neg1_Bacteroides_gut.fna
+    kind: nucleotide
+    prodigal_mode: meta
+  Neg2_Ecoli_K12:
+    path: /home/dmin/Grants/Nitrogen_Cycle/ncycle-pipeline/validation/metagenomes/Neg2_Ecoli_K12.fna
+    kind: nucleotide
+    prodigal_mode: meta

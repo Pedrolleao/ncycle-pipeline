@@ -1,0 +1,249 @@
+genome	function	present
+Ahydrophila_ATCC7966	nitrification, ammonia => nitrite	0
+Ahydrophila_ATCC7966	nitrogen fixation, nitrogen => ammonia	0
+Ahydrophila_ATCC7966	denitrification, nitrate => nitrogen	1
+Ahydrophila_ATCC7966	dissimilatory nitrate reduction, nitrate => ammonia	1
+Ahydrophila_ATCC7966	assimilatory nitrate reduction, nitrate => ammonia	1
+Ahydrophila_ATCC7966	nitrate assimilation	0
+Ahydrophila_ATCC7966	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Ahydrophila_ATCC7966	nitrite + ammonia => nitrogen	0
+Aterreus_NIH2624	nitrification, ammonia => nitrite	0
+Aterreus_NIH2624	nitrogen fixation, nitrogen => ammonia	0
+Aterreus_NIH2624	denitrification, nitrate => nitrogen	1
+Aterreus_NIH2624	dissimilatory nitrate reduction, nitrate => ammonia	0
+Aterreus_NIH2624	assimilatory nitrate reduction, nitrate => ammonia	1
+Aterreus_NIH2624	nitrate assimilation	1
+Aterreus_NIH2624	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Aterreus_NIH2624	nitrite + ammonia => nitrogen	1
+Avinelandii_DJ	nitrification, ammonia => nitrite	0
+Avinelandii_DJ	nitrogen fixation, nitrogen => ammonia	1
+Avinelandii_DJ	denitrification, nitrate => nitrogen	0
+Avinelandii_DJ	dissimilatory nitrate reduction, nitrate => ammonia	0
+Avinelandii_DJ	assimilatory nitrate reduction, nitrate => ammonia	1
+Avinelandii_DJ	nitrate assimilation	1
+Avinelandii_DJ	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Avinelandii_DJ	nitrite + ammonia => nitrogen	0
+Bsinica_JPN1	nitrification, ammonia => nitrite	1
+Bsinica_JPN1	nitrogen fixation, nitrogen => ammonia	0
+Bsinica_JPN1	denitrification, nitrate => nitrogen	0
+Bsinica_JPN1	dissimilatory nitrate reduction, nitrate => ammonia	1
+Bsinica_JPN1	assimilatory nitrate reduction, nitrate => ammonia	0
+Bsinica_JPN1	nitrate assimilation	1
+Bsinica_JPN1	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Bsinica_JPN1	nitrite + ammonia => nitrogen	1
+Bsubtilis_168	nitrification, ammonia => nitrite	0
+Bsubtilis_168	nitrogen fixation, nitrogen => ammonia	0
+Bsubtilis_168	denitrification, nitrate => nitrogen	1
+Bsubtilis_168	dissimilatory nitrate reduction, nitrate => ammonia	1
+Bsubtilis_168	assimilatory nitrate reduction, nitrate => ammonia	1
+Bsubtilis_168	nitrate assimilation	1
+Bsubtilis_168	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Bsubtilis_168	nitrite + ammonia => nitrogen	1
+Cnecator_H16	nitrification, ammonia => nitrite	0
+Cnecator_H16	nitrogen fixation, nitrogen => ammonia	0
+Cnecator_H16	denitrification, nitrate => nitrogen	1
+Cnecator_H16	dissimilatory nitrate reduction, nitrate => ammonia	1
+Cnecator_H16	assimilatory nitrate reduction, nitrate => ammonia	1
+Cnecator_H16	nitrate assimilation	1
+Cnecator_H16	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Cnecator_H16	nitrite + ammonia => nitrogen	1
+Dvulgaris_Hildenborough	nitrification, ammonia => nitrite	0
+Dvulgaris_Hildenborough	nitrogen fixation, nitrogen => ammonia	1
+Dvulgaris_Hildenborough	denitrification, nitrate => nitrogen	0
+Dvulgaris_Hildenborough	dissimilatory nitrate reduction, nitrate => ammonia	1
+Dvulgaris_Hildenborough	assimilatory nitrate reduction, nitrate => ammonia	0
+Dvulgaris_Hildenborough	nitrate assimilation	0
+Dvulgaris_Hildenborough	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Dvulgaris_Hildenborough	nitrite + ammonia => nitrogen	0
+Ecoli_K12_MG1655	nitrification, ammonia => nitrite	0
+Ecoli_K12_MG1655	nitrogen fixation, nitrogen => ammonia	0
+Ecoli_K12_MG1655	denitrification, nitrate => nitrogen	1
+Ecoli_K12_MG1655	dissimilatory nitrate reduction, nitrate => ammonia	1
+Ecoli_K12_MG1655	assimilatory nitrate reduction, nitrate => ammonia	0
+Ecoli_K12_MG1655	nitrate assimilation	1
+Ecoli_K12_MG1655	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Ecoli_K12_MG1655	nitrite + ammonia => nitrogen	1
+Hpylori_26695	nitrification, ammonia => nitrite	0
+Hpylori_26695	nitrogen fixation, nitrogen => ammonia	0
+Hpylori_26695	denitrification, nitrate => nitrogen	0
+Hpylori_26695	dissimilatory nitrate reduction, nitrate => ammonia	0
+Hpylori_26695	assimilatory nitrate reduction, nitrate => ammonia	0
+Hpylori_26695	nitrate assimilation	0
+Hpylori_26695	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Hpylori_26695	nitrite + ammonia => nitrogen	0
+Kstuttgartiensis	nitrification, ammonia => nitrite	1
+Kstuttgartiensis	nitrogen fixation, nitrogen => ammonia	0
+Kstuttgartiensis	denitrification, nitrate => nitrogen	1
+Kstuttgartiensis	dissimilatory nitrate reduction, nitrate => ammonia	0
+Kstuttgartiensis	assimilatory nitrate reduction, nitrate => ammonia	0
+Kstuttgartiensis	nitrate assimilation	1
+Kstuttgartiensis	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Kstuttgartiensis	nitrite + ammonia => nitrogen	1
+Lacidophilus_4356	nitrification, ammonia => nitrite	0
+Lacidophilus_4356	nitrogen fixation, nitrogen => ammonia	0
+Lacidophilus_4356	denitrification, nitrate => nitrogen	0
+Lacidophilus_4356	dissimilatory nitrate reduction, nitrate => ammonia	0
+Lacidophilus_4356	assimilatory nitrate reduction, nitrate => ammonia	0
+Lacidophilus_4356	nitrate assimilation	0
+Lacidophilus_4356	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Lacidophilus_4356	nitrite + ammonia => nitrogen	0
+Mfumariolicum_SolV	nitrification, ammonia => nitrite	1
+Mfumariolicum_SolV	nitrogen fixation, nitrogen => ammonia	1
+Mfumariolicum_SolV	denitrification, nitrate => nitrogen	1
+Mfumariolicum_SolV	dissimilatory nitrate reduction, nitrate => ammonia	0
+Mfumariolicum_SolV	assimilatory nitrate reduction, nitrate => ammonia	0
+Mfumariolicum_SolV	nitrate assimilation	1
+Mfumariolicum_SolV	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Mfumariolicum_SolV	nitrite + ammonia => nitrogen	1
+Neuropaea_ATCC19718	nitrification, ammonia => nitrite	1
+Neuropaea_ATCC19718	nitrogen fixation, nitrogen => ammonia	0
+Neuropaea_ATCC19718	denitrification, nitrate => nitrogen	1
+Neuropaea_ATCC19718	dissimilatory nitrate reduction, nitrate => ammonia	0
+Neuropaea_ATCC19718	assimilatory nitrate reduction, nitrate => ammonia	0
+Neuropaea_ATCC19718	nitrate assimilation	0
+Neuropaea_ATCC19718	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Neuropaea_ATCC19718	nitrite + ammonia => nitrogen	1
+Ngracilis_3211	nitrification, ammonia => nitrite	0
+Ngracilis_3211	nitrogen fixation, nitrogen => ammonia	0
+Ngracilis_3211	denitrification, nitrate => nitrogen	1
+Ngracilis_3211	dissimilatory nitrate reduction, nitrate => ammonia	0
+Ngracilis_3211	assimilatory nitrate reduction, nitrate => ammonia	1
+Ngracilis_3211	nitrate assimilation	1
+Ngracilis_3211	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Ngracilis_3211	nitrite + ammonia => nitrogen	1
+Ninopinata_comammox	nitrification, ammonia => nitrite	1
+Ninopinata_comammox	nitrogen fixation, nitrogen => ammonia	0
+Ninopinata_comammox	denitrification, nitrate => nitrogen	1
+Ninopinata_comammox	dissimilatory nitrate reduction, nitrate => ammonia	1
+Ninopinata_comammox	assimilatory nitrate reduction, nitrate => ammonia	0
+Ninopinata_comammox	nitrate assimilation	0
+Ninopinata_comammox	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Ninopinata_comammox	nitrite + ammonia => nitrogen	1
+Njaponica_NJ11	nitrification, ammonia => nitrite	1
+Njaponica_NJ11	nitrogen fixation, nitrogen => ammonia	0
+Njaponica_NJ11	denitrification, nitrate => nitrogen	1
+Njaponica_NJ11	dissimilatory nitrate reduction, nitrate => ammonia	1
+Njaponica_NJ11	assimilatory nitrate reduction, nitrate => ammonia	0
+Njaponica_NJ11	nitrate assimilation	1
+Njaponica_NJ11	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Njaponica_NJ11	nitrite + ammonia => nitrogen	1
+Nmaritimus_SCM1	nitrification, ammonia => nitrite	1
+Nmaritimus_SCM1	nitrogen fixation, nitrogen => ammonia	0
+Nmaritimus_SCM1	denitrification, nitrate => nitrogen	1
+Nmaritimus_SCM1	dissimilatory nitrate reduction, nitrate => ammonia	0
+Nmaritimus_SCM1	assimilatory nitrate reduction, nitrate => ammonia	0
+Nmaritimus_SCM1	nitrate assimilation	0
+Nmaritimus_SCM1	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Nmaritimus_SCM1	nitrite + ammonia => nitrogen	1
+Nmultiformis_ATCC25196	nitrification, ammonia => nitrite	1
+Nmultiformis_ATCC25196	nitrogen fixation, nitrogen => ammonia	0
+Nmultiformis_ATCC25196	denitrification, nitrate => nitrogen	1
+Nmultiformis_ATCC25196	dissimilatory nitrate reduction, nitrate => ammonia	0
+Nmultiformis_ATCC25196	assimilatory nitrate reduction, nitrate => ammonia	0
+Nmultiformis_ATCC25196	nitrate assimilation	0
+Nmultiformis_ATCC25196	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Nmultiformis_ATCC25196	nitrite + ammonia => nitrogen	1
+Nnitrosa_comammox	nitrification, ammonia => nitrite	1
+Nnitrosa_comammox	nitrogen fixation, nitrogen => ammonia	0
+Nnitrosa_comammox	denitrification, nitrate => nitrogen	1
+Nnitrosa_comammox	dissimilatory nitrate reduction, nitrate => ammonia	1
+Nnitrosa_comammox	assimilatory nitrate reduction, nitrate => ammonia	0
+Nnitrosa_comammox	nitrate assimilation	1
+Nnitrosa_comammox	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Nnitrosa_comammox	nitrite + ammonia => nitrogen	1
+Noceani_ATCC19707	nitrification, ammonia => nitrite	1
+Noceani_ATCC19707	nitrogen fixation, nitrogen => ammonia	0
+Noceani_ATCC19707	denitrification, nitrate => nitrogen	1
+Noceani_ATCC19707	dissimilatory nitrate reduction, nitrate => ammonia	0
+Noceani_ATCC19707	assimilatory nitrate reduction, nitrate => ammonia	0
+Noceani_ATCC19707	nitrate assimilation	0
+Noceani_ATCC19707	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Noceani_ATCC19707	nitrite + ammonia => nitrogen	1
+Npcc7120	nitrification, ammonia => nitrite	0
+Npcc7120	nitrogen fixation, nitrogen => ammonia	1
+Npcc7120	denitrification, nitrate => nitrogen	1
+Npcc7120	dissimilatory nitrate reduction, nitrate => ammonia	0
+Npcc7120	assimilatory nitrate reduction, nitrate => ammonia	1
+Npcc7120	nitrate assimilation	0
+Npcc7120	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Npcc7120	nitrite + ammonia => nitrogen	1
+Nviennensis_EN76	nitrification, ammonia => nitrite	1
+Nviennensis_EN76	nitrogen fixation, nitrogen => ammonia	0
+Nviennensis_EN76	denitrification, nitrate => nitrogen	1
+Nviennensis_EN76	dissimilatory nitrate reduction, nitrate => ammonia	0
+Nviennensis_EN76	assimilatory nitrate reduction, nitrate => ammonia	0
+Nviennensis_EN76	nitrate assimilation	0
+Nviennensis_EN76	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Nviennensis_EN76	nitrite + ammonia => nitrogen	1
+Nwinogradskyi_Nb255	nitrification, ammonia => nitrite	0
+Nwinogradskyi_Nb255	nitrogen fixation, nitrogen => ammonia	0
+Nwinogradskyi_Nb255	denitrification, nitrate => nitrogen	1
+Nwinogradskyi_Nb255	dissimilatory nitrate reduction, nitrate => ammonia	1
+Nwinogradskyi_Nb255	assimilatory nitrate reduction, nitrate => ammonia	0
+Nwinogradskyi_Nb255	nitrate assimilation	1
+Nwinogradskyi_Nb255	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Nwinogradskyi_Nb255	nitrite + ammonia => nitrogen	1
+Paeruginosa_PAO1	nitrification, ammonia => nitrite	0
+Paeruginosa_PAO1	nitrogen fixation, nitrogen => ammonia	0
+Paeruginosa_PAO1	denitrification, nitrate => nitrogen	1
+Paeruginosa_PAO1	dissimilatory nitrate reduction, nitrate => ammonia	1
+Paeruginosa_PAO1	assimilatory nitrate reduction, nitrate => ammonia	1
+Paeruginosa_PAO1	nitrate assimilation	1
+Paeruginosa_PAO1	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Paeruginosa_PAO1	nitrite + ammonia => nitrogen	1
+Pdenitrificans_PD1222	nitrification, ammonia => nitrite	0
+Pdenitrificans_PD1222	nitrogen fixation, nitrogen => ammonia	0
+Pdenitrificans_PD1222	denitrification, nitrate => nitrogen	1
+Pdenitrificans_PD1222	dissimilatory nitrate reduction, nitrate => ammonia	1
+Pdenitrificans_PD1222	assimilatory nitrate reduction, nitrate => ammonia	1
+Pdenitrificans_PD1222	nitrate assimilation	1
+Pdenitrificans_PD1222	complete nitrification, comammox, ammonia => nitrite => nitrate	1
+Pdenitrificans_PD1222	nitrite + ammonia => nitrogen	1
+Scerevisiae_S288C	nitrification, ammonia => nitrite	0
+Scerevisiae_S288C	nitrogen fixation, nitrogen => ammonia	0
+Scerevisiae_S288C	denitrification, nitrate => nitrogen	0
+Scerevisiae_S288C	dissimilatory nitrate reduction, nitrate => ammonia	0
+Scerevisiae_S288C	assimilatory nitrate reduction, nitrate => ammonia	0
+Scerevisiae_S288C	nitrate assimilation	0
+Scerevisiae_S288C	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Scerevisiae_S288C	nitrite + ammonia => nitrogen	0
+Smeliloti_1021	nitrification, ammonia => nitrite	0
+Smeliloti_1021	nitrogen fixation, nitrogen => ammonia	1
+Smeliloti_1021	denitrification, nitrate => nitrogen	1
+Smeliloti_1021	dissimilatory nitrate reduction, nitrate => ammonia	1
+Smeliloti_1021	assimilatory nitrate reduction, nitrate => ammonia	1
+Smeliloti_1021	nitrate assimilation	1
+Smeliloti_1021	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Smeliloti_1021	nitrite + ammonia => nitrogen	1
+Soneidensis_MR1	nitrification, ammonia => nitrite	0
+Soneidensis_MR1	nitrogen fixation, nitrogen => ammonia	0
+Soneidensis_MR1	denitrification, nitrate => nitrogen	1
+Soneidensis_MR1	dissimilatory nitrate reduction, nitrate => ammonia	1
+Soneidensis_MR1	assimilatory nitrate reduction, nitrate => ammonia	0
+Soneidensis_MR1	nitrate assimilation	0
+Soneidensis_MR1	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Soneidensis_MR1	nitrite + ammonia => nitrogen	0
+Spneumoniae_ref	nitrification, ammonia => nitrite	0
+Spneumoniae_ref	nitrogen fixation, nitrogen => ammonia	0
+Spneumoniae_ref	denitrification, nitrate => nitrogen	0
+Spneumoniae_ref	dissimilatory nitrate reduction, nitrate => ammonia	0
+Spneumoniae_ref	assimilatory nitrate reduction, nitrate => ammonia	0
+Spneumoniae_ref	nitrate assimilation	0
+Spneumoniae_ref	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Spneumoniae_ref	nitrite + ammonia => nitrogen	0
+Synechocystis_PCC6803	nitrification, ammonia => nitrite	0
+Synechocystis_PCC6803	nitrogen fixation, nitrogen => ammonia	0
+Synechocystis_PCC6803	denitrification, nitrate => nitrogen	1
+Synechocystis_PCC6803	dissimilatory nitrate reduction, nitrate => ammonia	0
+Synechocystis_PCC6803	assimilatory nitrate reduction, nitrate => ammonia	1
+Synechocystis_PCC6803	nitrate assimilation	0
+Synechocystis_PCC6803	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Synechocystis_PCC6803	nitrite + ammonia => nitrogen	0
+Wsuccinogenes_DSM1740	nitrification, ammonia => nitrite	0
+Wsuccinogenes_DSM1740	nitrogen fixation, nitrogen => ammonia	1
+Wsuccinogenes_DSM1740	denitrification, nitrate => nitrogen	1
+Wsuccinogenes_DSM1740	dissimilatory nitrate reduction, nitrate => ammonia	1
+Wsuccinogenes_DSM1740	assimilatory nitrate reduction, nitrate => ammonia	0
+Wsuccinogenes_DSM1740	nitrate assimilation	0
+Wsuccinogenes_DSM1740	complete nitrification, comammox, ammonia => nitrite => nitrate	0
+Wsuccinogenes_DSM1740	nitrite + ammonia => nitrogen	0

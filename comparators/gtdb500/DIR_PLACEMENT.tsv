@@ -1,0 +1,55 @@
+genome	clade	characterized	ncycle_gene	ncycle_type	placement	place_support	synteny	synteny_partners	besthit	verdict	agrees_ncycle
+GCA_963807355_1	NOB_Nitrobacter	yes	narG	nar	nxr	91	nar_operon	narH,narI	nxr	nar	yes
+GCF_000012725_1	NOB_Nitrobacter	yes	narG	nar	nxr	100	nar_operon	narH,narI	nxr	nar	yes
+GCF_000013885_1	NOB_Nitrobacter	yes	narG	nar	nxr	100	nar_operon	narH,narI	nxr	nar	yes
+GCF_047149785_1	NOB_Nitrobacter	yes	narG	nar	nxr	69	nar_operon	narH,narI	nxr	nar	yes
+GCF_051912485_1	NOB_Nitrobacter	yes	narG	nar	nxr	94	nar_operon	narH,narI	nxr	nar	yes
+GCA_024102725_1	NOB_Nitrococcus	yes	narG	nar	nxr	100	nar_operon	narH,narI	nxr	nar	yes
+GCA_965285975_1	NOB_Nitrolancea	yes	narG	nar	nxr	100	nar_operon	narH,narI	nxr	nar	yes
+GCF_002847305_1	denit_Paracoccus	yes	narG	nar	nar	100	nar_operon	narH,narI	nar	nar	yes
+GCF_031854425_1	denit_Paracoccus	yes	narG	nar	nar	100	nar_operon	narH,narI	nar	nar	yes
+GCF_033555915_1	denit_Paracoccus	yes	narG	nar	nar	100	nar_operon	narH,narI	nar	nar	yes
+GCF_947487305_1	denit_Paracoccus	yes	narG	nar	nar	100	nar_operon	narH,narI	nar	nar	yes
+GCA_049840615_1	denit_Pseudomonas	yes	narG	nar	intermediate		nar_operon	narI	no_hit	nar	yes
+GCF_003176655_1	denit_Pseudomonas	yes	narG	nar	nar	100	none		nar	nar	yes
+GCF_005796065_1	denit_Pseudomonas	yes	narG	nar	nar	100	nar_operon	narH,narI	nar	nar	yes
+GCF_021602305_1	denit_Pseudomonas	yes	narG	nar	nar	100	nar_operon	narH,narI	nar	nar	yes
+GCF_024259725_1	denit_Pseudomonas	yes	narG	nar	intermediate		nar_operon	narI	no_hit	nar	yes
+GCF_048068055_1	denit_Pseudomonas	yes	narG	nar	nar	100	nar_operon	narH,narI	nar	nar	yes
+GCA_020723665_1	methanotroph_Methylococcaceae	yes	narG	nar	nar	86	nar_operon	narH,narI	nar	nar	yes
+GCA_964582755_1	methanotroph_Methylococcaceae	yes	narG	nar	nar	86	nar_operon	narH,narI	nar	nar	yes
+GCF_000012725_1	NOB_Nitrobacter	yes	nxrA	nxr	nxr	100	none		nxr	nxr	yes
+GCF_000013885_1	NOB_Nitrobacter	yes	nxrA	nxr	nxr	100	none		nxr	nxr	yes
+GCF_047149785_1	NOB_Nitrobacter	yes	nxrA	nxr	nxr	69	none		nxr	nxr	yes
+GCF_051912485_1	NOB_Nitrobacter	yes	nxrA	nxr	nxr	69	none		nxr	nxr	yes
+GCA_024102725_1	NOB_Nitrococcus	yes	nxrA	nxr	nxr	48	none		nxr	nxr	yes
+GCA_030433275_1	NOB_Nitrococcus	yes	nxrA	nxr	nxr	93	nxr_operon	nxrB	nxr	nxr	yes
+GCA_030452265_1	NOB_Nitrococcus	yes	nxrA	nxr	nxr	100	nxr_operon	nxrB	nxr	nxr	yes
+GCA_030452365_1	NOB_Nitrococcus	yes	nxrA	nxr	nxr	42	nxr_operon	nxrB	nxr	nxr	yes
+GCF_000153205_1	NOB_Nitrococcus	yes	nxrA	nxr	nxr	48	none		nxr	nxr	yes
+GCF_000297255_1	NOB_Nitrolancea	yes	nxrA	nxr	nxr	100	none		nxr	nxr	yes
+GCF_003176655_1	denit_Pseudomonas	yes	nxrA	nxr	nar	100	none		nar	nar	NO
+GCF_000242715_1	p__Actinomycetota		narG	nar	nar	100	nar_operon	narH,narI	nar	nar	yes
+GCA_964600515_1	p__Bdellovibrionota_F		narG	nar	nxr	87	nar_operon	narH,narI	nar	nar	yes
+GCA_013360445_1	p__Calditrichota		narG	nar	nxr	87	nar_operon	narH,narI	nar	nar	yes
+GCA_050173015_1	p__Calditrichota		narG	nar	nxr	87	nar_operon	narH	nar	nar	yes
+GCA_031960865_1	p__Campylobacterota_A		narG	nar	nar	99	nar_operon	narH,narI	nar	nar	yes
+GCA_036381125_1	p__DASVDK01		narG	nar	nxr	95	nar_operon	narH,narI	nxr	nar	yes
+GCF_003336745_1	p__Deinococcota		narG	nar	nar	100	nar_operon	narH,narI	nar	nar	yes
+GCA_001797465_1	p__Desulfobacterota		narG	nar	intermediate	100	nar_operon	narH,narI	nxr	nar	yes
+GCA_018263585_1	p__Electryoneota		narG	nar	nxr	87	nar_operon	narH,narI	nar	nar	yes
+GCA_964520315_1	p__GCA-2686955		narG	nar	nxr	87	nar_operon	narH,narI	nar	nar	yes
+GCA_001567115_1	p__Hinthialibacterota		narG	nar	nxr	87	nar_operon	narH,narI	nar	nar	yes
+GCA_964452105_1	p__JAUXIQ01		narG	nar	nxr	87	nar_operon	narH,narI	nar	nar	yes
+GCA_019912885_1	p__Lernaellota		narG	nar	nxr	87	nar_operon	narH,narI	nar	nar	yes
+GCA_964600955_1	p__Muiribacteriota		narG	nar	nxr	87	nar_operon	narH,narI	nar	nar	yes
+GCA_036480675_1	p__RBG-13-66-14		narG	nar	nxr	87	nar_operon	narH,narI	nar	nar	yes
+GCA_021783475_1	p__Thermodesulfobiota		narG	nar	nar	99	nar_operon	narH,narI	nar	nar	yes
+GCF_000212395_1	p__Thermodesulfobiota		narG	nar	nar	99	nar_operon	narH,narI	nar	nar	yes
+GCA_003598085_1	p__Abyssobacteria		nxrA	nxr	nxr	87	none		nxr	nxr	yes
+GCA_020850775_1	p__CLD3		nxrA	nxr	nxr	87	nxr_operon	nxrB	nar	nxr	yes
+GCA_031960865_1	p__Campylobacterota_A		nxrA	nxr	nar	99	none		nar	nar	NO
+GCA_050253135_1	p__Campylobacterota_A		nxrA	nxr	nar	99	none		nar	nar	NO
+GCA_036562265_1	p__DASVDK01		nxrA	nxr	nxr	95	none		nxr	nxr	yes
+GCA_902386255_1	p__Halobacteriota		nxrA	nxr	nxr	100	nxr_operon	nxrB	nar	nxr	yes
+GCA_040755155_1	p__Hinthialibacterota		nxrA	nxr	nxr	100	nxr_operon	nxrB	nar	nxr	yes

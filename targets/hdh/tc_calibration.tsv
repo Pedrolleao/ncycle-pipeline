@@ -1,0 +1,8 @@
+label	name	bitscore
+positive	hdh||A0A1E3XEZ6	1203.5
+positive	hdh||A0A941W3I3	1199.5
+positive	hdh||A0A6G7GWX3	1172.8
+positive	hdh||A0A942A1D2	888.3
+negative	NEG_hdh||Q1PX48	594.9
+negative	NEG_hdh||A0A0S4KTM8	168.1
+negative	NEG_hdh||M5DCM0	160.9

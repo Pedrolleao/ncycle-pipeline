@@ -1,0 +1,93 @@
+target_id: nosZ_clade2
+tier: 2
+cdhit_threshold: 0.99
+min_seqs_override: 5
+seed_accessions:
+- A0A0K2JZH2
+- A0A7I9VKT0
+- A0A3D4V581
+- A0A2N9PAU8
+- A0ABS1GHF2
+- A0A7C1FJ72
+- A0A7C1K3A7
+expanded_candidates:
+- acc: A0A0K2JZH2
+  keep: true
+  note: "Dechloromonas denitrificans nosZ (\u03B2-proteo Rhodocyclales, 763 aa) \u2014\
+    \ most divergent seed at 40-47% to others; widens HMM coverage"
+- acc: A0A7I9VKT0
+  keep: true
+  note: "Anaeromyxobacter diazotrophicus nosZ (\u03B4-proteo Myxococcales, 618 aa)\
+    \ \u2014 Sanford et al. 2012 clade-II reference lineage"
+- acc: A0A3D4V581
+  keep: true
+  note: "Gemmatimonas aurantiaca Sec-dependent nosZ (Gemmatimonadetes, 693 aa) \u2014\
+    \ Hallin et al. 2018 clade-II reference; Sec-pathway export signature explicit\
+    \ in UniProt annotation"
+- acc: A0A2N9PAU8
+  keep: true
+  note: "Flavobacterium columnare nosZ (Bacteroidetes / Flavobacteriales, 657 aa)\
+    \ \u2014 Bacteroidetes are a major clade-II reservoir (Jones et al. 2013)"
+- acc: A0ABS1GHF2
+  keep: true
+  note: "Persephonella atlantica Sec-dependent nosZ (Aquificae, 648 aa) \u2014 Sec-pathway\
+    \ annotation explicit; thermophile representative"
+- acc: A0A7C1FJ72
+  keep: true
+  note: "Caldilinea aerophila Sec-dependent nosZ (Chloroflexota Caldilineae, 656 aa)\
+    \ \u2014 P5.2.4 (2026-05-30); closes the Hallin 2018 Chloroflexi / Anaerolineae\
+    \ phylogenetic gap. Type strain of Caldilineae class. Explicit Sec-dependent annotation\
+    \ in UniProt."
+- acc: A0A7C1K3A7
+  keep: true
+  note: "Thermomicrobium roseum Sec-dependent nosZ (Chloroflexota Thermomicrobia,\
+    \ 675 aa) \u2014 P5.2.4 (2026-05-30); second Chloroflexota representative from\
+    \ a different class (Thermomicrobia vs Caldilineae). Type strain; thermophile.\
+    \ Explicit Sec-dependent annotation in UniProt."
+notes: "P-batch-3d (2026-05-30) clade-II / atypical nosZ custom HMM. Complements the\
+  \ canonical `nosZ` target (K00376 + PF18764 + TIGR04244 calibrated for clade-I Pseudomonas/Paracoccus-style\
+  \ NosZ with Tat signal peptide). Clade-II diagnostics: Sec-dependent signal peptide\
+  \ (vs Tat in clade-I), divergent gene-cluster context (no nosR), N2O-sink ecology\
+  \ (often without upstream nir/nor). The K00376 KOfam profile is calibrated narrowly\
+  \ enough that it misses clade-II proteins entirely (Wsuccinogenes proteome: zero\
+  \ K00376 hits even at E=100) \u2014 hence the need for a separate clade-II HMM.\
+  \ NOT including Wolinella succinogenes seeds (would be self-reference vs the panel\
+  \ Wsuccinogenes cell). Seed selection spans 6 phyla: \u03B2-proteo (Dechloromonas),\
+  \ \u03B4-proteo (Anaeromyxobacter), Gemmatimonadetes (Gemmatimonas), Bacteroidetes\
+  \ (Flavobacterium), Aquificae (Persephonella), Chloroflexota (Caldilinea + Thermomicrobium\
+  \ \u2014 P5.2.4 added 2026-05-30 to close Hallin 2018 Chloroflexi / Anaerolineae\
+  \ phylogenetic gap). 5 explicitly Sec-dependent annotations; all 7 are published\
+  \ clade-II references. expanded_candidates pre-filled keep:true\
+  \ to bypass the `expand` step (a SwissProt phmmer expand would surface clade-I Pseudomonas/Paracoccus\
+  \ NosZ at ~50%+ identity to seeds, which must NOT enter the training set since clade-I\
+  \ is covered by the parent `nosZ` target). CD-HIT 0.99 preserves all 5 (pairwise\
+  \ identity 40-65%). Architectural note: keeps K00376 in the KO list as a fallback\
+  \ even though it doesn't fire on every clade-II protein \u2014 for clade-II carriers\
+  \ where K00376 DOES fire weakly, the KO is still informative; the custom HMM is\
+  \ the primary discriminator. The PF18764 nosZ-N-terminal Pfam is kept as a secondary\
+  \ signature (clade-II nosZ proteins do carry the N-terminal domain)."
+curator: pedro.leao.ru@gmail.com
+n_seqs_final: 7
+curation_date: '2026-05-30'
+tc_bitscore: 500
+tc_rationale: "Panel hmmsearch (2026-05-30, P5.2.4-recalibrated after adding 2\
+  \ Chloroflexota Sec-dependent nosZ seeds \u2014 Caldilinea aerophila A0A7C1FJ72 +\
+  \ Thermomicrobium roseum A0A7C1K3A7). The broader HMM uniformly shifts clade-I\
+  \ cross-fire scores upward by ~30-50 bits vs the v11 5-seed model: new training-only\
+  \ cross-fire scores are Smeliloti 456.9 (new ceiling), Paeruginosa 446.4,\
+  \ Pdenitrificans 435.6, Cnecator 412.6. Clade-II positive scores (seed self-scores\
+  \ on the new HMM) are 1043-1080 \u2014 discrimination GAP is preserved (~590 bits) but\
+  \ shifted upward. TC=500 sits above the training-only cross-fire ceiling 456.9 by\
+  \ +43 bits (~2.3\u03c3 over the training cross-fire spread, \u03c3\u224819), with hold-outs\
+  \ (Bdiazoefficiens 469.1, Rpalustris 468.1) EXCLUDED from derivation but\
+  \ incidentally below TC=500 by ~31 bits \u2014 no hold-out F1 regression. Below clade-II\
+  \ positive floor (1043) by ~543 bits \u2014 wide safety margin against false-negatives\
+  \ on real clade-II proteins. Bsinica 62.8, Mfumariolicum 47.2, comammox/AOB scores\
+  \ <40 are noise-level. No panel clade-II positive available to verify the\
+  \ positive-side TC empirically \u2014 the Wsuccinogenes RefSeq proteome lacks the\
+  \ catalytic NosZ subunit (annotation gap, see Block 3d). v11\u2192v12 history: P5.1.2\
+  \ set TC=418 against the 5-seed HMM's training ceiling (Smeliloti 414.2 + 3.8 margin);\
+  \ P5.2.4 added 2 Chloroflexota seeds (closes Hallin 2018 Chloroflexi /\
+  \ Anaerolineae phylogenetic gap), which shifted every cross-fire score up by\
+  \ 30-50 bits, forcing TC recalibration. v10 history (further back): TC=420 was\
+  \ derived using Bdiazoefficiens 416.8 (hold-out) as ceiling \u2014 retracted in v11."

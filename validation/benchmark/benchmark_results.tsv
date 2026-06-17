@@ -1,0 +1,426 @@
+resolution	tool	subset	metric	value	ci_lo	ci_hi	delta_vs_ncycle	d_lo	d_hi	boot_p	mcnemar_p
+subunit	ncycle	ALL	precision	1.000	1.000	1.000					
+subunit	ncycle	ALL	recall	1.000	1.000	1.000					
+subunit	ncycle	ALL	specificity	1.000	1.000	1.000					
+subunit	ncycle	ALL	f1	1.000	1.000	1.000					
+subunit	ncycle	ALL	mcc	1.000	1.000	1.000					
+subunit	kofam	ALL	precision	0.912	0.876	0.949	0.088	0.052	0.124	0.0000	0.0000
+subunit	kofam	ALL	recall	0.920	0.876	0.955	0.080	0.046	0.125	0.0000	0.0000
+subunit	kofam	ALL	specificity	0.944	0.913	0.971	0.056	0.029	0.086	0.0000	0.0000
+subunit	kofam	ALL	f1	0.916	0.887	0.941	0.084	0.059	0.113	0.0000	0.0000
+subunit	kofam	ALL	mcc	0.863	0.821	0.904	0.137	0.097	0.180	0.0000	0.0000
+subunit	metabolic	ALL	precision	0.911	0.872	0.945	0.089	0.056	0.127	0.0000	0.0000
+subunit	metabolic	ALL	recall	0.863	0.816	0.906	0.137	0.093	0.185	0.0000	0.0000
+subunit	metabolic	ALL	specificity	0.947	0.922	0.969	0.053	0.031	0.078	0.0000	0.0000
+subunit	metabolic	ALL	f1	0.887	0.850	0.918	0.113	0.083	0.150	0.0000	0.0000
+subunit	metabolic	ALL	mcc	0.819	0.767	0.868	0.181	0.132	0.233	0.0000	0.0000
+subunit	ncycdb	ALL	precision	0.833	0.790	0.868	0.167	0.132	0.209	0.0000	0.0000
+subunit	ncycdb	ALL	recall	0.884	0.842	0.920	0.116	0.080	0.157	0.0000	0.0000
+subunit	ncycdb	ALL	specificity	0.889	0.861	0.914	0.111	0.086	0.138	0.0000	0.0000
+subunit	ncycdb	ALL	f1	0.858	0.829	0.881	0.142	0.118	0.172	0.0000	0.0000
+subunit	ncycdb	ALL	mcc	0.765	0.728	0.798	0.235	0.201	0.274	0.0000	0.0000
+subunit	dram	ALL	precision	0.473	0.408	0.545	0.527	0.457	0.592	0.0000	0.0000
+subunit	dram	ALL	recall	0.639	0.579	0.692	0.361	0.308	0.421	0.0000	0.0000
+subunit	dram	ALL	specificity	0.553	0.441	0.667	0.447	0.336	0.559	0.0000	0.0000
+subunit	dram	ALL	f1	0.544	0.486	0.596	0.456	0.405	0.513	0.0000	0.0000
+subunit	dram	ALL	mcc	0.187	0.077	0.290	0.813	0.708	0.923	0.0000	0.0000
+subunit	ncycle	trap	precision	1.000	1.000	1.000					
+subunit	ncycle	trap	recall	1.000	1.000	1.000					
+subunit	ncycle	trap	specificity	1.000	1.000	1.000					
+subunit	ncycle	trap	f1	1.000	1.000	1.000					
+subunit	ncycle	trap	mcc	1.000	1.000	1.000					
+subunit	kofam	trap	precision	0.836	0.744	0.930	0.164	0.069	0.257	0.0006	0.0000
+subunit	kofam	trap	recall	0.850	0.742	0.949	0.150	0.050	0.255	0.0018	0.0000
+subunit	kofam	trap	specificity	0.928	0.871	0.973	0.072	0.027	0.128	0.0012	0.0000
+subunit	kofam	trap	f1	0.843	0.774	0.904	0.157	0.093	0.227	0.0000	0.0000
+subunit	kofam	trap	mcc	0.774	0.681	0.869	0.226	0.134	0.320	0.0000	0.0000
+subunit	metabolic	trap	precision	0.810	0.702	0.906	0.190	0.094	0.300	0.0004	0.0000
+subunit	metabolic	trap	recall	0.567	0.449	0.692	0.433	0.312	0.551	0.0000	0.0000
+subunit	metabolic	trap	specificity	0.942	0.899	0.977	0.058	0.022	0.099	0.0000	0.0000
+subunit	metabolic	trap	f1	0.667	0.564	0.755	0.333	0.248	0.437	0.0000	0.0000
+subunit	metabolic	trap	mcc	0.572	0.462	0.680	0.428	0.322	0.544	0.0000	0.0000
+subunit	ncycdb	trap	precision	0.791	0.676	0.887	0.209	0.114	0.323	0.0000	0.0000
+subunit	ncycdb	trap	recall	0.883	0.800	0.959	0.117	0.042	0.203	0.0018	0.0000
+subunit	ncycdb	trap	specificity	0.899	0.842	0.949	0.101	0.050	0.158	0.0000	0.0000
+subunit	ncycdb	trap	f1	0.835	0.750	0.904	0.165	0.094	0.252	0.0000	0.0000
+subunit	ncycdb	trap	mcc	0.759	0.648	0.860	0.241	0.136	0.348	0.0000	0.0000
+subunit	dram	trap	precision	0.437	0.361	0.508	0.563	0.491	0.639	0.0000	0.0000
+subunit	dram	trap	recall	0.983	0.938	1.000	0.017	0.000	0.062	0.7152	0.0000
+subunit	dram	trap	specificity	0.449	0.287	0.597	0.551	0.400	0.714	0.0000	0.0000
+subunit	dram	trap	f1	0.605	0.526	0.673	0.395	0.327	0.476	0.0000	0.0000
+subunit	dram	trap	mcc	0.427	0.325	0.516	0.573	0.485	0.675	0.0000	0.0000
+subunit	ncycle	nontrap	precision	1.000	1.000	1.000					
+subunit	ncycle	nontrap	recall	1.000	1.000	1.000					
+subunit	ncycle	nontrap	specificity	1.000	1.000	1.000					
+subunit	ncycle	nontrap	f1	1.000	1.000	1.000					
+subunit	ncycle	nontrap	mcc	1.000	1.000	1.000					
+subunit	kofam	nontrap	precision	0.937	0.904	0.966	0.063	0.035	0.096	0.0000	0.0000
+subunit	kofam	nontrap	recall	0.942	0.904	0.973	0.058	0.027	0.097	0.0000	0.0000
+subunit	kofam	nontrap	specificity	0.953	0.929	0.975	0.047	0.024	0.071	0.0000	0.0000
+subunit	kofam	nontrap	f1	0.939	0.916	0.958	0.061	0.042	0.084	0.0000	0.0000
+subunit	kofam	nontrap	mcc	0.895	0.862	0.924	0.105	0.075	0.138	0.0000	0.0000
+subunit	metabolic	nontrap	precision	0.933	0.899	0.963	0.067	0.036	0.101	0.0000	0.0000
+subunit	metabolic	nontrap	recall	0.958	0.932	0.981	0.042	0.019	0.068	0.0004	0.0000
+subunit	metabolic	nontrap	specificity	0.950	0.922	0.973	0.050	0.026	0.079	0.0000	0.0000
+subunit	metabolic	nontrap	f1	0.945	0.926	0.961	0.055	0.038	0.074	0.0000	0.0000
+subunit	metabolic	nontrap	mcc	0.904	0.876	0.933	0.096	0.068	0.124	0.0000	0.0000
+subunit	ncycdb	nontrap	precision	0.848	0.798	0.890	0.152	0.111	0.201	0.0000	0.0000
+subunit	ncycdb	nontrap	recall	0.884	0.836	0.931	0.116	0.069	0.164	0.0000	0.0000
+subunit	ncycdb	nontrap	specificity	0.884	0.854	0.911	0.116	0.088	0.146	0.0000	0.0000
+subunit	ncycdb	nontrap	f1	0.865	0.832	0.897	0.135	0.104	0.168	0.0000	0.0000
+subunit	ncycdb	nontrap	mcc	0.764	0.715	0.814	0.236	0.186	0.285	0.0000	0.0000
+subunit	dram	nontrap	precision	0.498	0.383	0.605	0.502	0.395	0.616	0.0000	0.0000
+subunit	dram	nontrap	recall	0.529	0.450	0.593	0.471	0.405	0.548	0.0000	0.0000
+subunit	dram	nontrap	specificity	0.609	0.506	0.716	0.391	0.288	0.494	0.0000	0.0000
+subunit	dram	nontrap	f1	0.513	0.420	0.588	0.487	0.409	0.576	0.0000	0.0000
+subunit	dram	nontrap	mcc	0.137	0.005	0.267	0.863	0.735	0.994	0.0000	0.0000
+step	ncycle	ALL	precision	1.000	1.000	1.000					
+step	ncycle	ALL	recall	1.000	1.000	1.000					
+step	ncycle	ALL	specificity	1.000	1.000	1.000					
+step	ncycle	ALL	f1	1.000	1.000	1.000					
+step	ncycle	ALL	mcc	1.000	1.000	1.000					
+step	kofam	ALL	precision	0.942	0.909	0.974	0.058	0.025	0.092	0.0014	0.0001
+step	kofam	ALL	recall	0.942	0.900	0.977	0.058	0.024	0.101	0.0008	0.0001
+step	kofam	ALL	specificity	0.966	0.941	0.986	0.034	0.013	0.059	0.0006	0.0001
+step	kofam	ALL	f1	0.942	0.913	0.967	0.058	0.033	0.087	0.0000	0.0001
+step	kofam	ALL	mcc	0.908	0.863	0.949	0.092	0.051	0.136	0.0000	0.0001
+step	metabolic	ALL	precision	0.925	0.883	0.965	0.075	0.037	0.117	0.0000	0.0000
+step	metabolic	ALL	recall	0.925	0.862	0.977	0.075	0.023	0.139	0.0022	0.0000
+step	metabolic	ALL	specificity	0.957	0.927	0.981	0.043	0.019	0.073	0.0002	0.0000
+step	metabolic	ALL	f1	0.925	0.883	0.961	0.075	0.040	0.118	0.0000	0.0000
+step	metabolic	ALL	mcc	0.882	0.818	0.936	0.118	0.064	0.182	0.0000	0.0000
+step	ncycdb	ALL	precision	0.760	0.688	0.826	0.240	0.174	0.311	0.0000	0.0000
+step	ncycdb	ALL	recall	0.925	0.873	0.969	0.075	0.031	0.130	0.0000	0.0000
+step	ncycdb	ALL	specificity	0.832	0.781	0.876	0.168	0.125	0.218	0.0000	0.0000
+step	ncycdb	ALL	f1	0.835	0.781	0.882	0.165	0.118	0.220	0.0000	0.0000
+step	ncycdb	ALL	mcc	0.733	0.659	0.803	0.267	0.196	0.341	0.0000	0.0000
+step	dram	ALL	precision	0.435	0.378	0.495	0.565	0.503	0.622	0.0000	0.0000
+step	dram	ALL	recall	0.617	0.557	0.664	0.383	0.338	0.444	0.0000	0.0000
+step	dram	ALL	specificity	0.538	0.414	0.656	0.462	0.343	0.584	0.0000	0.0000
+step	dram	ALL	f1	0.510	0.456	0.560	0.490	0.440	0.545	0.0000	0.0000
+step	dram	ALL	mcc	0.150	0.043	0.244	0.850	0.754	0.958	0.0000	0.0000
+step	ncycle	DNRA	precision	1.000	1.000	1.000					
+step	ncycle	DNRA	recall	1.000	1.000	1.000					
+step	ncycle	DNRA	specificity	1.000	1.000	1.000					
+step	ncycle	DNRA	f1	1.000	1.000	1.000					
+step	ncycle	DNRA	mcc	1.000	1.000	1.000					
+step	kofam	DNRA	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	DNRA	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	DNRA	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	DNRA	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	DNRA	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	DNRA	precision	0.857	0.500	1.000	0.143	0.000	0.500	0.7053	1.0000
+step	metabolic	DNRA	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	DNRA	specificity	0.952	0.850	1.000	0.048	0.000	0.158	0.7180	1.0000
+step	metabolic	DNRA	f1	0.923	0.667	1.000	0.077	0.000	0.333	0.7120	1.0000
+step	metabolic	DNRA	mcc	0.904	0.678	1.000	0.096	0.000	0.322	0.7078	1.0000
+step	ncycdb	DNRA	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	DNRA	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	DNRA	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	DNRA	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	DNRA	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	DNRA	precision	0.500	0.214	0.786	0.500	0.214	0.786	0.0022	0.0312
+step	dram	DNRA	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.0312
+step	dram	DNRA	specificity	0.714	0.500	0.900	0.286	0.100	0.500	0.0016	0.0312
+step	dram	DNRA	f1	0.667	0.353	0.889	0.333	0.111	0.647	0.0014	0.0312
+step	dram	DNRA	mcc	0.598	0.367	0.846	0.402	0.163	0.633	0.0032	0.0312
+step	ncycle	N2O_reduction	precision	1.000	1.000	1.000					
+step	ncycle	N2O_reduction	recall	1.000	1.000	1.000					
+step	ncycle	N2O_reduction	specificity	1.000	1.000	1.000					
+step	ncycle	N2O_reduction	f1	1.000	1.000	1.000					
+step	ncycle	N2O_reduction	mcc	1.000	1.000	1.000					
+step	kofam	N2O_reduction	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	N2O_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	N2O_reduction	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	N2O_reduction	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	N2O_reduction	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	N2O_reduction	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	N2O_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	N2O_reduction	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	N2O_reduction	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	N2O_reduction	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	N2O_reduction	precision	0.250	0.059	0.474	0.750	0.526	0.933	0.0000	0.0005
+step	ncycdb	N2O_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.0005
+step	ncycdb	N2O_reduction	specificity	0.556	0.367	0.739	0.444	0.259	0.633	0.0000	0.0005
+step	ncycdb	N2O_reduction	f1	0.400	0.125	0.640	0.600	0.333	0.875	0.0000	0.0005
+step	ncycdb	N2O_reduction	mcc	0.373	0.189	0.576	0.627	0.429	0.819	0.0000	0.0005
+step	dram	N2O_reduction	precision	0.167	0.040	0.333	0.833	0.667	0.958	0.0000	0.0000
+step	dram	N2O_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.0000
+step	dram	N2O_reduction	specificity	0.259	0.107	0.429	0.741	0.567	0.893	0.0000	0.0000
+step	dram	N2O_reduction	f1	0.286	0.080	0.500	0.714	0.500	0.920	0.0000	0.0000
+step	dram	N2O_reduction	mcc	0.208	0.089	0.345	0.792	0.662	0.911	0.0000	0.0000
+step	ncycle	N2_fixation	precision	1.000	1.000	1.000					
+step	ncycle	N2_fixation	recall	1.000	1.000	1.000					
+step	ncycle	N2_fixation	specificity	1.000	1.000	1.000					
+step	ncycle	N2_fixation	f1	1.000	1.000	1.000					
+step	ncycle	N2_fixation	mcc	1.000	1.000	1.000					
+step	kofam	N2_fixation	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	N2_fixation	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	N2_fixation	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	N2_fixation	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	N2_fixation	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	N2_fixation	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	N2_fixation	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	N2_fixation	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	N2_fixation	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	N2_fixation	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	N2_fixation	precision	0.857	0.500	1.000	0.143	0.000	0.500	0.7195	1.0000
+step	ncycdb	N2_fixation	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	N2_fixation	specificity	0.960	0.870	1.000	0.040	0.000	0.130	0.7172	1.0000
+step	ncycdb	N2_fixation	f1	0.923	0.667	1.000	0.077	0.000	0.333	0.7258	1.0000
+step	ncycdb	N2_fixation	mcc	0.907	0.682	1.000	0.093	0.000	0.318	0.7136	1.0000
+step	dram	N2_fixation	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	N2_fixation	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	N2_fixation	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	N2_fixation	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	N2_fixation	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycle	NO2_to_NO	precision	1.000	1.000	1.000					
+step	ncycle	NO2_to_NO	recall	1.000	1.000	1.000					
+step	ncycle	NO2_to_NO	specificity	1.000	1.000	1.000					
+step	ncycle	NO2_to_NO	f1	1.000	1.000	1.000					
+step	ncycle	NO2_to_NO	mcc	1.000	1.000	1.000					
+step	kofam	NO2_to_NO	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	NO2_to_NO	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	NO2_to_NO	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	NO2_to_NO	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	NO2_to_NO	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	NO2_to_NO	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.5000
+step	metabolic	NO2_to_NO	recall	0.857	0.643	1.000	0.143	0.000	0.357	0.2504	0.5000
+step	metabolic	NO2_to_NO	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.5000
+step	metabolic	NO2_to_NO	f1	0.923	0.783	1.000	0.077	0.000	0.217	0.2486	0.5000
+step	metabolic	NO2_to_NO	mcc	0.873	0.707	1.000	0.127	0.000	0.300	0.2460	0.5000
+step	ncycdb	NO2_to_NO	precision	0.636	0.429	0.833	0.364	0.174	0.571	0.0000	0.0078
+step	ncycdb	NO2_to_NO	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.0078
+step	ncycdb	NO2_to_NO	specificity	0.500	0.250	0.750	0.500	0.250	0.750	0.0002	0.0078
+step	ncycdb	NO2_to_NO	f1	0.778	0.600	0.909	0.222	0.091	0.400	0.0004	0.0078
+step	ncycdb	NO2_to_NO	mcc	0.564	0.354	0.764	0.436	0.235	0.639	0.0006	0.0078
+step	dram	NO2_to_NO	precision	0.609	0.400	0.810	0.391	0.200	0.600	0.0000	0.0039
+step	dram	NO2_to_NO	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.0039
+step	dram	NO2_to_NO	specificity	0.438	0.200	0.688	0.562	0.308	0.812	0.0002	0.0039
+step	dram	NO2_to_NO	f1	0.757	0.571	0.895	0.243	0.111	0.419	0.0000	0.0039
+step	dram	NO2_to_NO	mcc	0.516	0.312	0.725	0.484	0.275	0.688	0.0000	0.0039
+step	ncycle	NO_reduction	precision	1.000	1.000	1.000					
+step	ncycle	NO_reduction	recall	1.000	1.000	1.000					
+step	ncycle	NO_reduction	specificity	1.000	1.000	1.000					
+step	ncycle	NO_reduction	f1	1.000	1.000	1.000					
+step	ncycle	NO_reduction	mcc	1.000	1.000	1.000					
+step	kofam	NO_reduction	precision	0.889	0.625	1.000	0.111	0.000	0.364	0.7106	1.0000
+step	kofam	NO_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	NO_reduction	specificity	0.857	0.556	1.000	0.143	0.000	0.500	0.7093	1.0000
+step	kofam	NO_reduction	f1	0.941	0.778	1.000	0.059	0.000	0.200	0.7114	1.0000
+step	kofam	NO_reduction	mcc	0.873	0.612	1.000	0.127	0.000	0.388	0.7185	1.0000
+step	metabolic	NO_reduction	precision	0.889	0.667	1.000	0.111	0.000	0.375	0.7158	1.0000
+step	metabolic	NO_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	NO_reduction	specificity	0.857	0.500	1.000	0.143	0.000	0.500	0.7216	1.0000
+step	metabolic	NO_reduction	f1	0.941	0.778	1.000	0.059	0.000	0.222	0.7082	1.0000
+step	metabolic	NO_reduction	mcc	0.873	0.612	1.000	0.127	0.000	0.388	0.7090	1.0000
+step	ncycdb	NO_reduction	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	NO_reduction	recall	0.875	0.600	1.000	0.125	0.000	0.400	0.7070	1.0000
+step	ncycdb	NO_reduction	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	NO_reduction	f1	0.933	0.750	1.000	0.067	0.000	0.250	0.7037	1.0000
+step	ncycdb	NO_reduction	mcc	0.875	0.645	1.000	0.125	0.000	0.355	0.6973	1.0000
+step	dram	NO_reduction	precision	0.667	0.385	0.917	0.333	0.083	0.615	0.0176	0.1250
+step	dram	NO_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.1250
+step	dram	NO_reduction	specificity	0.429	0.000	0.833	0.571	0.167	1.000	0.0176	0.1250
+step	dram	NO_reduction	f1	0.800	0.556	0.957	0.200	0.043	0.444	0.0184	0.1250
+step	dram	NO_reduction	mcc	0.535	0.250	0.866	0.465	0.134	0.723	0.0179	0.1250
+step	ncycle	ammonia_assimilation	precision	1.000	1.000	1.000					
+step	ncycle	ammonia_assimilation	recall	1.000	1.000	1.000					
+step	ncycle	ammonia_assimilation	specificity	NA	NA	NA					
+step	ncycle	ammonia_assimilation	f1	1.000	1.000	1.000					
+step	ncycle	ammonia_assimilation	mcc	NA	NA	NA					
+step	kofam	ammonia_assimilation	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	ammonia_assimilation	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	ammonia_assimilation	specificity	NA	NA	NA	NA	NA	NA	nan	1.0000
+step	kofam	ammonia_assimilation	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	ammonia_assimilation	mcc	NA	NA	NA	NA	NA	NA	nan	1.0000
+step	metabolic	ammonia_assimilation	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	ammonia_assimilation	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	ammonia_assimilation	specificity	NA	NA	NA	NA	NA	NA	nan	1.0000
+step	metabolic	ammonia_assimilation	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	ammonia_assimilation	mcc	NA	NA	NA	NA	NA	NA	nan	1.0000
+step	ncycdb	ammonia_assimilation	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	ammonia_assimilation	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	ammonia_assimilation	specificity	NA	NA	NA	NA	NA	NA	nan	1.0000
+step	ncycdb	ammonia_assimilation	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	ammonia_assimilation	mcc	NA	NA	NA	NA	NA	NA	nan	1.0000
+step	dram	ammonia_assimilation	precision	NA	NA	NA	NA	NA	NA	nan	0.0000
+step	dram	ammonia_assimilation	recall	0.000	0.000	0.000	1.000	1.000	1.000	0.0000	0.0000
+step	dram	ammonia_assimilation	specificity	NA	NA	NA	NA	NA	NA	nan	0.0000
+step	dram	ammonia_assimilation	f1	NA	NA	NA	NA	NA	NA	nan	0.0000
+step	dram	ammonia_assimilation	mcc	NA	NA	NA	NA	NA	NA	nan	0.0000
+step	ncycle	ammonia_oxidation	precision	1.000	1.000	1.000					
+step	ncycle	ammonia_oxidation	recall	1.000	1.000	1.000					
+step	ncycle	ammonia_oxidation	specificity	1.000	1.000	1.000					
+step	ncycle	ammonia_oxidation	f1	1.000	1.000	1.000					
+step	ncycle	ammonia_oxidation	mcc	1.000	1.000	1.000					
+step	kofam	ammonia_oxidation	precision	0.833	0.500	1.000	0.167	0.000	0.500	0.7474	0.5000
+step	kofam	ammonia_oxidation	recall	0.833	0.500	1.000	0.167	0.000	0.500	0.7228	0.5000
+step	kofam	ammonia_oxidation	specificity	0.960	0.870	1.000	0.040	0.000	0.130	0.7166	0.5000
+step	kofam	ammonia_oxidation	f1	0.833	0.500	1.000	0.167	0.000	0.500	0.2499	0.5000
+step	kofam	ammonia_oxidation	mcc	0.793	0.445	1.000	0.207	0.000	0.550	0.2612	0.5000
+step	metabolic	ammonia_oxidation	precision	0.833	0.500	1.000	0.167	0.000	0.500	0.7331	0.5000
+step	metabolic	ammonia_oxidation	recall	0.833	0.500	1.000	0.167	0.000	0.500	0.7179	0.5000
+step	metabolic	ammonia_oxidation	specificity	0.960	0.870	1.000	0.040	0.000	0.130	0.7170	0.5000
+step	metabolic	ammonia_oxidation	f1	0.833	0.500	1.000	0.167	0.000	0.500	0.2667	0.5000
+step	metabolic	ammonia_oxidation	mcc	0.793	0.450	1.000	0.207	0.000	0.550	0.2515	0.5000
+step	ncycdb	ammonia_oxidation	precision	0.750	0.400	1.000	0.250	0.000	0.600	0.2363	0.5000
+step	ncycdb	ammonia_oxidation	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.5000
+step	ncycdb	ammonia_oxidation	specificity	0.920	0.800	1.000	0.080	0.000	0.200	0.2504	0.5000
+step	ncycdb	ammonia_oxidation	f1	0.857	0.571	1.000	0.143	0.000	0.429	0.2558	0.5000
+step	ncycdb	ammonia_oxidation	mcc	0.831	0.599	1.000	0.169	0.000	0.401	0.2493	0.5000
+step	dram	ammonia_oxidation	precision	0.353	0.125	0.600	0.647	0.412	0.867	0.0000	0.0010
+step	dram	ammonia_oxidation	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.0010
+step	dram	ammonia_oxidation	specificity	0.560	0.364	0.750	0.440	0.250	0.640	0.0000	0.0010
+step	dram	ammonia_oxidation	f1	0.522	0.235	0.750	0.478	0.250	0.765	0.0000	0.0010
+step	dram	ammonia_oxidation	mcc	0.445	0.254	0.635	0.555	0.350	0.746	0.0000	0.0010
+step	ncycle	anammox	precision	1.000	1.000	1.000					
+step	ncycle	anammox	recall	1.000	1.000	1.000					
+step	ncycle	anammox	specificity	1.000	1.000	1.000					
+step	ncycle	anammox	f1	1.000	1.000	1.000					
+step	ncycle	anammox	mcc	1.000	1.000	1.000					
+step	kofam	anammox	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	anammox	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	anammox	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	anammox	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	anammox	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	anammox	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	anammox	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	anammox	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	anammox	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	anammox	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	anammox	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	anammox	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	anammox	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	anammox	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	anammox	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	anammox	precision	0.095	0.000	0.238	0.905	0.762	0.958	0.0000	0.0000
+step	dram	anammox	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.0000
+step	dram	anammox	specificity	0.345	0.179	0.517	0.655	0.467	0.828	0.0000	0.0000
+step	dram	anammox	f1	0.174	0.080	0.400	0.826	0.613	0.920	0.0000	0.0000
+step	dram	anammox	mcc	0.181	0.099	0.327	0.819	0.675	0.901	0.0000	0.0000
+step	ncycle	assim_nitrate_reduction	precision	1.000	1.000	1.000					
+step	ncycle	assim_nitrate_reduction	recall	1.000	1.000	1.000					
+step	ncycle	assim_nitrate_reduction	specificity	1.000	1.000	1.000					
+step	ncycle	assim_nitrate_reduction	f1	1.000	1.000	1.000					
+step	ncycle	assim_nitrate_reduction	mcc	1.000	1.000	1.000					
+step	kofam	assim_nitrate_reduction	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	assim_nitrate_reduction	recall	0.900	0.667	1.000	0.100	0.000	0.333	0.7200	1.0000
+step	kofam	assim_nitrate_reduction	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	assim_nitrate_reduction	f1	0.947	0.800	1.000	0.053	0.000	0.200	0.7186	1.0000
+step	kofam	assim_nitrate_reduction	mcc	0.866	0.577	1.000	0.134	0.000	0.388	0.7226	1.0000
+step	metabolic	assim_nitrate_reduction	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	assim_nitrate_reduction	recall	0.900	0.667	1.000	0.100	0.000	0.333	0.7038	1.0000
+step	metabolic	assim_nitrate_reduction	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	assim_nitrate_reduction	f1	0.947	0.800	1.000	0.053	0.000	0.200	0.7212	1.0000
+step	metabolic	assim_nitrate_reduction	mcc	0.866	0.577	1.000	0.134	0.000	0.436	0.7108	1.0000
+step	ncycdb	assim_nitrate_reduction	precision	0.714	0.462	0.929	0.286	0.071	0.533	0.0202	0.1250
+step	ncycdb	assim_nitrate_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.1250
+step	ncycdb	assim_nitrate_reduction	specificity	0.200	0.000	0.667	0.800	0.333	1.000	0.0122	0.1250
+step	ncycdb	assim_nitrate_reduction	f1	0.833	0.632	0.963	0.167	0.037	0.364	0.0172	0.1250
+step	ncycdb	assim_nitrate_reduction	mcc	0.378	0.250	0.784	0.622	0.216	0.750	0.0219	0.1250
+step	dram	assim_nitrate_reduction	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	assim_nitrate_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	assim_nitrate_reduction	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	assim_nitrate_reduction	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	assim_nitrate_reduction	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycle	assim_nitrite_reduction	precision	1.000	1.000	1.000					
+step	ncycle	assim_nitrite_reduction	recall	1.000	1.000	1.000					
+step	ncycle	assim_nitrite_reduction	specificity	1.000	1.000	1.000					
+step	ncycle	assim_nitrite_reduction	f1	1.000	1.000	1.000					
+step	ncycle	assim_nitrite_reduction	mcc	1.000	1.000	1.000					
+step	kofam	assim_nitrite_reduction	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	assim_nitrite_reduction	recall	0.750	0.250	1.000	0.250	0.000	0.750	0.6862	1.0000
+step	kofam	assim_nitrite_reduction	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	assim_nitrite_reduction	f1	0.857	0.500	1.000	0.143	0.000	0.500	0.7028	1.0000
+step	kofam	assim_nitrite_reduction	mcc	0.791	0.395	1.000	0.209	0.000	0.522	0.7079	1.0000
+step	metabolic	assim_nitrite_reduction	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.5000
+step	metabolic	assim_nitrite_reduction	recall	0.500	0.000	1.000	0.500	0.000	1.000	0.1898	0.5000
+step	metabolic	assim_nitrite_reduction	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.5000
+step	metabolic	assim_nitrite_reduction	f1	0.667	0.333	1.000	0.333	0.000	0.667	0.2160	0.5000
+step	metabolic	assim_nitrite_reduction	mcc	0.598	0.316	1.000	0.402	0.000	0.684	0.2214	0.5000
+step	ncycdb	assim_nitrite_reduction	precision	0.600	0.125	1.000	0.400	0.000	0.833	0.2115	0.2500
+step	ncycdb	assim_nitrite_reduction	recall	0.750	0.200	1.000	0.250	0.000	0.750	0.6797	0.2500
+step	ncycdb	assim_nitrite_reduction	specificity	0.600	0.143	1.000	0.400	0.000	1.000	0.2016	0.2500
+step	ncycdb	assim_nitrite_reduction	f1	0.667	0.286	1.000	0.333	0.000	0.714	0.0555	0.2500
+step	ncycdb	assim_nitrite_reduction	mcc	0.350	-0.357	1.000	0.650	0.000	1.350	0.0511	0.2500
+step	dram	assim_nitrite_reduction	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	assim_nitrite_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	assim_nitrite_reduction	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	assim_nitrite_reduction	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	dram	assim_nitrite_reduction	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycle	dissim_nitrate_reduction	precision	1.000	1.000	1.000					
+step	ncycle	dissim_nitrate_reduction	recall	1.000	1.000	1.000					
+step	ncycle	dissim_nitrate_reduction	specificity	1.000	1.000	1.000					
+step	ncycle	dissim_nitrate_reduction	f1	1.000	1.000	1.000					
+step	ncycle	dissim_nitrate_reduction	mcc	1.000	1.000	1.000					
+step	kofam	dissim_nitrate_reduction	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	dissim_nitrate_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	dissim_nitrate_reduction	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	dissim_nitrate_reduction	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	dissim_nitrate_reduction	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	dissim_nitrate_reduction	precision	0.571	0.308	0.833	0.429	0.167	0.700	0.0028	0.0078
+step	metabolic	dissim_nitrate_reduction	recall	0.800	0.500	1.000	0.200	0.000	0.500	0.2470	0.0078
+step	metabolic	dissim_nitrate_reduction	specificity	0.714	0.500	0.900	0.286	0.100	0.500	0.0040	0.0078
+step	metabolic	dissim_nitrate_reduction	f1	0.667	0.400	0.857	0.333	0.143	0.600	0.0004	0.0078
+step	metabolic	dissim_nitrate_reduction	mcc	0.483	0.160	0.771	0.517	0.229	0.840	0.0000	0.0078
+step	ncycdb	dissim_nitrate_reduction	precision	0.600	0.333	0.846	0.400	0.154	0.667	0.0028	0.0156
+step	ncycdb	dissim_nitrate_reduction	recall	0.900	0.667	1.000	0.100	0.000	0.333	0.7372	0.0156
+step	ncycdb	dissim_nitrate_reduction	specificity	0.714	0.500	0.900	0.286	0.100	0.480	0.0028	0.0156
+step	ncycdb	dissim_nitrate_reduction	f1	0.720	0.471	0.889	0.280	0.111	0.524	0.0000	0.0156
+step	ncycdb	dissim_nitrate_reduction	mcc	0.575	0.285	0.817	0.425	0.183	0.715	0.0004	0.0156
+step	dram	dissim_nitrate_reduction	precision	0.385	0.200	0.577	0.615	0.423	0.793	0.0000	0.0000
+step	dram	dissim_nitrate_reduction	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.0000
+step	dram	dissim_nitrate_reduction	specificity	0.238	0.059	0.429	0.762	0.571	0.938	0.0000	0.0000
+step	dram	dissim_nitrate_reduction	f1	0.556	0.345	0.732	0.444	0.273	0.667	0.0000	0.0000
+step	dram	dissim_nitrate_reduction	mcc	0.303	0.155	0.469	0.697	0.531	0.855	0.0000	0.0000
+step	ncycle	nitrite_oxidation	precision	1.000	1.000	1.000					
+step	ncycle	nitrite_oxidation	recall	1.000	1.000	1.000					
+step	ncycle	nitrite_oxidation	specificity	1.000	1.000	1.000					
+step	ncycle	nitrite_oxidation	f1	1.000	1.000	1.000					
+step	ncycle	nitrite_oxidation	mcc	1.000	1.000	1.000					
+step	kofam	nitrite_oxidation	precision	0.167	0.000	0.500	0.833	0.500	1.000	0.0048	0.0039
+step	kofam	nitrite_oxidation	recall	0.200	0.000	0.667	0.800	0.333	1.000	0.0187	0.0039
+step	kofam	nitrite_oxidation	specificity	0.792	0.619	0.952	0.208	0.048	0.385	0.0084	0.0039
+step	kofam	nitrite_oxidation	f1	0.182	0.133	0.533	0.818	0.467	0.867	0.0000	0.0039
+step	kofam	nitrite_oxidation	mcc	-0.008	-0.288	0.396	1.008	0.607	1.288	0.0000	0.0039
+step	metabolic	nitrite_oxidation	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	nitrite_oxidation	recall	0.800	0.333	1.000	0.200	0.000	0.667	0.7148	1.0000
+step	metabolic	nitrite_oxidation	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	nitrite_oxidation	f1	0.889	0.571	1.000	0.111	0.000	0.429	0.7426	1.0000
+step	metabolic	nitrite_oxidation	mcc	0.876	0.596	1.000	0.124	0.000	0.444	0.7109	1.0000
+step	ncycdb	nitrite_oxidation	precision	NA	NA	NA	NA	NA	NA	nan	0.0625
+step	ncycdb	nitrite_oxidation	recall	0.000	0.000	0.000	1.000	1.000	1.000	0.0000	0.0625
+step	ncycdb	nitrite_oxidation	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.0625
+step	ncycdb	nitrite_oxidation	f1	NA	NA	NA	NA	NA	NA	nan	0.0625
+step	ncycdb	nitrite_oxidation	mcc	NA	NA	NA	NA	NA	NA	nan	0.0625
+step	dram	nitrite_oxidation	precision	0.267	0.062	0.500	0.733	0.500	0.933	0.0000	0.0005
+step	dram	nitrite_oxidation	recall	0.800	0.333	1.000	0.200	0.000	0.667	0.7176	0.0005
+step	dram	nitrite_oxidation	specificity	0.542	0.346	0.739	0.458	0.259	0.667	0.0000	0.0005
+step	dram	nitrite_oxidation	f1	0.400	0.125	0.643	0.600	0.357	0.875	0.0000	0.0005
+step	dram	nitrite_oxidation	mcc	0.258	-0.107	0.545	0.742	0.457	1.102	0.0000	0.0005
+step	ncycle	ureolysis	precision	1.000	1.000	1.000					
+step	ncycle	ureolysis	recall	1.000	1.000	1.000					
+step	ncycle	ureolysis	specificity	1.000	1.000	1.000					
+step	ncycle	ureolysis	f1	1.000	1.000	1.000					
+step	ncycle	ureolysis	mcc	1.000	1.000	1.000					
+step	kofam	ureolysis	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	ureolysis	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	ureolysis	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	ureolysis	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	kofam	ureolysis	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	ureolysis	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	ureolysis	recall	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	ureolysis	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	ureolysis	f1	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	metabolic	ureolysis	mcc	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	ureolysis	precision	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	ureolysis	recall	0.929	0.769	1.000	0.071	0.000	0.231	0.7104	1.0000
+step	ncycdb	ureolysis	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	1.0000
+step	ncycdb	ureolysis	f1	0.963	0.870	1.000	0.037	0.000	0.130	0.7200	1.0000
+step	ncycdb	ureolysis	mcc	0.835	0.540	1.000	0.165	0.000	0.460	0.7218	1.0000
+step	dram	ureolysis	precision	NA	NA	NA	NA	NA	NA	nan	0.0001
+step	dram	ureolysis	recall	0.000	0.000	0.000	1.000	1.000	1.000	0.0000	0.0001
+step	dram	ureolysis	specificity	1.000	1.000	1.000	0.000	0.000	0.000	1.0000	0.0001
+step	dram	ureolysis	f1	NA	NA	NA	NA	NA	NA	nan	0.0001
+step	dram	ureolysis	mcc	NA	NA	NA	NA	NA	NA	nan	0.0001

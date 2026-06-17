@@ -1,0 +1,21 @@
+accession	gene	type	subtype	organism	source	notes
+A0ABM8RCK9	nxrA	nxr	Nitrospira-type	Nitrospira defluvii	UniProt	len=1147;reviewed;Nitrate oxidoreductase, alpha subunit
+A0A894Z0L1	nxrA	nxr	Nitrolancea-type	Nitrolancea hollandica	UniProt	len=1221;reviewed;nitrate reductase (quinone)
+A0ABN8AJF8	nxrA	nxr	Nitrotoga-type	Candidatus Nitrotoga arctica	UniProt	len=1169;reviewed;Nitrite oxidoreductase, alpha subunit
+A0A0M2UVV1	nxrA	nxr	anammox-type	Candidatus Brocadia fulgida	UniProt	len=1149;reviewed;Nitrate oxidoreductase subunit alpha
+Q8XDC8	narG	nar	canonical_NarG	Escherichia coli O157:H7	UniProt	len=1247;reviewed;nitrate reductase (quinone)
+G3XCX1	narG	nar	canonical_NarG	Pseudomonas aeruginosa	UniProt	len=1261;reviewed;nitrate reductase (quinone)
+P42175	narG	nar	canonical_NarG	Bacillus subtilis	UniProt	len=1228;reviewed;Nitrate reductase alpha chain
+O06459	narG	nar	canonical_NarG	Thermus thermophilus	UniProt	len=1196;reviewed;nitrate reductase (quinone)
+P9WJQ3	narG	nar	canonical_NarG	Mycobacterium tuberculosis	UniProt	len=1232;reviewed;Nitrate reductase alpha subunit
+Q6GUE5	narG	nar	canonical_NarG	Halomonas maura	UniProt	len=1258;reviewed;nitrate reductase (quinone)
+Q8ZP37	narG	nar	canonical_NarG	Salmonella typhimurium	UniProt	len=1247;reviewed;nitrate reductase (quinone)
+Q75TJ6	narG	nar	canonical_NarG	Geobacillus stearothermophilus	UniProt	len=1018;reviewed;Nitrate reductase alpha subunit
+Q3SUK2	nxrA	nxr	Nitrobacter-type	Nitrobacter winogradskyi Nb-255	UniProt	len=1214;reviewed;UniProt-annot='nitrate reductase(quinone)'; NOB NXR alpha
+Q1QPP1	nxrA	nxr	Nitrobacter-type	Nitrobacter hamburgensis X14	UniProt	len=1214;reviewed;UniProt-annot='nitrate reductase(quinone)'; NOB NXR alpha
+A0ACC6ADH6	nxrA	nxr	Nitrobacter-type	Nitrobacter winogradskyi	UniProt	len=1214;reviewed;UniProt-annot='nitrate reductase(quinone)'; NOB NXR alpha
+A4BM17	nxrA	nxr	Nitrococcus-type	Nitrococcus mobilis Nb-231	UniProt	len=1218;reviewed;UniProt-annot='nitrate reductase(quinone)'; NOB NXR alpha
+A0ABM9HBT2	nxrA	nxr	Nitrospina-type	Nitrospina watsonii	UniProt	len=1153;reviewed;nxrA-annotated; periplasmic/divergent marine NOB NXR
+A0A0S4KRS1	nxrA	nxr	Nitrospira-type	Candidatus Nitrospira inopinata	UniProt	len=1145;unreviewed;comammox NXR alpha; periplasmic Nitrospira-type
+A0A1W1I5V4	nxrA	nxr	Nitrospira-type	Nitrospira japonica	UniProt	len=1145;unreviewed;periplasmic Nitrospira-type NXR alpha
+A0A0S4LQF4	nxrA	nxr	Nitrospira-type	Candidatus Nitrospira nitrificans	UniProt	len=1145;unreviewed;Nitrospira-type NXR alpha (nxrA1) [ncycle-presence-ref]

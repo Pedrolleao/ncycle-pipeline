@@ -1,0 +1,43 @@
+target_id: hzsB
+tier: 3   # attempted Tier-2; reverted to BLAST-only (HMM overlaps HzsC — see notes)
+cdhit_threshold: 0.95
+min_seqs_override: 3
+seed_accessions:
+- A0A6G7GRI8
+- A0A1E3XDZ9
+expanded_candidates:
+- acc: A0A6G7GRI8
+  organism: Kuenenia stuttgartiensis
+  keep: true
+  note: HzsB beta subunit (seed)
+- acc: A0A0M2V157
+  organism: Ca. Brocadia fulgida
+  keep: true
+  note: HzsB
+- acc: A0A1E3XDZ9
+  organism: Ca. Scalindua rubra
+  keep: true
+  note: HzsB beta subunit (seed)
+negatives:
+- A0A2C9CHN2
+- A0A2C9CHM2
+- M5DCM0
+- P0ABK9
+notes: "Tier-3 -> Tier-2 custom HMM. Hydrazine synthase beta subunit (K20933), anammox\
+  \ multiheme cytochrome c, no stable Pfam, no homology trap. Custom HMM adds subunit-\
+  \ resolved confidence; negatives include HzsA/HzsC to enforce subunit specificity.\
+  \ Anammox references scarce \u2014 only 3 full-length seqs but spanning 3 genera\
+  \ (Kuenenia, Brocadia, Scalindua); min_seqs_override=3, cdhit_threshold raised to\
+  \ 0.95 to retain all three (documented coverage limit). FINDING (2026-05-25): the
+  built HMM did NOT discriminate from the sister HzsC subunit (calibration overlap —
+  HzsC scored 733 inside the HzsB positive band 347-738). HzsA/B/C are paralogous
+  multiheme cytochromes; the short B/C subunits cross-react. Kept Tier-3 BLAST-only
+  (curated seeds + identity threshold are position-specific and separate the subunits)
+  — the HMM was removed. tc fields below are the rejected calibration, retained as record."
+curator: pedro.leao.ru@gmail.com
+n_seqs_final: 3
+curation_date: '2026-05-25'
+tc_bitscore: 329.5
+tc_rationale: "OVERLAP: min_positive=346.8 <= max_negative=733.1; TC = min_positive\
+  \ * (1 - 0.05) = 329.5. WARNING: HMM is not fully discriminating \u2014 widen negatives\
+  \ or curate more positives."

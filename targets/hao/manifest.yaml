@@ -1,0 +1,55 @@
+target_id: hao
+tier: 2
+cdhit_threshold: 0.9
+min_seqs_override: 4
+seed_accessions:
+- M5DCM0
+- A0A0S4KTM8
+expanded_candidates:
+- acc: M5DCM0
+  organism: Nitrosococcus oceani
+  keep: true
+  note: AOB gammaproteobacterial HAO (seed)
+- acc: A0A1G5SG74
+  organism: Nitrosomonas mobilis
+  keep: true
+  note: AOB betaproteobacterial HAO
+- acc: M5DDF6
+  organism: Nitrosomonas cryotolerans ATCC 49181
+  keep: true
+  note: AOB betaproteobacterial HAO
+- acc: A0A0S4KTM8
+  organism: Ca. Nitrospira inopinata
+  keep: true
+  note: comammox HAO (seed)
+- acc: A0A0S4LM59
+  organism: Ca. Nitrospira nitrificans
+  keep: true
+  note: comammox HAO
+- acc: A0A0S4L3Q0
+  organism: Ca. Nitrospira nitrosa
+  keep: true
+  note: comammox HAO
+- acc: A0A1G5SDS1
+  organism: Nitrosomonas mobilis
+  keep: true
+  note: AOB HAO paralog
+negatives:
+- Q1PW30
+- Q1PX48
+- P0ABK9
+- Q72EF3
+- Q9Z4P4
+notes: Tier-3 -> Tier-2 custom HMM. Hydroxylamine oxidoreductase (K10535) is an octaheme
+  cytochrome c with no clean Pfam; its fold is shared with the NrfA pentaheme family
+  and the anammox Hdh/HAO octaheme paralogs. This clade HMM is trained on bona-fide
+  NITRIFIER HAO (AOB beta+gamma + comammox Nitrospira) and calibrated above the anammox-Hdh/HAO
+  and NrfA negative band, so it scores the nitrification HAO clade specifically. Training
+  spans 3 AOB + 3 comammox organisms; min_seqs_override=4 because cultured nitrifier
+  HAO references are limited.
+curator: pedro.leao.ru@gmail.com
+n_seqs_final: 5
+curation_date: '2026-05-25'
+tc_bitscore: 622.8
+tc_rationale: 'clean gap: min_positive=1071.7 > max_negative=173.9; TC = midpoint
+  = 622.8'

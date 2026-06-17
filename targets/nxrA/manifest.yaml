@@ -1,0 +1,36 @@
+target_id: nxrA
+tier: 2
+cdhit_threshold: 0.9
+min_seqs_override: 4
+seed_accessions:
+- A0A0S4LQF4
+- Q71RT9
+expanded_candidates:
+- acc: Q71RT9
+  keep: true
+  note: Nitrobacter alkalicus NxrA
+- acc: A0A0S4LQF4
+  keep: true
+  note: Ca. Nitrospira nitrificans NxrA
+- acc: A0A7S8FGD0
+  keep: true
+  note: Ca. Nitrospira kreftii NxrA
+- acc: A0AA86N2E7
+  keep: true
+  note: Nitrospira tepida NxrA
+- acc: A0AA86T952
+  keep: true
+  note: Nitrospira tepida NxrA (paralog)
+- acc: A0ABM9HBT2
+  keep: true
+  note: Nitrospina watsonii NxrA
+notes: 'P3 NOB-clade NxrA HMM. nxrA shares KOfam K00370 + Pfam with denitrifier narG;
+  the KO/BLAST tiers cannot separate them (NxrA<->NarG ~60% identity). This clade
+  HMM + a TC calibrated above the panel''s NarG scores discriminates NOB nitrite-oxidation
+  from denitrification. Training: Nitrobacter + Nitrospira + Nitrospina (no winogradskyi
+  self).'
+curator: pedro.leao.ru@gmail.com
+n_seqs_final: 5
+curation_date: '2026-05-25'
+tc_bitscore: 700
+tc_rationale: "Nitrospira/comammox NXR clade (Ninopinata 2276) above; excludes denitrifier NarG band (~530-544) AND Nitrobacter NxrA (543, not sequence-separable from NarG — documented limitation)."

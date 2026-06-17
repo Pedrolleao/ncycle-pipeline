@@ -1,0 +1,51 @@
+target_id: amoA
+tier: 2
+cdhit_threshold: 0.9
+min_seqs_override: 4
+seed_accessions:
+- Q04507
+- Q51142
+- A0A0F7KK52
+- A0A0S4LM25
+- A0A0S4LPG4
+expanded_candidates:
+- acc: Q04507
+  keep: true
+  note: "Nitrosomonas europaea AmoA (AOB, reviewed, 276 aa \u2014 full-length)"
+- acc: Q51142
+  keep: true
+  note: "Nitrosospira multiformis AmoA1 (AOB, 274 aa \u2014 full-length; P5.2.1 added\
+    \ 2026-05-30 as replacement for dropped Fragment Q7WWN6)"
+- acc: A0A0F7KK52
+  keep: true
+  note: "Nitrosomonas communis AmoA (AOB, 274 aa \u2014 full-length; P5.2.1 added\
+    \ 2026-05-30 as second full-length Nitrosomonas representative)"
+- acc: A0A0S4LM25
+  keep: true
+  note: Ca. Nitrospira nitrificans AmoA (comammox, 282 aa)
+- acc: A0A0S4LPG4
+  keep: true
+  note: Ca. Nitrospira nitrosa AmoA (comammox, 280 aa)
+notes: "P3 amoA HMM spanning AOB (betaproteobacteria) + comammox (Nitrospira) clades.\
+  \ Replaces sole reliance on KOfam K28504, which the divergent comammox amoA scores\
+  \ below. Comammox seeds are siblings (nitrificans/nitrosa), NOT inopinata-self.\
+  \ TC calibrated to exclude verrucomicrobial methanotroph pmoA. P5.2.1 (2026-05-30,\
+  \ post-audit): dropped 2 Fragment-flagged training seeds \u2014 Q7WWN6 (N.multiformis,\
+  \ 255 aa, '(Fragment)' in UniProt header) and Q7WWN7 (N.eutropha, 255 aa, '(Fragment)'\
+  \ in UniProt header \u2014 newly discovered during P5.2.1 verification; the audit\
+  \ recommended Q7WWN7 as a replacement candidate but post-verify fetch found it was\
+  \ another fragment). Audit's third specific recommendation, D3RUW6 (allegedly N.briensis\
+  \ AmoA), was a wrong accession \u2014 the UniProt entry is ATP synthase subunit\
+  \ delta from Allochromatium vinosum, a completely unrelated protein from a purple\
+  \ sulfur bacterium. Replacements Q51142 (N.multiformis AmoA1, 274 aa, full-length)\
+  \ and A0A0F7KK52 (N.communis, 274 aa, full-length) were verified post-fetch."
+curator: pedro.leao.ru@gmail.com
+n_seqs_final: 4
+curation_date: '2026-05-31'
+tc_bitscore: 400
+tc_rationale: "AOB+comammox amoA above (Neuropaea 590); excludes verrucomicrobial\
+  \ methanotroph pmoA (Mfumariolicum 279). NB: Ninopinata comammox amoA not detected\
+  \ \u2014 see notes. TC re-verified 2026-05-30 (P5.2.1) after re-training the HMM\
+  \ with the 2 Fragment seeds replaced by full-length Q51142 + A0A0F7KK52; verification\
+  \ on the panel showed the cross-fire ceiling and positive-side scores stayed within\
+  \ tolerance of the original calibration."

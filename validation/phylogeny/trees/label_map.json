@@ -1,0 +1,628 @@
+{
+"R000": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "A0ABM8RCK9",
+"org": "Nitrospira_defluvii"
+},
+"R001": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "A0A894Z0L1",
+"org": "Nitrolancea_hollandica"
+},
+"R002": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "A0ABN8AJF8",
+"org": "Candidatus_Nitrotoga_arctica"
+},
+"R003": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "A0A0M2UVV1",
+"org": "Candidatus_Brocadia_fulgida"
+},
+"R004": {
+"kind": "ref",
+"type": "nar",
+"gene": "narG",
+"acc": "Q8XDC8",
+"org": "Escherichia_coli_O157:H7"
+},
+"R005": {
+"kind": "ref",
+"type": "nar",
+"gene": "narG",
+"acc": "G3XCX1",
+"org": "Pseudomonas_aeruginosa"
+},
+"R006": {
+"kind": "ref",
+"type": "nar",
+"gene": "narG",
+"acc": "P42175",
+"org": "Bacillus_subtilis"
+},
+"R007": {
+"kind": "ref",
+"type": "nar",
+"gene": "narG",
+"acc": "O06459",
+"org": "Thermus_thermophilus"
+},
+"R008": {
+"kind": "ref",
+"type": "nar",
+"gene": "narG",
+"acc": "P9WJQ3",
+"org": "Mycobacterium_tuberculosis"
+},
+"R009": {
+"kind": "ref",
+"type": "nar",
+"gene": "narG",
+"acc": "Q6GUE5",
+"org": "Halomonas_maura"
+},
+"R010": {
+"kind": "ref",
+"type": "nar",
+"gene": "narG",
+"acc": "Q8ZP37",
+"org": "Salmonella_typhimurium"
+},
+"R011": {
+"kind": "ref",
+"type": "nar",
+"gene": "narG",
+"acc": "Q75TJ6",
+"org": "Geobacillus_stearothermophilus"
+},
+"R012": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "Q3SUK2",
+"org": "Nitrobacter_winogradskyi_Nb-255"
+},
+"R013": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "Q1QPP1",
+"org": "Nitrobacter_hamburgensis_X14"
+},
+"R014": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "A0ACC6ADH6",
+"org": "Nitrobacter_winogradskyi"
+},
+"R015": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "A4BM17",
+"org": "Nitrococcus_mobilis_Nb-231"
+},
+"R016": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "A0ABM9HBT2",
+"org": "Nitrospina_watsonii"
+},
+"R017": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "A0A0S4KRS1",
+"org": "Candidatus_Nitrospira_inopinata"
+},
+"R018": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "A0A1W1I5V4",
+"org": "Nitrospira_japonica"
+},
+"R019": {
+"kind": "ref",
+"type": "nxr",
+"gene": "nxrA",
+"acc": "A0A0S4LQF4",
+"org": "Candidatus_Nitrospira_nitrificans"
+},
+"Q000": {
+"kind": "query",
+"genome": "GCA_001567115_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Hinthialibacterota",
+"characterized": false,
+"protein_id": "LMZT01000141.1_37"
+},
+"Q001": {
+"kind": "query",
+"genome": "GCA_001797465_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Desulfobacterota",
+"characterized": false,
+"protein_id": "MGPQ01000005.1_168"
+},
+"Q002": {
+"kind": "query",
+"genome": "GCA_003598085_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "p__Abyssobacteria",
+"characterized": false,
+"protein_id": "QZKU01000007.1_3"
+},
+"Q003": {
+"kind": "query",
+"genome": "GCA_013360445_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Calditrichota",
+"characterized": false,
+"protein_id": "JABWBP010000044.1_11"
+},
+"Q004": {
+"kind": "query",
+"genome": "GCA_018263585_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Electryoneota",
+"characterized": false,
+"protein_id": "JAANWZ010000035.1_10"
+},
+"Q005": {
+"kind": "query",
+"genome": "GCA_019912885_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Lernaellota",
+"characterized": false,
+"protein_id": "JAIOHV010000229.1_19"
+},
+"Q006": {
+"kind": "query",
+"genome": "GCA_020723665_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "methanotroph_Methylococcaceae",
+"characterized": true,
+"protein_id": "DYIL01000045.1_14"
+},
+"Q007": {
+"kind": "query",
+"genome": "GCA_020850775_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "p__CLD3",
+"characterized": false,
+"protein_id": "JADZEA010000161.1_2"
+},
+"Q008": {
+"kind": "query",
+"genome": "GCA_021783475_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Thermodesulfobiota",
+"characterized": false,
+"protein_id": "JAJXTU010000034.1_19"
+},
+"Q009": {
+"kind": "query",
+"genome": "GCA_024102725_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "NOB_Nitrococcus",
+"characterized": true,
+"protein_id": "JAGFJL010000006.1_2"
+},
+"Q010": {
+"kind": "query",
+"genome": "GCA_024102725_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "NOB_Nitrococcus",
+"characterized": true,
+"protein_id": "JAGFJL010000032.1_29"
+},
+"Q011": {
+"kind": "query",
+"genome": "GCA_030433275_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "NOB_Nitrococcus",
+"characterized": true,
+"protein_id": "JAUILK010000006.1_59"
+},
+"Q012": {
+"kind": "query",
+"genome": "GCA_030452265_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "NOB_Nitrococcus",
+"characterized": true,
+"protein_id": "JAKDMQ010000006.1_17"
+},
+"Q013": {
+"kind": "query",
+"genome": "GCA_030452365_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "NOB_Nitrococcus",
+"characterized": true,
+"protein_id": "JAKDMK010000003.1_6"
+},
+"Q014": {
+"kind": "query",
+"genome": "GCA_031960865_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "p__Campylobacterota_A",
+"characterized": false,
+"protein_id": "JAVRLZ010000034.1_15"
+},
+"Q015": {
+"kind": "query",
+"genome": "GCA_031960865_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Campylobacterota_A",
+"characterized": false,
+"protein_id": "JAVRLZ010000058.1_7"
+},
+"Q016": {
+"kind": "query",
+"genome": "GCA_036381125_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__DASVDK01",
+"characterized": false,
+"protein_id": "DASVDK010000062.1_20"
+},
+"Q017": {
+"kind": "query",
+"genome": "GCA_036480675_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__RBG-13-66-14",
+"characterized": false,
+"protein_id": "JAZGGY010000337.1_1"
+},
+"Q018": {
+"kind": "query",
+"genome": "GCA_036562265_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "p__DASVDK01",
+"characterized": false,
+"protein_id": "DATCKS010000205.1_2"
+},
+"Q019": {
+"kind": "query",
+"genome": "GCA_040755155_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "p__Hinthialibacterota",
+"characterized": false,
+"protein_id": "JBFMBP010000002.1_34"
+},
+"Q020": {
+"kind": "query",
+"genome": "GCA_049840615_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "denit_Pseudomonas",
+"characterized": true,
+"protein_id": "JASGKM010000021.1_124"
+},
+"Q021": {
+"kind": "query",
+"genome": "GCA_050173015_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Calditrichota",
+"characterized": false,
+"protein_id": "JBFXLE010000003.1_64"
+},
+"Q022": {
+"kind": "query",
+"genome": "GCA_050253135_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "p__Campylobacterota_A",
+"characterized": false,
+"protein_id": "JBFWJP010000221.1_1"
+},
+"Q023": {
+"kind": "query",
+"genome": "GCA_902386255_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "p__Halobacteriota",
+"characterized": false,
+"protein_id": "CABMII010000056.1_43"
+},
+"Q024": {
+"kind": "query",
+"genome": "GCA_963807355_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "NOB_Nitrobacter",
+"characterized": true,
+"protein_id": "CAWEBX010000019.1_88"
+},
+"Q025": {
+"kind": "query",
+"genome": "GCA_964452105_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__JAUXIQ01",
+"characterized": false,
+"protein_id": "CAYVLI010000041.1_5"
+},
+"Q026": {
+"kind": "query",
+"genome": "GCA_964520315_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__GCA-2686955",
+"characterized": false,
+"protein_id": "CAZFNT010000067.1_1"
+},
+"Q027": {
+"kind": "query",
+"genome": "GCA_964582755_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "methanotroph_Methylococcaceae",
+"characterized": true,
+"protein_id": "CAZOTR010000095.1_7"
+},
+"Q028": {
+"kind": "query",
+"genome": "GCA_964600515_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Bdellovibrionota_F",
+"characterized": false,
+"protein_id": "CAZRKD010000003.1_8"
+},
+"Q029": {
+"kind": "query",
+"genome": "GCA_964600955_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Muiribacteriota",
+"characterized": false,
+"protein_id": "CAZRLV010000046.1_5"
+},
+"Q030": {
+"kind": "query",
+"genome": "GCA_965285975_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "NOB_Nitrolancea",
+"characterized": true,
+"protein_id": "CBDIWR010000339.1_1"
+},
+"Q031": {
+"kind": "query",
+"genome": "GCF_000012725_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "NOB_Nitrobacter",
+"characterized": true,
+"protein_id": "NC_007406.1_2153"
+},
+"Q032": {
+"kind": "query",
+"genome": "GCF_000012725_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "NOB_Nitrobacter",
+"characterized": true,
+"protein_id": "NC_007406.1_784"
+},
+"Q033": {
+"kind": "query",
+"genome": "GCF_000013885_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "NOB_Nitrobacter",
+"characterized": true,
+"protein_id": "NC_007964.1_987"
+},
+"Q034": {
+"kind": "query",
+"genome": "GCF_000013885_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "NOB_Nitrobacter",
+"characterized": true,
+"protein_id": "NC_007964.1_3608"
+},
+"Q035": {
+"kind": "query",
+"genome": "GCF_000153205_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "NOB_Nitrococcus",
+"characterized": true,
+"protein_id": "NZ_CH672427.1_126"
+},
+"Q036": {
+"kind": "query",
+"genome": "GCF_000212395_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Thermodesulfobiota",
+"characterized": false,
+"protein_id": "NC_015499.1_93"
+},
+"Q037": {
+"kind": "query",
+"genome": "GCF_000242715_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Actinomycetota",
+"characterized": false,
+"protein_id": "NZ_AHBF01000163.1_51"
+},
+"Q038": {
+"kind": "query",
+"genome": "GCF_000297255_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "NOB_Nitrolancea",
+"characterized": true,
+"protein_id": "NZ_CAGS01000558.1_1"
+},
+"Q039": {
+"kind": "query",
+"genome": "GCF_002847305_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "denit_Paracoccus",
+"characterized": true,
+"protein_id": "NZ_CP025408.1_100"
+},
+"Q040": {
+"kind": "query",
+"genome": "GCF_003176655_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "denit_Pseudomonas",
+"characterized": true,
+"protein_id": "NZ_QGSL01000106.1_392"
+},
+"Q041": {
+"kind": "query",
+"genome": "GCF_003176655_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "denit_Pseudomonas",
+"characterized": true,
+"protein_id": "NZ_QGSL01000029.1_681"
+},
+"Q042": {
+"kind": "query",
+"genome": "GCF_003336745_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "p__Deinococcota",
+"characterized": false,
+"protein_id": "NZ_QGMX01000004.1_191"
+},
+"Q043": {
+"kind": "query",
+"genome": "GCF_005796065_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "denit_Pseudomonas",
+"characterized": true,
+"protein_id": "NZ_VASG01000004.1_227"
+},
+"Q044": {
+"kind": "query",
+"genome": "GCF_021602305_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "denit_Pseudomonas",
+"characterized": true,
+"protein_id": "NZ_BQIB01000001.1_2"
+},
+"Q045": {
+"kind": "query",
+"genome": "GCF_024259725_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "denit_Pseudomonas",
+"characterized": true,
+"protein_id": "NZ_JANCLP010000004.1_344"
+},
+"Q046": {
+"kind": "query",
+"genome": "GCF_031854425_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "denit_Paracoccus",
+"characterized": true,
+"protein_id": "NZ_JAVRQI010000002.1_174"
+},
+"Q047": {
+"kind": "query",
+"genome": "GCF_033555915_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "denit_Paracoccus",
+"characterized": true,
+"protein_id": "NZ_CP109864.1_813"
+},
+"Q048": {
+"kind": "query",
+"genome": "GCF_047149785_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "NOB_Nitrobacter",
+"characterized": true,
+"protein_id": "NZ_BAAGBE010000001.1_245"
+},
+"Q049": {
+"kind": "query",
+"genome": "GCF_047149785_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "NOB_Nitrobacter",
+"characterized": true,
+"protein_id": "NZ_BAAGBE010000001.1_7"
+},
+"Q050": {
+"kind": "query",
+"genome": "GCF_048068055_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "denit_Pseudomonas",
+"characterized": true,
+"protein_id": "NZ_JBLUPT010000001.1_269"
+},
+"Q051": {
+"kind": "query",
+"genome": "GCF_051912485_1",
+"ncycle_gene": "nxrA",
+"ncycle_type": "nxr",
+"clade": "NOB_Nitrobacter",
+"characterized": true,
+"protein_id": "NZ_CP196822.1_593"
+},
+"Q052": {
+"kind": "query",
+"genome": "GCF_051912485_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "NOB_Nitrobacter",
+"characterized": true,
+"protein_id": "NZ_CP196822.1_138"
+},
+"Q053": {
+"kind": "query",
+"genome": "GCF_947487305_1",
+"ncycle_gene": "narG",
+"ncycle_type": "nar",
+"clade": "denit_Paracoccus",
+"characterized": true,
+"protein_id": "NZ_CANKWH010000009.1_141"
+}
+}

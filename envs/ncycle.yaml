@@ -1,0 +1,33 @@
+# Human-readable env spec. For an EXACT reproduction of the validated baseline,
+# use the pinned lockfile instead:  conda env create -f envs/ncycle.lock.yml
+# The three tools below are PINNED to exact versions because their minor releases
+# change bitscores/heuristics, and the regression gate is threshold-sensitive
+# (HMMER trusted cutoffs, DIAMOND identity gates). The rest keep `>=` floors.
+name: ncycle-pipeline
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - snakemake>=8.0
+  - snakemake-minimal>=8.0
+  - hmmer=3.4         # PIN: bitscore-critical (HMM trusted cutoffs); validated baseline
+  - mafft>=7.5
+  - cd-hit>=4.8
+  - prodigal=2.6.3    # PIN: gene calls + coords feed synteny; validated baseline
+  - blast>=2.14
+  - diamond=2.2.1     # PIN: BLAST identity gates; validated baseline
+  - minimap2>=2.26
+  - samtools>=1.18
+  - seqkit>=2.5
+  - fastp>=0.23
+  - wgsim
+  - biopython>=1.83
+  - pyyaml>=6.0
+  - pandas>=2.0
+  - numpy>=1.24
+  - matplotlib>=3.7
+  - requests>=2.31
+  - pysam>=0.22
+  - pytest>=7.0

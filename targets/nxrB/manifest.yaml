@@ -1,0 +1,40 @@
+target_id: nxrB
+tier: 2
+cdhit_threshold: 0.9
+min_seqs_override: 4
+seed_accessions:
+- A0A0S4LK29
+- Q51075
+expanded_candidates:
+- acc: M1KVL1
+  keep: true
+  note: Nitrospina gracilis NxrB
+- acc: Q51075
+  keep: true
+  note: Nitrobacter hamburgensis NxrB
+- acc: A0A0S4LK29
+  keep: true
+  note: Ca. Nitrospira nitrificans NxrB
+- acc: A0A2X0QZL9
+  keep: true
+  note: Ca. Nitrotoga fabula NxrB
+- acc: A0A7S8J0S2
+  keep: true
+  note: Ca. Nitrospira kreftii NxrB
+- acc: A0A0S4L217
+  keep: true
+  note: Ca. Nitrospira nitrosa NxrB
+- acc: Q6R884
+  keep: true
+  note: Nitrobacter sp. KB212 NxrB
+- acc: Q6R885
+  keep: true
+  note: Nitrobacter sp. NRB5220 NxrB
+notes: 'P3 NOB-clade NxrB HMM (shares KOfam K00371 + Pfam with denitrifier narH).
+  Training: Nitrospina + Nitrobacter spp + Nitrospira + Nitrotoga (no winogradskyi
+  self).'
+curator: pedro.leao.ru@gmail.com
+n_seqs_final: 4
+curation_date: '2026-05-25'
+tc_bitscore: 400
+tc_rationale: "Nitrospira NXR (Ninopinata 744) above; excludes narH band (~330-333) + Nitrobacter NxrB (333)."

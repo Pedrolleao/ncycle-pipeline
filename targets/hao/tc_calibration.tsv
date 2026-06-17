@@ -1,0 +1,8 @@
+label	name	bitscore
+positive	hao||M5DDF6	1181.5
+positive	hao||A0A0S4KTM8	1179.6
+positive	hao||A0A0S4LM59	1169.1
+positive	hao||A0A1G5SG74	1161.5
+positive	hao||M5DCM0	1071.7
+negative	NEG_hao||Q1PX48	173.9
+negative	NEG_hao||Q1PW30	134.4
