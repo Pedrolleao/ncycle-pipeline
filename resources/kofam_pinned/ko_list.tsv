@@ -1,0 +1,48 @@
+knum	threshold	score_type	profile_type	F-measure	nseq	nseq_used	alen	mlen	eff_nseq	re/pos	definition
+K02588	372.67	full	all	0.930668	1560	1285	1489	475	2.04	0.591	nitrogenase iron protein NifH
+K02586	559.53	full	all	0.875150	1302	1136	1155	520	3.51	0.590	nitrogenase molybdenum-iron protein alpha chain [EC:1.18.6.1]
+K02591	389.13	domain	all	0.899632	1322	1179	1020	441	3.33	0.590	nitrogenase molybdenum-iron protein beta chain [EC:1.18.6.1]
+K02587	508.03	full	all	0.941671	1014	926	2858	673	4.50	0.590	nitrogenase molybdenum-cofactor synthesis protein NifE
+K02592	456.77	domain	all	0.893193	814	750	1197	512	2.39	0.590	nitrogenase molybdenum-iron protein NifN
+K02585	187.70	full	all	0.999526	1142	1056	1463	648	3.79	0.590	nitrogen fixation protein NifB
+K22899	572.53	full	all	0.726190	25	14	291	275	0.48	0.592	vanadium nitrogenase iron protein
+K22896	907.37	full	all	0.923077	49	36	828	490	0.46	0.587	vanadium-dependent nitrogenase alpha chain [EC:1.18.6.2]
+K00531	154.60	full	all	1.000000	70	63	154	117	0.73	0.588	nitrogenase delta subunit [EC:1.18.6.1]
+K28504	273.23	domain	all	0.700429	55	34	304	270	0.83	0.591	ammonia monooxygenase subunit A [EC:1.14.99.39]
+K10945	125.73	full	all	1.000000	171	130	556	415	1.93	0.589	methane/ammonia monooxygenase subunit B
+K10946	130.33	full	all	1.000000	271	207	414	263	1.37	0.591	methane/ammonia monooxygenase subunit C
+K10535	285.90	full	trim	0.969279	317	281	1478	513	2.95	0.590	hydroxylamine dehydrogenase [EC:1.7.2.6]
+K00370	820.10	full	all	0.982527	3026	2531	3595	1781	2.41	0.590	nitrate reductase / nitrite oxidoreductase, alpha subunit [EC:1.7.5.1 1.7.99.-]
+K00371	344.97	full	trim	0.983546	3033	2310	2135	905	2.18	0.590	nitrate reductase / nitrite oxidoreductase, beta subunit [EC:1.7.5.1 1.7.99.-]
+K00374	182.70	domain	trim	0.948069	2939	2116	942	506	3.02	0.590	nitrate reductase gamma subunit [EC:1.7.5.1 1.7.99.-]
+K02567	788.80	full	all	0.999206	1519	1262	1912	843	1.36	0.589	nitrate reductase (cytochrome) [EC:1.9.6.1]
+K02568	39.30	full	trim	0.995139	1432	1028	809	267	6.85	0.590	nitrate reductase (cytochrome), electron transfer subunit
+K00368	188.87	full	all	0.990142	1442	1281	2909	551	5.56	0.590	nitrite reductase (NO-forming) [EC:1.7.2.1]
+K15864	462.57	full	all	0.974517	381	345	1214	554	1.66	0.590	nitrite reductase (NO-forming) / hydroxylamine reductase [EC:1.7.2.1 1.7.99.1]
+K04561	157.20	domain	trim	0.993840	1934	1676	1584	751	3.07	0.590	nitric oxide reductase subunit B [EC:1.7.2.5]
+K02305	88.70	domain	all	0.990326	764	621	742	254	4.70	0.590	nitric oxide reductase subunit C
+K04748	173.57	domain	trim	0.984668	1534	1378	1227	339	5.98	0.590	nitric oxide reductase NorQ protein
+K00376	371.93	full	all	1.000000	965	843	1445	677	1.76	0.590	nitrous-oxide reductase [EC:1.7.2.4]
+K03385	257.83	full	all	0.999483	1185	970	1696	541	3.42	0.590	nitrite reductase (cytochrome c-552) [EC:1.7.2.2]
+K15876	107.97	domain	all	0.964433	575	495	638	256	4.44	0.590	cytochrome c nitrite reductase small subunit
+K00362	1281.67	domain	all	0.851703	2756	2411	3147	1233	1.75	0.591	nitrite reductase (NADH) large subunit [EC:1.7.1.15]
+K00363	138.80	domain	all	0.869166	2619	2086	669	198	4.75	0.590	nitrite reductase (NADH) small subunit [EC:1.7.1.15]
+K20932	624.47	full	all	1.000000	10	5	389	377	0.51	0.589	hydrazine synthase subunit [EC:1.7.2.7]
+K20933	753.97	full	all	1.000000	10	5	353	341	0.40	0.588	hydrazine synthase subunit [EC:1.7.2.7]
+K20934	743.53	full	all	1.000000	9	6	810	810	0.54	0.590	hydrazine synthase subunit [EC:1.7.2.7]
+K20935	1334.77	full	all	1.000000	8	7	666	580	0.39	0.594	hydrazine dehydrogenase [EC:1.7.2.8]
+K00367	1012.33	full	all	0.795326	437	416	2020	771	2.05	0.590	ferredoxin-nitrate reductase [EC:1.7.7.2]
+K00372	909.57	full	all	0.803690	2916	2767	4466	916	2.55	0.590	assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]
+K00360	564.43	domain	all	0.739502	465	452	2057	638	2.86	0.590	assimilatory nitrate reductase electron transfer subunit [EC:1.7.99.-]
+K00366	617.37	full	all	0.840020	1353	1269	3147	724	6.02	0.590	ferredoxin-nitrite reductase [EC:1.7.7.1]
+K17877	1481.80	full	all	0.986046	110	109	1868	1081	0.74	0.589	nitrite reductase (NAD(P)H) [EC:1.7.1.4]
+K10534	607.83	domain	all	0.993480	550	538	3840	1081	1.71	0.589	nitrate reductase (NAD(P)H) [EC:1.7.1.1 1.7.1.2 1.7.1.3]
+K01915	37.70	full	all	0.961650	24047	20331	7010	582	10.95	0.590	glutamine synthetase [EC:6.3.1.2]
+K00265	1682.80	domain	all	0.723952	6904	6231	5084	1573	2.12	0.590	glutamate synthase (NADPH) large chain [EC:1.4.1.13]
+K00266	544.97	domain	all	0.831327	8461	7333	4246	786	6.19	0.590	glutamate synthase (NADPH) small chain [EC:1.4.1.13]
+K00261	523.83	full	all	0.796511	5133	4554	4550	627	4.71	0.590	glutamate dehydrogenase (NAD(P)+) [EC:1.4.1.3]
+K00262	474.83	domain	all	0.974531	5480	4653	2899	734	3.19	0.590	glutamate dehydrogenase (NADP+) [EC:1.4.1.4]
+K01428	595.03	full	all	0.857728	4388	3773	2212	736	1.53	0.590	urease subunit alpha [EC:3.5.1.5]
+K01429	170.83	domain	all	0.831264	3675	2919	892	187	3.53	0.590	urease subunit beta [EC:3.5.1.5]
+K01430	180.27	domain	all	0.872831	3824	2590	367	186	5.18	0.590	urease subunit gamma [EC:3.5.1.5]
+K03190	53.43	full	all	0.999347	4334	3828	3360	357	14.02	0.590	urease accessory protein
