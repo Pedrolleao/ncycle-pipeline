@@ -16,7 +16,7 @@ both legs:
 
 This script computes leg (a): reconstruct each historical GT (v3 through
 v11) by applying the documented cell-flips in reverse, then re-score the
-*current* call matrix (results/multisample_matrix.tsv) against each
+*current* call matrix (ncycle_results/ncycle_matrix.tsv) against each
 reconstructed GT. The F1 trajectory across GT versions isolates the
 GT-revision contribution.
 
@@ -198,7 +198,7 @@ def gt_at_version(version: str) -> dict:
 # ── score current matrix against any GT ──────────────────────────────────────
 
 def score_against(gt_cells: dict) -> dict:
-    """Score the current results/multisample_matrix.tsv predictions against
+    """Score the current ncycle_results/ncycle_matrix.tsv predictions against
     a reconstructed GT. Reports training + hold-out aggregates."""
     calls = load_calls()
     train = {"TP":0,"FP":0,"FN":0,"TN":0}

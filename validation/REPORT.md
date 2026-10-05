@@ -940,7 +940,7 @@ closed.
   Nwinogradskyi.fna`). Contaminated original quarantined at
   `test_panel/.audit/Nwinogradskyi_Nb255.contaminated-Bthailandensis.2026-05-30.faa`
   and prior Burkholderia-derived results moved to
-  `results/.audit/Nwinogradskyi_Nb255.contaminated-Bthailandensis.2026-05-30/`.
+  `ncycle_results/.audit/Nwinogradskyi_Nb255.contaminated-Bthailandensis.2026-05-30/`.
 - **Ground truth bumped v10 → v11.** Nb-255 GT cells re-evaluated against
   the real proteome:
   - **v4 narG A→P STANDS** — Starkenburg 2006/2008 narGHI operon confirmed
@@ -1445,7 +1445,7 @@ Sec-dependent.
 targets independently with no explicit mutex between norB and norZ; the
 concern was that under the v9 K04561 fallback added for norZ qNor
 detection, a panel cell could trigger both. Inspection of
-`results/multisample_matrix.tsv` (33 genomes × 50 targets, post-P5.2.4):
+`ncycle_results/ncycle_matrix.tsv` (33 genomes × 50 targets, post-P5.2.4):
 **zero cells have both norB and norZ at status 1 or 2 (predicted present).**
 The existing BLAST gates already provide mutual exclusion at the
 sequence-identity level — norB's cNor seeds (3 β-proteo Burkholderiales /
@@ -1916,7 +1916,7 @@ section).
 | Claim | Verification method | Status |
 |---|---|---|
 | Nwinogradskyi_Nb255.faa is Burkholderia thailandensis | grep `^>` + organism-tag tally on the file | ✅ CONFIRMED — 5258/5607 explicit Burkholderia tags, zero Nitrobacter tags |
-| Real Nb-255 genome is in the repo | `find` for Nwinogradskyi.fna/faa under test_synteny/ + results/ | ✅ CONFIRMED — `test_synteny/Nwinogradskyi.fna` (NC_007406.1) is the real Nb-255 + already prodigal-predicted at `results/Nwinogradskyi/prodigal/Nwinogradskyi.faa` (3262 proteins) |
+| Real Nb-255 genome is in the repo | `find` for Nwinogradskyi.fna/faa under test_synteny/ + ncycle_results/ | ✅ CONFIRMED — `test_synteny/Nwinogradskyi.fna` (NC_007406.1) is the real Nb-255 + already prodigal-predicted at `ncycle_results/Nwinogradskyi/prodigal/Nwinogradskyi.faa` (3262 proteins) |
 | Other panel files might also be contaminated | Audited 8 flagged files (Avinelandii, Bdiazoefficiens, Njaponica, Mfumariolicum, Pdenitrificans, Aterreus, Scerevisiae, Smeliloti) | ✅ ALL CLEAN — RefSeq-tagged files match expected genus; SwissProt-style files have `OS=` field at 100% expected organism. Only Nwinogradskyi is contaminated. |
 | Q7WWN6 / A0A1P8VZN2 are Fragments | UniProt REST API entry inspection | ✅ CONFIRMED — both flagged Fragment, 255 aa / 230 aa |
 | Q0JYR9 (Cnecator) is qNor not cNor | UniProt REST API: "Nitric oxide reductase qNor type (NorB2)", 762 aa | ✅ CONFIRMED earlier (v8 correction stands) |
@@ -1946,7 +1946,7 @@ Until P5.0 completes:
 
 ```bash
 python3 validation/build_ground_truth.py            # writes ground_truth.tsv
-python run.py --input ../test_panel --skip-db-setup  # first run creates the ncycle-pipeline conda env
+python ncycle.py --input ../test_panel --skip-db-setup  # first run creates the ncycle-pipeline conda env
 python3 validation/score_ncycle.py                  # writes ncycle_metrics.tsv, prints table
 ```
 
@@ -2151,7 +2151,7 @@ the gain is that the production detector no longer memorizes the hold-out organi
 strain.
 
 **Engineering follow-ups addressed in the same round:**
-- **DB staleness (A1).** `run.py` now rebuilds the HMM/BLAST DBs (via `--force`) when
+- **DB staleness (A1).** `ncycle.py` now rebuilds the HMM/BLAST DBs (via `--force`) when
   `config/targets.yaml` is newer than the built DB — closing the residual staleness class
   behind the old `ancient()` bug (a KO/seed/TC edit no longer silently uses a stale DB).
 - **hmmscan → hmmsearch (B1).** `protein_mode.smk` + `parse_hmmscan_domtbl` switched to
@@ -2162,7 +2162,7 @@ strain.
 - **Reproducibility (D3).** Pinned the bitscore-critical tools (`hmmer=3.4`, `diamond=2.2.1`,
   `prodigal=2.6.3`) in `envs/ncycle.yaml` and added a full `envs/ncycle.lock.yml`.
 - **Misc.** Fixed the broken `make env` (`envs/ewaste.yaml` → `envs/ncycle.yaml`), de-ewaste'd
-  the `run.py` banners, and added deprecation headers to the stale top-level `targets.yaml`
+  the `ncycle.py` banners, and added deprecation headers to the stale top-level `targets.yaml`
   and `comparators/`.
 
 **Minor cleanups DONE (2026-06-10, all verified prediction-neutral — 0/41 call diffs, 15/15 gate):**
@@ -2171,11 +2171,11 @@ strain.
   content proven identical except those keys; header comment updated.
 - **Legacy Mode-B dead code (C6):** excised the unreachable raw-FASTQ path —
   `evaluate_target_from_reads`/`load_read_presence` + the `--mode read` branch and `--read-presence`
-  arg in `apply_rules.py`, the `--mode read` handling in `run.py`, the `sample_is_read_mode`
+  arg in `apply_rules.py`, the `--mode read` handling in `ncycle.py`, the `sample_is_read_mode`
   helper, and the `read`/`protein` lambda in `report.smk` (now always protein). The Snakefile's
   defensive fastq sample-kind guard is left in place. (read_mode.smk never existed.)
 - **Branding (C7 remnant):** `_common.py` header, `apply_rules.py` docstring (dropped the
-  ESP_Search path + CadA/aconitase ewaste vocabulary), `run.py` docstring/argparse.
+  ESP_Search path + CadA/aconitase ewaste vocabulary), `ncycle.py` docstring/argparse.
 - **Atlas (I4):** `Info-nitrogen.md` hzsA row now flags the KEGG↔UniProt subunit-naming
   conflict (K20932 drives the call; the ~809-aa α-subunit is KEGG's K20934) the config documents.
 

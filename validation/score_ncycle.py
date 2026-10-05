@@ -14,7 +14,7 @@ Adapted from ewaste-pipeline/validation/scripts/score_phase1.py. Differences:
     percentiles. The unit of independence is the genome (cells within a
     genome are correlated).
 
-Matrix status codes (results/multisample_matrix.tsv): 2 confirmed, 1 domain-only
+Matrix status codes (ncycle_results/ncycle_matrix.tsv): 2 confirmed, 1 domain-only
 or narrow-no-IPR (→ predicted present), 0 absent, -1 disqualified (→ absent).
 """
 from __future__ import annotations
@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # GT in validation/ (uniform interface with scycle-pipeline's GT_FILE switch — used
 # for the automated-KEGG-GT contrast once that second GT is built; see WORKPLAN B2).
 GT = ROOT / "validation" / os.environ.get("GT_FILE", "ground_truth.tsv")
-MATRIX = ROOT / "results" / "multisample_matrix.tsv"
+MATRIX = ROOT / "ncycle_results" / "ncycle_matrix.tsv"
 TARGETS = ROOT / "config" / "targets.yaml"
 # one pair of output tables per ground truth, so that scoring the KEGG contrast does
 # not overwrite the tables of the default (manual) ground truth

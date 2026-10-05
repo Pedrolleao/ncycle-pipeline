@@ -243,14 +243,14 @@ pinned v12 floor. Current run: **all checks PASS.**
 - **UniProt seed snapshot cache + Pfam-A sha256 pin** (124 accessions across 32 targets +
   PF12942); `validation/verify_seeds.py` (`make verify-seeds`) catches silent UniProt revisions
   before they can invalidate TC calibration.
-- Standalone conda env (`envs/ncycle.yaml`); `run.py` defaults to the `ncycle-pipeline` env
+- Standalone conda env (`envs/ncycle.yaml`); `ncycle.py` defaults to the `ncycle-pipeline` env
   (`NCYCLE_ENV` to override).
 - Ground truth regenerated deterministically from `validation/build_ground_truth.py`.
 
 ```bash
 python3 validation/build_ground_truth.py                 # writes ground_truth.tsv (curated_v12)
 python3 validation/validate_panel.py                     # panel-QC gate (genus/species check)
-python run.py --input ../test_panel --skip-db-setup      # proteome panel → results/
+python ncycle.py --input ../test_panel --skip-db-setup      # proteome panel → ncycle_results/
 python3 validation/score_ncycle.py                       # §3 tables, with bootstrap CIs
 python3 validation/compare_kofam.py                      # §3.6 raw-KofamScan comparator
 python3 validation/test_regression.py                    # §3.9 CI-aware gate

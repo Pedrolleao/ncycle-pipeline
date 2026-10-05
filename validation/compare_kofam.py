@@ -9,7 +9,7 @@ against RAW KofamScan-style KO assignment, on the same panel + ground truth.
 their targets (so K00370 calls BOTH nxrA and narG; comammox amoA below the KO
 threshold is missed). This is exactly what mapping KofamScan output to pathways does.
 
-The pipeline's calls come from results/multisample_matrix.tsv (codes 1/2 = present).
+The pipeline's calls come from ncycle_results/ncycle_matrix.tsv (codes 1/2 = present).
 Both are scored against validation/ground_truth.tsv (curated cells only).
 
 Output: stdout comparison (overall + homology-trap subset + per-target deltas).
@@ -20,10 +20,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GT = ROOT / "validation" / "ground_truth.tsv"
-MATRIX = ROOT / "results" / "multisample_matrix.tsv"
+MATRIX = ROOT / "ncycle_results" / "ncycle_matrix.tsv"
 TARGETS = ROOT / "config" / "targets.yaml"
 KO_LIST = ROOT / "resources" / ".cache" / "ko_list"
-RESULTS = ROOT / "results"
+RESULTS = ROOT / "ncycle_results"
 
 TRAP = {"nxrA","nxrB","narG","narH","amoA","amoB","amoC","napA",
         "nirK","nirB","nirD","nirA","amoA_archaeal"}

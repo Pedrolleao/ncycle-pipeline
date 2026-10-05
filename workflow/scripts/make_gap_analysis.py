@@ -65,6 +65,7 @@ def main() -> None:
     synergies = load_complexes(args.synergies)
 
     lines: list[str] = []
+    lines.append("ncycle-pipeline — nitrogen-cycle gap analysis")
     lines.append(f"SAMPLE: {args.sample}   mode: {args.mode}")
     lines.append("=" * 72)
     lines.append("")

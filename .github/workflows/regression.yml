@@ -33,7 +33,7 @@ jobs:
 
       - name: Smoke test (5 genomes, runs end to end)
         env:
-          NCYCLE_ENV: cycle-pipeline    # run.py reuses the active CI env
+          NCYCLE_ENV: cycle-pipeline    # ncycle.py reuses the active CI env
         run: make test_protein
 
       - name: Accuracy regression gate (39 genomes)

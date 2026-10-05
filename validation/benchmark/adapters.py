@@ -20,10 +20,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 GT = ROOT / "validation" / "ground_truth.tsv"
-MATRIX = ROOT / "results" / "multisample_matrix.tsv"
+MATRIX = ROOT / "ncycle_results" / "ncycle_matrix.tsv"
 TARGETS = ROOT / "config" / "targets.yaml"
 KO_LIST = ROOT / "resources" / ".cache" / "ko_list"
-RESULTS = ROOT / "results"
+RESULTS = ROOT / "ncycle_results"
 
 HOLDOUT_TAG = "holdout_v3"
 

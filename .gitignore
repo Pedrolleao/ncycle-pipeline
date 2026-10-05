@@ -25,7 +25,7 @@ resources/hmm/
 resources/blast_db/
 
 # ---- Pipeline run outputs ----
-results/
+ncycle_results/
 
 # ---- Validation: KEGG API cache ----
 validation/.kegg_cache/

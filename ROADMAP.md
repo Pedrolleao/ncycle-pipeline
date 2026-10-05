@@ -98,7 +98,7 @@ already exists and is reused from `Holomicrobiome-ewaste/ewaste-pipeline`.
 | G4 | Shared-KO/Pfam traps not truly separated | Train clade-specific custom HMMs + calibrate TC | `build_custom_hmms.py`, `calibrate_tc.py` (already in repo) |
 | G5 | KOfam `domain`-type thresholds compared to full score | Pass `score_type` through; use domain score for domain-type KOs | `apply_rules.py` `parse_hmmscan_domtbl` |
 | G6 | `amoC` complex never reaches 100% even in true AOB | Falls out of G3 (seed fix) + G4 | — |
-| G7 ✅ | Reuses `ewaste-pipeline` conda env; KOfam DB unpinned | **DONE (2026-05-25):** `run.py` defaults to the standalone `ncycle-pipeline` env (`NCYCLE_ENV` override); KOfam pinned by sha256 + verified at build | `envs/ncycle.yaml` |
+| G7 ✅ | Reuses `ewaste-pipeline` conda env; KOfam DB unpinned | **DONE (2026-05-25):** `ncycle.py` defaults to the standalone `ncycle-pipeline` env (`NCYCLE_ENV` override); KOfam pinned by sha256 + verified at build | `envs/ncycle.yaml` |
 
 ---
 
@@ -207,12 +207,12 @@ Nitrobacter tags). Verified independently.
 
 1. **Replace the file.** Pick one of:
    - Re-prodigal `test_synteny/Nwinogradskyi.fna` (NC_007406.1, the real Nb-255
-     genome; existing prodigal output is at `results/Nwinogradskyi/prodigal/Nwinogradskyi.faa`
+     genome; existing prodigal output is at `ncycle_results/Nwinogradskyi/prodigal/Nwinogradskyi.faa`
      = 3262 proteins). This is the immediate-fix path — proteome already exists.
    - Download RefSeq GCF_000012685.1 protein FAA for the canonical RefSeq
      annotation (~3120 proteins). Cleaner provenance for publication.
 2. **Re-run the pipeline on the corrected Nb-255 row only**
-   (`python run.py --input ../test_panel --skip-db-setup`).
+   (`python ncycle.py --input ../test_panel --skip-db-setup`).
 3. **Re-evaluate the three Nb-255 GT corrections** against the real proteome:
    - **v4 narG A→P** — literature (Starkenburg 2006/2008) supports a narGHI operon
      in real Nb-255 at 0.86 Mb on NC_007406.1; likely to hold but verify via the
@@ -350,7 +350,7 @@ config edit + an HMM/BLAST DB rebuild.
    discrimination gap to clade-II positives preserved). 6 phyla covered.
    F1=1.00 unchanged. See REPORT § Audit 2026-05-30 → "Post-audit response
    (P5.2.3–P5.2.5)".
-5. ✅ **DONE (2026-05-30).** Inspected `results/multisample_matrix.tsv`
+5. ✅ **DONE (2026-05-30).** Inspected `ncycle_results/ncycle_matrix.tsv`
    (33 genomes): **zero cells have both norB and norZ at predicted-present
    status.** The existing BLAST gates already provide mutual exclusion at
    the sequence-identity level (norB's β-proteo cNor seeds at identity≥55,
@@ -501,7 +501,7 @@ If none of the above resonates, possible follow-ups within ncycle:
 ### P4 — original polish notes (G7)
 1. `score_comparator.py` (vs NCBIfam) + `score_kofam.py` (vs raw KofamScan) +
    `correct_pvalues.py`; `logo_cv.py` leave-one-genus-out for the custom HMMs.
-2. ✅ Standalone `ncycle-pipeline` conda env (`run.py` default, `NCYCLE_ENV` to override);
+2. ✅ Standalone `ncycle-pipeline` conda env (`ncycle.py` default, `NCYCLE_ENV` to override);
    KOfam release pinned by sha256 (`build_hmm_db.py` verifies the tarball + writes
    `resources/.cache/kofam_release.txt`; baseline = 2026-05-24, `b03d20b9…`).
 3. ✅ Refine process-completeness logic (comammox, nosZ clade I/II, partial denitrification,

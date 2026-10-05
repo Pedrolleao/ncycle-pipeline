@@ -58,13 +58,13 @@ $(TEST_DATA)/Cmetallidurans_CH34.fna:
 # non-empty results matrix (i.e. the pipeline runs start-to-finish). Accuracy is
 # checked separately by `make regression`.
 test_protein: test_data
-	python run.py --input $(TEST_DATA) --mode protein --prodigal-mode single
+	python ncycle.py --input $(TEST_DATA) --mode protein --prodigal-mode single
 	@python -c "import csv, sys, pathlib; \
-m = pathlib.Path('results/multisample_matrix.tsv'); \
-sys.exit('FAIL: results/multisample_matrix.tsv missing — pipeline did not finish') if not m.exists() else None; \
+m = pathlib.Path('ncycle_results/ncycle_matrix.tsv'); \
+sys.exit('FAIL: ncycle_results/ncycle_matrix.tsv missing — pipeline did not finish') if not m.exists() else None; \
 rows = list(csv.reader(m.open(), delimiter='\t')); \
 sys.exit('FAIL: results matrix is empty') if len(rows) < 2 else None; \
-print(f'OK: pipeline ran end-to-end — {len(rows)-1} data rows x {len(rows[0])-1} columns in results/multisample_matrix.tsv'); \
+print(f'OK: pipeline ran end-to-end — {len(rows)-1} data rows x {len(rows[0])-1} columns in ncycle_results/ncycle_matrix.tsv'); \
 print('    (call accuracy is checked by: make regression)')"
 
 # ── Seed-snapshot drift check (re-fetch UniProt + Pfam-A; diff against pin) ──
@@ -95,11 +95,11 @@ dbs:
 # floors in validation/test_regression.py. Needs the databases (`make dbs`, or any run).
 regression: validate-panel
 	python validation/build_ground_truth.py
-	python run.py --input $(PANEL) --skip-db-setup --cores 8
+	python ncycle.py --input $(PANEL) --skip-db-setup --cores 8
 	python validation/score_ncycle.py
 	python validation/test_regression.py
 
-# Fast gate: re-score the EXISTING results/ matrix and check the floors (no
+# Fast gate: re-score the EXISTING ncycle_results/ matrix and check the floors (no
 # pipeline run). Use after a scoring/ground-truth change when calls are current.
 regression-score: validate-panel
 	python validation/build_ground_truth.py
@@ -120,7 +120,7 @@ kegg-contrast:
 	GT_FILE=kegg_ground_truth.tsv python validation/score_ncycle.py   # writes ncycle_{metrics,confusion}.kegg_ground_truth.tsv
 
 clean:
-	rm -rf results/*
+	rm -rf ncycle_results/*
 
 clean_all: clean
 	rm -rf resources/hmm/* resources/blast_db/* resources/nt_refs/*

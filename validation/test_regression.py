@@ -4,7 +4,7 @@ test_regression.py — accuracy regression gate for ncycle-pipeline.
 
 Fails (exit 1) if panel accuracy drops below locked-in floors. Run AFTER the
 pipeline has scored the 33-genome reference panel into
-`results/multisample_matrix.tsv` (`make regression` runs pipeline → score → gate).
+`ncycle_results/ncycle_matrix.tsv` (`make regression` runs pipeline → score → gate).
 
 Floors sit just below the validated curated_v4 baseline (ALL micro-F1 0.97,
 precision 0.99, FP 2; homology-trap precision 1.00; hold-out 1.00; min pathway
@@ -118,7 +118,7 @@ def test_regression():
 def main() -> int:
     results = _checks(compute_metrics())
     width = max(len(name) for name, _, _ in results)
-    print("ncycle-pipeline accuracy regression gate (panel = results/multisample_matrix.tsv)\n")
+    print("ncycle-pipeline accuracy regression gate (panel = ncycle_results/ncycle_matrix.tsv)\n")
     n_fail = 0
     for name, value, ok in results:
         flag = "PASS" if ok else "FAIL"

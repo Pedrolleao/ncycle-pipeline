@@ -32,9 +32,9 @@ HMM hit at the per-target threshold.
 
 Usage (CLI):
   python workflow/scripts/filter_proteome_by_hmm.py \\
-      --proteome results/SAMPLE/prodigal/SAMPLE.faa \\
-      --hmmscan results/SAMPLE/hmm/SAMPLE.hmmscan.tsv \\
-      --out results/SAMPLE/prodigal/SAMPLE.hmm_filtered.faa
+      --proteome ncycle_results/SAMPLE/prodigal/SAMPLE.faa \\
+      --hmmscan ncycle_results/SAMPLE/hmm/SAMPLE.hmmscan.tsv \\
+      --out ncycle_results/SAMPLE/prodigal/SAMPLE.hmm_filtered.faa
 
 Wired into the Snakemake DAG (2026-06-09) behind config
 `options.filter_blast_query_by_hmm` (rule `filter_proteome_by_hmm` →

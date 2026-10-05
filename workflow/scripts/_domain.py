@@ -14,6 +14,8 @@ CYCLE_LETTER = "N"
 CYCLE_NAME = "nitrogen"
 CALLS_TSV = "ncycle_calls.tsv"
 LOCI_TSV = "ncycle_loci.tsv"
+TOOL = "ncycle"
+REPORT_HTML = "ncycle_report.html"
 
 CAT_ORDER = [
     "nitrogen_fixation", "nitrification_ammonia", "nitrification_nitrite",
