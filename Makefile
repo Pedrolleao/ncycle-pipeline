@@ -9,7 +9,7 @@
 # results matrix — i.e. the pipeline runs start-to-finish. It does NOT check call
 # accuracy; that is `make regression`.
 
-TEST_DATA := ../test_data
+TEST_DATA := test_data
 REF_GENOMES := \
     $(TEST_DATA)/Aferrooxidans_ATCC23270.fna \
     $(TEST_DATA)/Mextorquens_AM1.fna \
@@ -25,9 +25,9 @@ URL_ECOLI  := $(NCBI_BASE)/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_00000584
 URL_SHEW   := $(NCBI_BASE)/GCF/000/146/165/GCF_000146165.2_ASM14616v2/GCF_000146165.2_ASM14616v2_genomic.fna.gz
 URL_CUPR   := $(NCBI_BASE)/GCF/000/196/015/GCF_000196015.1_ASM19601v1/GCF_000196015.1_ASM19601v1_genomic.fna.gz
 
-PANEL := ../test_panel   # 33-genome reference panel (proteomes) for the regression gate
+PANEL := test_panel   # 39-genome reference panel (proteomes, in the repository) for the regression gate
 
-.PHONY: env test_data test_protein test regression regression-score kegg-contrast validate-panel verify-seeds clean clean_all
+.PHONY: env dbs test_data test_protein test regression regression-score kegg-contrast validate-panel verify-seeds clean clean_all
 
 env:
 	@mamba env create -f envs/ncycle.yaml 2>/dev/null || conda env create -f envs/ncycle.yaml
@@ -83,10 +83,16 @@ verify-seeds:
 validate-panel:
 	python validation/validate_panel.py --panel $(PANEL)
 
+# (Re)build the HMM and BLAST databases from config/targets.yaml and the pinned
+# snapshots under resources/ (KOfam, Pfam, BLAST seeds) — no download.
+dbs:
+	python workflow/scripts/build_hmm_db.py --force
+	python workflow/scripts/build_blast_db.py --force
+
 # ── Accuracy regression gate (the real test for this pipeline) ────────────────
 # Full gate: validate the panel, regenerate ground truth, run the pipeline on the
 # reference panel, score, and FAIL (non-zero exit) if accuracy dropped below the
-# floors in validation/test_regression.py. Needs the panel at $(PANEL) + the KOfam cache.
+# floors in validation/test_regression.py. Needs the databases (`make dbs`, or any run).
 regression: validate-panel
 	python validation/build_ground_truth.py
 	python run.py --input $(PANEL) --skip-db-setup --cores 8

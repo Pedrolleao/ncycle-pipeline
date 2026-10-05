@@ -16,19 +16,43 @@ leakage-robust comparator advantage over raw KofamScan is **homology-trap precis
 [`validation/REPORT.md`](validation/REPORT.md) (§ Audit 2026-06-10 reframed the headline) and
 [`ROADMAP.md`](ROADMAP.md).
 
+## Install
+
+Developed and validated on Linux (x86-64). Needs `git`, conda or mamba and `curl`;
+about 3 GB of disk for the environment. Network access is needed for the install and
+for the five genomes of the smoke test (NCBI); the databases are built from files in
+the repository and the pipeline itself runs offline.
+
+```bash
+git clone https://github.com/Pedrolleao/ncycle-pipeline.git
+cd ncycle-pipeline
+conda env create -f envs/ncycle.yaml       # env `cycle-pipeline`; or: mamba env create …
+conda activate cycle-pipeline
+make test_protein     # fetch 5 genomes, build the databases, run end to end
+make regression       # run the 39-genome reference panel (test_panel/) and check the accuracy floors
+```
+
+`make regression` ending in `OK: all … checks passed` means the install reproduces the
+validated calls. `envs/ncycle.lock.yml` is the exact environment of the validation (linux-64), for
+when the open version ranges of `envs/ncycle.yaml` resolve to something that behaves
+differently.
+
 ## Run
 
 ```bash
-cd ncycle-pipeline
 python run.py --input <dir-of-.faa-or-.fna> --cores 8
-# First run creates the `cycle-pipeline` conda env from envs/ncycle.yaml if it does
-# not exist yet. The env is shared with the sulfur sister tool (scycle-pipeline).
-# To use a different env with the same dependencies:
-#   NCYCLE_ENV=<env-name> python run.py --input <dir> --skip-db-setup
+# Outside the conda env, run.py re-runs itself inside `cycle-pipeline` (and creates it
+# from envs/ncycle.yaml if it does not exist). To use another env with the same
+# dependencies:
+#   NCYCLE_ENV=<env-name> python run.py --input <dir>
 ```
 
 `run.py` auto-detects protein (`.faa`) vs nucleotide (`.fna`, → Prodigal) input,
-builds the databases on first run, then dispatches Snakemake.
+builds the databases on first run, then dispatches Snakemake. It asks whether
+nucleotide input is isolate genomes or metagenome assemblies unless
+`--prodigal-mode single|meta` is given, and writes the samples it found into the
+`samples:` block of `config/config.yaml` — so `git status` shows that file as modified
+after a run.
 
 ## How it works
 
@@ -242,13 +266,21 @@ Everything else scores ≥0.94.
 
 ## Databases & reproducibility
 
-`resources/.cache/profiles.tar.gz` is the one-time KOfam download (~1.5 GB; the
-build extracts only the ~47 needed profiles). **The KOfam release is pinned by
-content hash** (`KOFAM_PROFILES_SHA256` in `workflow/scripts/build_hmm_db.py`,
-mirrored in `config/config.yaml`): the build verifies the tarball and writes
-`resources/.cache/kofam_release.txt` as provenance. The validated baseline used
-release **2026-05-24** (sha256 `b03d20b9…`); a mismatch warns loudly but does not
-hard-fail. Deleting the cache reclaims space — it re-downloads on the next rebuild.
+**The database inputs are pinned in the repository.** The 47 KOfam profiles and
+their thresholds are built from `resources/kofam_pinned/` (release of 2026-05-24, the
+one the tool was validated on), the Pfam fallback profiles from `resources/pfam_pinned/`
+and the BLAST seeds from `resources/seeds_pinned/`. genome.jp serves KOfam from a
+rolling URL and keeps no old releases — the release of 2026-09-29 has a different
+threshold for 40 of the 47 KOs — and UniProt entries are revised and deleted, so
+databases built from fresh downloads are not the validated ones. `build_hmm_db.py
+--upstream` and `build_blast_db.py --upstream` download the current data anyway;
+re-validate (`make regression`) before trusting the result.
+
+**What a clone does not contain.** Pipeline results and the third-party tools and
+databases of the comparator benchmark (METABOLIC, DRAM, NCycDB, GTDB proteomes). The scripts under `comparators/` and
+the study configs `config/config_*.yaml` are the record of how the validation was run:
+they carry paths of the machine it ran on and need editing to be re-run elsewhere.
+Their outputs — the tables under `validation/` and `comparators/` — are committed.
 
 ## Regression testing
 
@@ -263,11 +295,10 @@ not the in-sample 1.00. It shares its metric logic with `score_ncycle.py`
 (`compute_metrics()`), so the gate and the report can never disagree.
 
 ```bash
-make regression         # full: rebuild GT → run pipeline on $(PANEL) → score → gate
+make regression         # full: check the panel, rebuild GT → run pipeline on test_panel/ → score → gate
 make regression-score   # fast: re-score existing results/ → gate (no pipeline run)
 python validation/test_regression.py   # the gate alone (also runs under pytest)
 ```
 
-A GitHub Actions workflow (`.github/workflows/regression.yml`) wires `make regression`
-into CI with KOfam caching — it's a template pending two prerequisites: putting the repo
-under git, and provisioning the reference panel (see the workflow comments).
+A GitHub Actions workflow (`.github/workflows/regression.yml`) runs `make dbs`,
+`make test_protein` and `make regression` on every push to `main`.

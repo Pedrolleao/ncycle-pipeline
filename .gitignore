@@ -2,9 +2,8 @@
 # ncycle-pipeline .gitignore
 # Goal: commit the tool + config + small normalized validation artifacts.
 # Exclude large/regenerable data (DBs, downloads, per-genome pipeline outputs).
-# NOTE: resources/blast_db/ holds cached BLAST reference seqs (incl. 8 N proteins
-# whose UniProt accessions were since deleted) — archive it SEPARATELY (e.g.
-# Zenodo) and footnote in methods; it is intentionally NOT committed here.
+# NOTE: the built databases (resources/hmm/, resources/blast_db/) are not committed;
+# their inputs are — resources/kofam_pinned/, pfam_pinned/ and seeds_pinned/.
 # ============================================================================
 
 # ---- Python / Snakemake / OS cruft ----
@@ -69,3 +68,9 @@ comparators/gtdb500/metabolic_out/
 comparators/gtdb500/ncycdb_out/
 comparators/gtdb500/_shim/
 comparators/gtdb500/CONCORDANCE_prelim.*
+
+# ---- Smoke-test genomes downloaded by `make test_data` ----
+test_data/
+
+# ---- Reference panel: the 39 proteomes are tracked, the audit leftovers are not ----
+test_panel/.audit/
