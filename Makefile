@@ -117,7 +117,7 @@ test: regression
 # scycle-pipeline's automated-KEGG vs curated-function dual GT. Needs network.
 kegg-contrast:
 	python validation/build_kegg_ground_truth.py
-	GT_FILE=kegg_ground_truth.tsv python validation/score_ncycle.py
+	GT_FILE=kegg_ground_truth.tsv python validation/score_ncycle.py   # writes ncycle_{metrics,confusion}.kegg_ground_truth.tsv
 
 clean:
 	rm -rf results/*

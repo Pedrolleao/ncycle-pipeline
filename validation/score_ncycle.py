@@ -29,8 +29,11 @@ ROOT = Path(__file__).resolve().parents[1]
 GT = ROOT / "validation" / os.environ.get("GT_FILE", "ground_truth.tsv")
 MATRIX = ROOT / "results" / "multisample_matrix.tsv"
 TARGETS = ROOT / "config" / "targets.yaml"
-OUT_M = ROOT / "validation" / "ncycle_metrics.tsv"
-OUT_C = ROOT / "validation" / "ncycle_confusion.tsv"
+# one pair of output tables per ground truth, so that scoring the KEGG contrast does
+# not overwrite the tables of the default (manual) ground truth
+_TAG = "" if GT.name == "ground_truth.tsv" else "." + GT.stem
+OUT_M = ROOT / "validation" / f"ncycle_metrics{_TAG}.tsv"
+OUT_C = ROOT / "validation" / f"ncycle_confusion{_TAG}.tsv"
 LEAKAGE = ROOT / "validation" / "holdout_seed_leakage.tsv"
 
 TRAP = {"nxrA","nxrB","narG","narH","amoA","amoB","amoC","napA",
