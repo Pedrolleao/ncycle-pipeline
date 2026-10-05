@@ -9,7 +9,7 @@ N-cycle pathways.
 
 **Status: validated.** End-to-end on the reference panel (training genomes + 8 independent
 hold-out genera). The honest generalization headline is the **de-leaked hold-out micro-F1 ≈
-0.84** (95% genome-cluster bootstrap CI [0.68, 0.95]; P 0.86, R 0.82). The **training-panel
+0.84** (95% genome-cluster bootstrap CI [0.67, 0.95]; P 0.86, R 0.82). The **training-panel
 F1 = 1.00 is an in-sample calibration fit** (thresholds/seeds tuned on those genomes; honest
 per-cell error bound ≤0.47%, rule of three), **not** a generalization number. The
 leakage-robust comparator advantage over raw KofamScan is **homology-trap precision**. See
@@ -236,7 +236,7 @@ bound, not "0 errors forever").
 
 | Frame | precision | recall | micro-F1 | note |
 |---|---|---|---|---|
-| **Hold-out, de-leaked (HEADLINE)** | 0.86 [0.73, 0.96] | 0.82 [0.62, 0.97] | **0.84 [0.68, 0.95]** | 8 genera absent from training; seed-leaked cells removed |
+| **Hold-out, de-leaked (HEADLINE)** | 0.86 [0.73, 0.96] | 0.82 [0.61, 0.97] | **0.84 [0.67, 0.95]** | 8 genera absent from training; seed-leaked cells removed |
 | Hold-out, as-is (seed-contaminated) | 0.87 | 0.83 | 0.85 | before removing 6 same-strain/species seed cells |
 | Whole panel (training + hold-out) | 0.97 [0.93, 0.99] | 0.96 [0.90, 1.00] | 0.96 [0.92, 0.99] | mixes in-sample + out-of-sample |
 | Training panel (**in-sample fit**) | 1.00 | 1.00 | 1.00 | calibration data; error bound ≤0.47% (rule of 3) |

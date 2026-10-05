@@ -862,7 +862,7 @@ clade-I NosZ at TC=420.
 > **⚠️ SUPERSEDED — read § Audit 2026-06-10 (end of file) for the corrected headline.**
 > The "hold-out 1.00" below was a 2-genome / 51-cell figure and partly seed-contaminated.
 > The honest generalization headline is the **de-leaked 8-genome hold-out micro-F1 ≈ 0.84
-> [0.68, 0.95]**; the training-panel 1.00 is an in-sample calibration fit (per-cell error
+> [0.67, 0.95]**; the training-panel 1.00 is an in-sample calibration fit (per-cell error
 > bound ≤0.47%, rule of three), not a generalization number. See § Audit 2026-06-10 (gate
 > fix) for resolution of the Mcapsulatus γ-AOB/pmoA trap false positive.
 
@@ -2128,7 +2128,7 @@ legacy anchor; the real signal is K04561 + the qNor BLAST gate).
 | Noceani `amoA_gamma` (training TP) | confirmed (custom-HMM) | **confirmed** (unchanged) |
 | Training panel ALL F1 | 1.00 (0 err / 645) | **1.00** (0 err / 645) — no regression |
 | Whole-panel ALL F1 | — | 0.96 [0.92, 0.99] (P 0.97, R 0.96) |
-| De-leaked hold-out F1 | 0.84 (FP 12) | **0.84 [0.68, 0.95]** (FP 11) |
+| De-leaked hold-out F1 | 0.84 (FP 12) | **0.84 [0.67, 0.95]** (FP 11) |
 
 The headline number is essentially unchanged (the removed FP is one of ~12 hold-out errors),
 but the **trap-precision claim is now honest**: the decoy that the trap exists to reject is
