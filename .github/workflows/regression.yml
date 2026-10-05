@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up ncycle-pipeline conda env
+      - name: Set up the cycle-pipeline conda env
         uses: mamba-org/setup-micromamba@v1
         with:
           environment-file: envs/ncycle.yaml
@@ -47,5 +47,5 @@ jobs:
 
       - name: Run accuracy regression gate
         env:
-          NCYCLE_ENV: ncycle-pipeline   # run.py reuses the active CI env
+          NCYCLE_ENV: cycle-pipeline    # run.py reuses the active CI env
         run: make regression

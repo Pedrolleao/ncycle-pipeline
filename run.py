@@ -31,10 +31,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CONFIG_PATH = ROOT / "config" / "config.yaml"
 ENV_FILE = ROOT / "envs" / "ncycle.yaml"
-# Standalone conda env (created on first run from envs/ncycle.yaml). Override with
-# the NCYCLE_ENV env var to reuse another env with the same deps (e.g. the legacy
-# `ewaste-pipeline` env: `NCYCLE_ENV=ewaste-pipeline python run.py …`).
-ENV_NAME = os.environ.get("NCYCLE_ENV", "ncycle-pipeline")
+# Conda env, shared with the sulfur sister pipeline (scycle-pipeline): both tools
+# have the same dependencies, so one env named `cycle-pipeline` serves both. It is
+# created on first run from envs/ncycle.yaml if it does not exist yet. Override
+# with the NCYCLE_ENV env var to use a different env with the same deps.
+ENV_NAME = os.environ.get("NCYCLE_ENV", "cycle-pipeline")
 
 FASTA_AA_EXT = {".faa", ".fap"}
 FASTA_NT_EXT = {".fna", ".fa", ".fasta", ".fas", ".ffn"}

@@ -1,4 +1,4 @@
-name: ncycle-pipeline
+name: cycle-pipeline
 channels:
   - conda-forge
   - bioconda

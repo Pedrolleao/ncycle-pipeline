@@ -3,8 +3,8 @@
 Maps MAGs / isolate proteomes to their participation in the **nitrogen cycle**.
 Modeled on `Holomicrobiome-ewaste/ewaste-pipeline`; detection is **KO-primary**
 (KOfam HMMs + adaptive per-KO thresholds) with custom clade HMMs and DIAMOND-BLAST
-gating for the homology traps. Covers **49 targets** (47 KEGG Orthologies), **9
-obligatory complexes**, and **7 process-completeness synergies** across all 9
+gating for the homology traps. Covers **51 targets** (47 KEGG Orthologies), **9
+obligatory complexes**, and **11 process-completeness synergies** across all 9
 N-cycle pathways.
 
 **Status: validated.** End-to-end on the reference panel (training genomes + 8 independent
@@ -21,9 +21,10 @@ leakage-robust comparator advantage over raw KofamScan is **homology-trap precis
 ```bash
 cd ncycle-pipeline
 python run.py --input <dir-of-.faa-or-.fna> --cores 8
-# First run creates the standalone `ncycle-pipeline` conda env from envs/ncycle.yaml.
-# To reuse an existing compatible env instead (e.g. the legacy ewaste one):
-#   NCYCLE_ENV=ewaste-pipeline python run.py --input <dir> --skip-db-setup
+# First run creates the `cycle-pipeline` conda env from envs/ncycle.yaml if it does
+# not exist yet. The env is shared with the sulfur sister tool (scycle-pipeline).
+# To use a different env with the same dependencies:
+#   NCYCLE_ENV=<env-name> python run.py --input <dir> --skip-db-setup
 ```
 
 `run.py` auto-detects protein (`.faa`) vs nucleotide (`.fna`, → Prodigal) input,
@@ -45,12 +46,51 @@ builds the databases on first run, then dispatches Snakemake.
    `requires_blast_for_confirmation` (the homology traps) need a clade-specific
    BLAST hit or are `disqualified`.
 5. **Reports** — per-sample `calls/ncycle_calls.tsv`, `complex_completeness.tsv`,
-   `synergy_completeness.tsv`, `report/gap_analysis.txt`; cross-sample
-   `multisample_matrix.tsv` + heatmap + per-pathway/complex/synergy/process figures.
+   `synergy_completeness.tsv`, `report/gap_analysis.txt`, `report/ncycle_map.*`;
+   cross-sample `multisample_matrix.tsv`, figures, and an interactive `report.html`
+   (see **Outputs** below).
+
+## Outputs
+
+All paths are under `paths.results_dir` (`results/` by default). Figures are written
+as SVG (vector) and PNG (300 DPI).
+
+**Per sample — `<sample>/`**
+
+| file | what it is |
+|---|---|
+| `calls/ncycle_calls.tsv` | one row per target: status, evidence source, protein, HMM hit + E-value, BLAST reference + identity. For nucleotide input the columns `contig`, `start`, `end`, `strand` locate the called gene (empty for a pre-called proteome). One protein is reported per target; `other_copies` lists any further proteins that reach the same status (paralog copies) |
+| `calls/complex_completeness.tsv`, `calls/synergy_completeness.tsv` | completeness of the 9 complexes and 11 process modules |
+| `calls/ncycle_loci.tsv` | *(nucleotide input only)* called genes grouped into loci: genes on one contig with at most 5 other genes between them. `copy` says whether a gene is the one reported in `ncycle_calls.tsv` or an additional copy |
+| `report/gap_analysis.txt` | plain-text summary |
+| `report/ncycle_map.svg/.png` | the genome's calls drawn on the nitrogen cycle: each reaction arrow is solid (a complete route found), dashed (partial) or grey (absent), with the genes behind it |
+| `report/loci.svg/.png` | *(nucleotide input only)* gene-arrow maps of every locus, grouped by pathway, to a common bp scale. Genes outside the target set are blank; a bar marks a contig end (where an operon may run off the assembly) |
+
+**Across samples**
+
+| file | what it is |
+|---|---|
+| `multisample_matrix.tsv` | genomes × (targets, complexes, modules) |
+| `multisample_heatmap.svg/.png` | overview dot grid; genomes ordered by gene-content similarity |
+| `figures/pathway_<pathway>.svg/.png` | one dot grid per pathway |
+| `figures/complexes.svg/.png`, `figures/synergies.svg/.png` | complex / process-module completeness |
+| `figures/ncycle_maps.svg/.png` | every genome's N-cycle map side by side (up to 48 genomes) |
+| `report.html` | self-contained interactive report (no network needed): the gene grid and the complex / module grid with hover evidence, row search / ordering, and a per-genome panel with the N-cycle map, locus maps and the full calls table. Light and dark themes. Every figure in it (gene grid, complex / module grid, cycle map, each locus map) has a **Save PNG (300 dpi)** button: it downloads that figure as currently shown — row filter and order, hidden pathways, selected genome, light or dark theme — with its title and legend, rendered at 300 dpi (a grid too large for a browser canvas is saved at the highest resolution that fits, and says so). The page follows the group's *Simple Terminal* design system (`design/Simple`): JetBrains Mono, hairline `[ bracketed ]` frames, its dark palette or its Light variant according to the system theme, with a LIGHT / DARK selector in the top-right corner to pin either. The font is inlined from `workflow/scripts/fonts/` (SIL OFL 1.1, licence alongside), so the report looks the same offline and the PNG export uses it too; pathway colours stay the validated palette of the static figures. |
+
+**Reading the glyphs** (same in every figure and in `report.html`): solid disc =
+confirmed; half-filled = domain-only (HMM signature, no BLAST support); ring with a
+cross = disqualified (failed the homology-trap gate); faint ring = absent. In the
+complex / module grids: solid = complete, ring with `n/N` = partial, faint ring with
+a cross = ruled out (an excluded gene is present, e.g. nosZ rules out `n2o_emitter`).
+Colour always means pathway; the palette lives in `workflow/scripts/_domain.py`.
+
+The figure and report scripts are shared, byte-identical, with the sulfur sister
+pipeline; only `workflow/scripts/_domain.py` (palette, labels, file names) and
+`workflow/scripts/_cycle_model.py` (the cycle diagram) are nitrogen-specific.
 
 ## Pathways & target proteins
 
-The tool resolves a genome's role across **all 9 nitrogen-cycle pathways** (49 marker
+The tool resolves a genome's role across **all 9 nitrogen-cycle pathways** (51 marker
 genes). Each gene is anchored on a KEGG Orthology (KO) where one exists; the KO column
 below is what the KOfam backbone scans for (custom HMMs / Pfam noted where used).
 
@@ -69,6 +109,7 @@ below is what the KOfam backbone scans for (custom HMMs / Pfam noted where used)
 | gene | KO | role |
 |---|---|---|
 | amoA | K28504 (custom HMM) | ammonia monooxygenase α — AOB / comammox |
+| amoA_gamma | K28504 (custom HMM) | ammonia monooxygenase α — **γ-proteobacterial AOB** (*Nitrosococcus*) |
 | amoA_archaeal | PF12942 (Pfam-only) | ammonia monooxygenase α — **archaeal (AOA)** |
 | amoB / amoC | K10945 / K10946 | ammonia monooxygenase β / γ |
 | hao | K10535 (custom HMM) | hydroxylamine oxidoreductase |
@@ -88,7 +129,8 @@ below is what the KOfam backbone scans for (custom HMMs / Pfam noted where used)
 | nirS | K15864 | cytochrome cd₁ nitrite reductase (NO-forming) |
 | norB / norC | K04561 / K02305 | NO reductase large / small (cNOR) |
 | norZ | K04748 | quinol-dependent NO reductase (qNOR) |
-| nosZ | K00376 | nitrous oxide reductase (N₂O → N₂ sink) |
+| nosZ | K00376 | nitrous oxide reductase, clade I (N₂O → N₂ sink) |
+| nosZ_clade2 | K00376 (custom HMM) | nitrous oxide reductase, clade II / atypical (Sec-secreted) |
 
 ### 5. DNRA — dissimilatory nitrate/nitrite reduction to ammonium (retains N)
 | gene | KO | role |
@@ -138,7 +180,10 @@ satisfied — this is what lets it say *"complete denitrifier"* vs *"has a stray
 - **Synergies (process completeness):** complete_denitrification (narG+nirS+norB+nosZ),
   n2o_sink (nosZ), comammox (amoA+hao+nxrAB in one genome), anammox_complete
   (hzsABC+hdh), dnra_branch (napA+nrfA), nitrifier_denitrification (amoA+nirK+norB),
-  assimilatory_complete (nasA+nirA+glnA+gltB).
+  assimilatory_complete (nasA+nirA+glnA+gltB), n2o_emitter (nir+nor present, no nosZ of
+  either clade), n2o_sink_only (nosZ/nosZ_clade2 present, no nir/nor), nosZ_clade_I_likely
+  (nosZ with nir/nor, no nosZ_clade2), nitrate_to_nitrite_leak (nar/nap present, no
+  nirS/nirK/nrfA).
 
 ## The homology traps — how they're resolved
 
